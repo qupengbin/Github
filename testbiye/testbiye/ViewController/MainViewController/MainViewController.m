@@ -45,6 +45,8 @@
                 @"乐行闹铃",@"运动健身",@"更多服务",];
     
     [self leftItem:[UIImage imageNamed:@"default_avatar.png"] sel:@selector(menuAction:)];
+    [self rightItem:[UIImage imageNamed:@"default_avatar.png"] sel:@selector(searchAction:)];
+    
     self.view.backgroundColor = [UIColor redColor];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((320-100)/2, (self.view.bounds.size.height-100)/2, 100, 100)];
@@ -92,6 +94,11 @@
 */
 
 #pragma mark - UIButtonAction
+- (void)searchAction:(id)sender
+{
+    
+}
+
 - (void)menuAction:(id)sender
 {
     MHNavViewController *nav = (MHNavViewController *)self.navigationController;
@@ -130,7 +137,28 @@
 - (void)iconBtnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    NSLog(@"now select main icon tag %d",btn.tag);
+    if (btn.tag == 0) {
+        //购物
+        BuyViewController *buyView = [[BuyViewController alloc] init];
+        buyView.view.backgroundColor = [UIColor clearColor];
+        [self.navigationController pushViewController:buyView animated:YES];
+    } else if (btn.tag == 1) {
+        //餐饮
+    } else if (btn.tag == 2) {
+        //路线
+    } else if (btn.tag == 3) {
+        //我的一天
+    } else if (btn.tag == 4) {
+        //我的附件
+    } else if (btn.tag == 5) {
+        //小伙伴去哪
+    } else if (btn.tag == 6) {
+        //闹钟
+    } else if (btn.tag == 7) {
+        //运动健身
+    } else if (btn.tag == 8) {
+        //更多服务
+    }
 }
 
 #pragma mark - CycleScrollViewDelegate

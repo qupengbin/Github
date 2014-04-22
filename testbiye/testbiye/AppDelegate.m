@@ -33,6 +33,10 @@ AppDelegate *app;
     ICSDrawerController *drawController = [[ICSDrawerController alloc] initWithLeftViewController:menuViewController centerViewController:nav rightViewController:nil];
     self.window.rootViewController = drawController;
 
+    self.tabbar = [[TabbarToolView alloc] initWithFrame:CGRectMake(0, self.window.bounds.size.height-40, 320, 40)];
+    [self.window addSubview:self.tabbar];
+    self.tabbar.hidden = YES;
+    
     return YES;
 }
 

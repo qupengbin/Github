@@ -7,8 +7,14 @@
 //
 
 #import "BuyViewController.h"
+#import "MHFileTool.h"
+#import "ClassView.h"
 
-@interface BuyViewController ()
+@interface BuyViewController ()<UITableViewDataSource,UITableViewDelegate,ClassViewDelegate>
+{
+    NSArray *dataArr;
+    UITableView *_tableView;
+}
 
 @end
 
@@ -26,7 +32,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ClassView *classview = [[ClassView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    classview.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:classview];
+    
+    [self initdata];
+    
     // Do any additional setup after loading the view.
+}
+
+- (void)initdata
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"datasource.plist"]];
+    NSLog(@"data dict  %@",dict);
+    dataArr = [[NSArray alloc] init];
+    
+    switch (self.type) {
+        case BuyClassType_alls:
+            dataArr = [dict objectForKey:@"allclass"];
+            break;
+        case BuyClassType_shops:
+            dataArr = [dict objectForKey:@"shops"];
+            break;
+        case BuyClassType_clothing:
+            dataArr = [dict objectForKey:@"clothing"];
+            break;
+        case BuyClassType_supermarket:
+            dataArr = [dict objectForKey:@"supermarket"];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,15 +73,60 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - UITableViewDelegate/UITableViewDataSource
+- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return dataArr.count;
 }
-*/
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *string = @"MenuViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
+    cell.textLabel.text = [dataArr objectAtIndex:indexPath.row];
+    NSString *str = [NSString stringWithFormat:@"menuicon%d",indexPath.row+1];
+    cell.imageView.image = [UIImage imageNamed:str];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - ClassViewDelegate
+- (void)classViewTapAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    switch (btn.tag) {
+        case 1000:
+            self.type = BuyClassType_alls;
+            break;
+        case 1001:
+            self.type = BuyClassType_shops;
+            break;
+        case 1002:
+            self.type = BuyClassType_clothing;
+            break;
+        case 1003:
+            self.type = BuyClassType_supermarket;
+            break;
+ 
+        default:
+            break;
+    }
+    [self initdata];
+    [_tableView reloadData];
+}
 
 @end

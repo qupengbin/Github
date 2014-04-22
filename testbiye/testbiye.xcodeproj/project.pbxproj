@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D10374C19060637001D9C33 /* buyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10374B19060637001D9C33 /* buyEntity.m */; };
+		7D10374E19060DDC001D9C33 /* datasource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D10374D19060DDC001D9C33 /* datasource.plist */; };
+		7D10375119060E65001D9C33 /* ClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375019060E65001D9C33 /* ClassView.m */; };
+		7D10375419060E85001D9C33 /* TabbarToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375319060E85001D9C33 /* TabbarToolView.m */; };
+		7D10375819063A73001D9C33 /* BuyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375719063A73001D9C33 /* BuyViewCell.m */; };
+		7D10375C19063E93001D9C33 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375B19063E93001D9C33 /* SearchView.m */; };
 		7DED15AC18FE224A00A24340 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AB18FE224A00A24340 /* Foundation.framework */; };
 		7DED15AE18FE224A00A24340 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AD18FE224A00A24340 /* CoreGraphics.framework */; };
 		7DED15B018FE224A00A24340 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AF18FE224A00A24340 /* UIKit.framework */; };
@@ -93,6 +99,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D10374A19060637001D9C33 /* buyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buyEntity.h; sourceTree = "<group>"; };
+		7D10374B19060637001D9C33 /* buyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = buyEntity.m; sourceTree = "<group>"; };
+		7D10374D19060DDC001D9C33 /* datasource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = datasource.plist; sourceTree = "<group>"; };
+		7D10374F19060E65001D9C33 /* ClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassView.h; sourceTree = "<group>"; };
+		7D10375019060E65001D9C33 /* ClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassView.m; sourceTree = "<group>"; };
+		7D10375219060E85001D9C33 /* TabbarToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarToolView.h; sourceTree = "<group>"; };
+		7D10375319060E85001D9C33 /* TabbarToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarToolView.m; sourceTree = "<group>"; };
+		7D10375619063A73001D9C33 /* BuyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyViewCell.h; sourceTree = "<group>"; };
+		7D10375719063A73001D9C33 /* BuyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewCell.m; sourceTree = "<group>"; };
+		7D10375A19063E93001D9C33 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		7D10375B19063E93001D9C33 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		7DED15A818FE224A00A24340 /* testbiye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testbiye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DED15AB18FE224A00A24340 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DED15AD18FE224A00A24340 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -230,6 +247,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D10374819060620001D9C33 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				7D10374A19060637001D9C33 /* buyEntity.h */,
+				7D10374B19060637001D9C33 /* buyEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		7DED159F18FE224A00A24340 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +293,7 @@
 		7DED15B118FE224A00A24340 /* testbiye */ = {
 			isa = PBXGroup;
 			children = (
+				7D10374819060620001D9C33 /* Entity */,
 				7DED15DE18FE22F900A24340 /* Class */,
 				7DED15E118FE22F900A24340 /* Tools */,
 				7DED15E218FE22F900A24340 /* ViewController */,
@@ -283,6 +310,7 @@
 		7DED15B218FE224A00A24340 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D10374D19060DDC001D9C33 /* datasource.plist */,
 				7DF202A818FE52B5007E1AFB /* Images */,
 				7DED15B318FE224A00A24340 /* testbiye-Info.plist */,
 				7DED15B418FE224A00A24340 /* InfoPlist.strings */,
@@ -360,6 +388,12 @@
 				7DF2020C18FE4E9C007E1AFB /* UserPhotoIconView.m */,
 				7DEE56771905101A00962113 /* TopScrollView.h */,
 				7DEE56781905101A00962113 /* TopScrollView.m */,
+				7D10374F19060E65001D9C33 /* ClassView.h */,
+				7D10375019060E65001D9C33 /* ClassView.m */,
+				7D10375219060E85001D9C33 /* TabbarToolView.h */,
+				7D10375319060E85001D9C33 /* TabbarToolView.m */,
+				7D10375A19063E93001D9C33 /* SearchView.h */,
+				7D10375B19063E93001D9C33 /* SearchView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,6 +415,8 @@
 			children = (
 				7DED900A18FFDF2D00F0DAC4 /* MainViewCell.h */,
 				7DED900B18FFDF2D00F0DAC4 /* MainViewCell.m */,
+				7D10375619063A73001D9C33 /* BuyViewCell.h */,
+				7D10375719063A73001D9C33 /* BuyViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -650,6 +686,7 @@
 				7DEE56701905097900962113 /* mainicon3.png in Resources */,
 				7DEE567F1905202A00962113 /* menuicon2.png in Resources */,
 				7DEE56751905097900962113 /* mainicon8.png in Resources */,
+				7D10374E19060DDC001D9C33 /* datasource.plist in Resources */,
 				7DED15BE18FE224A00A24340 /* Images.xcassets in Resources */,
 				7DEE566E1905097900962113 /* mainicon1.png in Resources */,
 			);
@@ -677,13 +714,16 @@
 				7DF1745218FF6F2200D8147A /* MenuViewController.m in Sources */,
 				7DF2026B18FE4FB1007E1AFB /* UIImageAdditions.m in Sources */,
 				7DED15EA18FE23EC00A24340 /* MBProgressHUD.m in Sources */,
+				7D10375819063A73001D9C33 /* BuyViewCell.m in Sources */,
 				7DF2029C18FE50EA007E1AFB /* MKNetworkOperation.m in Sources */,
 				7DED15ED18FE241C00A24340 /* MHNavViewController.m in Sources */,
+				7D10374C19060637001D9C33 /* buyEntity.m in Sources */,
 				7DF2029418FE50EA007E1AFB /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				7DF2026718FE4FB1007E1AFB /* NSObject+KeyVset.m in Sources */,
 				7DF2026A18FE4FB1007E1AFB /* UIImage+Rotate.m in Sources */,
 				7DF2029D18FE50EA007E1AFB /* Reachability.m in Sources */,
 				7DF2029A18FE50EA007E1AFB /* UIImageView+MKNetworkKitAdditions.m in Sources */,
+				7D10375119060E65001D9C33 /* ClassView.m in Sources */,
 				7DF202A618FE513C007E1AFB /* GTMBase64.m in Sources */,
 				7DF2029718FE50EA007E1AFB /* NSDictionary+RequestEncoding.m in Sources */,
 				7DF2027318FE50B7007E1AFB /* MHNetworkEngine.m in Sources */,
@@ -692,6 +732,7 @@
 				7DED8FEC18FFBDDB00F0DAC4 /* CycleScrollView.m in Sources */,
 				7DF2029518FE50EA007E1AFB /* NSData+MKBase64.m in Sources */,
 				7DF2026818FE4FB1007E1AFB /* NSString+Base64.m in Sources */,
+				7D10375419060E85001D9C33 /* TabbarToolView.m in Sources */,
 				7DF2027418FE50B7007E1AFB /* MHNetworkOperation.m in Sources */,
 				7DF2026618FE4FB1007E1AFB /* NSDataAdditions.m in Sources */,
 				7DF2026C18FE4FB1007E1AFB /* UIView-Transform.m in Sources */,
@@ -707,6 +748,7 @@
 				7DF2029918FE50EA007E1AFB /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				7DED15B818FE224A00A24340 /* main.m in Sources */,
 				7DF2020D18FE4E9C007E1AFB /* MHImageView.m in Sources */,
+				7D10375C19063E93001D9C33 /* SearchView.m in Sources */,
 				7DF2029618FE50EA007E1AFB /* NSDate+RFC1123.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
+typedef enum {
+    BuyClassType_alls = 0,
+    BuyClassType_shops,
+    BuyClassType_clothing,
+    BuyClassType_supermarket
+}BuyClassType;
+
 @interface BuyViewController : BaseViewController
+
+@property(nonatomic,assign) BuyClassType type;
 
 @end
