@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopScrollView : UIScrollView
+@protocol TopScrollViewDelegate <NSObject>
+
+- (void)topScrollViewAction:(int)index;
+
+@end
+
+@interface TopScrollView : UIView
+
+@property(nonatomic,assign) id<TopScrollViewDelegate> delegate;
+
+- (void)reloadDataWithPictures:(NSArray *)picts infos:(NSDictionary *)infos;
 
 @end

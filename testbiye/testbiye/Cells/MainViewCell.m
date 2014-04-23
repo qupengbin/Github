@@ -22,17 +22,18 @@
 
 - (void)initview
 {
-    float distance = (320-80*3)/4;
+    float iconsize = 62.0f;
+    float distance = (320-iconsize*3)/4;
     if (iconBtn1 == nil) {
-        iconBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(distance, 0, 80, 80)];
+        iconBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(distance, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn1];
     }
     if (iconBtn2 == nil) {
-        iconBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(distance*2+80, 0, 80, 80)];
+        iconBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(distance*2+iconsize, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn2];
     }
     if (iconBtn3 == nil) {
-        iconBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(distance*3+80*2, 0, 80, 80)];
+        iconBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(distance*3+iconsize*2, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn3];
     }
 
@@ -41,19 +42,19 @@
     [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
     if (titleLab1 == nil) {
-        titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(distance, 80, 80, 20)];
+        titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(distance, 85+5, iconsize, 20)];
         titleLab1.font = [UIFont systemFontOfSize:12.0f];
         titleLab1.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab1];
     }
     if (titleLab2 == nil) {
-        titleLab2 = [[UILabel alloc] initWithFrame:CGRectMake(distance*2+80, 80, 80, 20)];
+        titleLab2 = [[UILabel alloc] initWithFrame:CGRectMake(distance*2+iconsize, 85+5, iconsize, 20)];
         titleLab2.font = [UIFont systemFontOfSize:12.0f];
         titleLab2.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab2];
     }
     if (titleLab3 == nil) {
-        titleLab3 = [[UILabel alloc] initWithFrame:CGRectMake(distance*3+80*2, 80, 80, 20)];
+        titleLab3 = [[UILabel alloc] initWithFrame:CGRectMake(distance*3+iconsize*2, 85+5, iconsize, 20)];
         titleLab3.font = [UIFont systemFontOfSize:12.0f];
         titleLab3.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab3];

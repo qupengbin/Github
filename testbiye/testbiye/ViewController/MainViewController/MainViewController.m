@@ -10,17 +10,18 @@
 #import "BuyViewController.h"
 #import "AppDelegate.h"
 #import "MenuViewController.h"
-#import "CycleScrollView.h"
 #import "MainViewCell.h"
+#import "TopScrollView.h"
 
-@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,CycleScrollViewDelegate,MainViewCellDelegate>
+@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate>
 {
     UIButton *_touchBtn;
     UITableView *_tableView;
     
     NSArray *nameArr;
     
-    CycleScrollView *_topScrollView;
+//    CycleScrollView *_topScrollView;
+    TopScrollView *_topScrollView;
 }
 
 @end
@@ -32,7 +33,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"MainView";
     }
     return self;
 }
@@ -40,34 +40,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.titlelab.text = @"乐 行";
+    
     nameArr = @[@"乐行购物",@"乐行餐饮",@"乐行路线",
                 @"我的一天",@"我的附近",@"小伙伴去哪",
                 @"乐行闹铃",@"运动健身",@"更多服务",];
+
+    [self leftItem:[UIImage imageNamed:@"menubtn.png"] sel:@selector(menuAction:)];
+    [self rightItem:[UIImage imageNamed:@"searchicon.png"] sel:@selector(searchAction:)];
     
-    [self leftItem:[UIImage imageNamed:@"default_avatar.png"] sel:@selector(menuAction:)];
-    [self rightItem:[UIImage imageNamed:@"default_avatar.png"] sel:@selector(searchAction:)];
-    
-    self.view.backgroundColor = [UIColor redColor];
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((320-100)/2, (self.view.bounds.size.height-100)/2, 100, 100)];
-    btn.backgroundColor = [UIColor grayColor];
-    [btn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    self.view.backgroundColor = [UIColor clearColor];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     NSMutableArray *namearr = [[NSMutableArray alloc] init];
-    for (int i = 0; i<3; i++) {
-        [arr addObject:@"comm_default.png"];
+    for (int i = 0; i<5; i++) {
+        NSString *name = [NSString stringWithFormat:@"top_main%d.png",i+1];
+        [arr addObject:name];
         [namearr addObject:@"test"];
     }
     
-    _topScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 120) cycleDirection:CycleDirectionLandscape pictures:arr titles:namearr];
+    _topScrollView = [[TopScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 230)];
     _topScrollView.delegate = self;
+    [_topScrollView reloadDataWithPictures:arr infos:nil];
     [self.view addSubview:_topScrollView];
     
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, 320, self.view.bounds.size.height-120) style:UITableViewStylePlain];
-    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, app.window.bounds.size.height-293) style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -105,12 +104,6 @@
     [nav.drawer open];
 }
 
-- (void)buttonAction:(id)sender
-{
-    BuyViewController *buy = [[BuyViewController alloc] init];
-    [self.navigationController pushViewController:buy animated:YES];
-}
-
 #pragma mark - UITableViewDelegate/UITableViewDataSource
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -119,7 +112,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.0f;
+    return 120.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,6 +121,7 @@
     MainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
     if (cell == nil) {
         cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
     [cell reloadData:nameArr index:indexPath.row];
@@ -162,7 +156,7 @@
 }
 
 #pragma mark - CycleScrollViewDelegate
-- (void)cycleScrollViewDelegate:(CycleScrollView *)cycleScrollView didSelectImageView:(int)index
+- (void)topScrollViewAction:(int)index
 {
     NSLog(@"now select top index %d",index);
 }

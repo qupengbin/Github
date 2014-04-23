@@ -17,6 +17,7 @@
 
 
 @property (retain, nonatomic) MBProgressHUD         *hub;
+@property (retain, nonatomic) UILabel *titlelab;
 
 - (void)showHubInSelfView:(BOOL)reservedNav;
 - (void)showInfoTip:(NSString *)tip;
