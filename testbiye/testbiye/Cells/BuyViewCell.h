@@ -10,4 +10,6 @@
 
 @interface BuyViewCell : UITableViewCell
 
+- (void)reloadData:(NSArray *)data index:(int)index;
+
 @end

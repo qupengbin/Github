@@ -33,8 +33,9 @@
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
     
-    UIImageView *iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(20, 30, 100, 100)];
-    iconImg.backgroundColor = [UIColor grayColor];
+    UIImageView *iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(20, 30, 90, 90)];
+    iconImg.image = [UIImage imageNamed:@"usericonbg.png"];
+    iconImg.backgroundColor = [UIColor clearColor];
     [headerView addSubview:iconImg];
     
     UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];

@@ -34,8 +34,12 @@
 - (void)initview
 {
     if (iconView == nil) {
-        iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        [self.contentView addSubview:iconView];
+        iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 71, 71)];
+        [self addSubview:iconView];
+        
+        
+        UIImageView *gradeimg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 71, 71)];
+        [self addSubview:gradeimg];
     }
     
     
@@ -51,6 +55,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)reloadData:(NSArray *)data index:(int)index
+{
+    
 }
 
 @end

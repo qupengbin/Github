@@ -9,6 +9,7 @@
 #import "BuyViewController.h"
 #import "MHFileTool.h"
 #import "ClassView.h"
+#import "BuyViewCell.h"
 
 @interface BuyViewController ()<UITableViewDataSource,UITableViewDelegate,ClassViewDelegate>
 {
@@ -81,21 +82,19 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40.0f;
+    return 100.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *string = @"MenuViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    BuyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
-        cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
-        cell.textLabel.textColor = [UIColor blackColor];
+        cell = [[BuyViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
     }
-    cell.textLabel.text = [dataArr objectAtIndex:indexPath.row];
     NSString *str = [NSString stringWithFormat:@"menuicon%d",indexPath.row+1];
     cell.imageView.image = [UIImage imageNamed:str];
+    [cell reloadData:dataArr index:indexPath.row];
     return cell;
 }
 
