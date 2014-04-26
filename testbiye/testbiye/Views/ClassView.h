@@ -17,9 +17,13 @@
 //上方分类 分为(全部分类,综合商场,服饰鞋帽,便利商店 可能还要增加分类)
 @interface ClassView : UIView
 {
+    int nowType;
+    NSMutableArray *dataArr;
     UIScrollView *_scrollView;
 }
 
 @property(nonatomic,assign) id<ClassViewDelegate> delegate;
+
+- (void)setClassType:(int)type;
 
 @end

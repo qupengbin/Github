@@ -44,18 +44,26 @@
     price.backgroundColor = [UIColor clearColor];
     price.font = [UIFont systemFontOfSize:20.0f];
     price.textColor = [UIColor whiteColor];
-    price.text = @"测试测试";
+    price.text = @"今日五折";
     [bgImage addSubview:price];
     
-    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, 100, 20)];
+    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(20, 25, 100, 20)];
     name.backgroundColor = [UIColor clearColor];
     name.font = [UIFont systemFontOfSize:14.0f];
     name.textColor = [UIColor whiteColor];
-    name.text = @"测试测试";
+    name.text = @"草莓奶油泡芙";
     [bgImage addSubview:name];
     
-    UIButton *buyBtn = [[UIButton alloc] initWithFrame:bgImage.bounds];
-    [bgImage addSubview:buyBtn];
+    UILabel *buy = [[UILabel alloc] initWithFrame:CGRectMake(220, 25, 100, 20)];
+    buy.backgroundColor = [UIColor clearColor];
+    buy.font = [UIFont systemFontOfSize:14.0f];
+    buy.textColor = [UIColor whiteColor];
+    buy.text = @"立即购买";
+    [bgImage addSubview:buy];
+
+    UIImageView *buyicon = [[UIImageView alloc] initWithFrame:CGRectMake(290, 25, 19, 19)];
+    buyicon.image = [UIImage imageNamed:@"buyicon.png"];
+    [bgImage addSubview:buyicon];
 }
 
 - (void)reloadDataWithPictures:(NSArray *)picts infos:(NSDictionary *)infos

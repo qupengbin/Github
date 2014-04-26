@@ -12,15 +12,16 @@
 #import "MenuViewController.h"
 #import "MainViewCell.h"
 #import "TopScrollView.h"
+#import "SearchView.h"
 
-@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate>
+@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate>
 {
     UIButton *_touchBtn;
     UITableView *_tableView;
     
     NSArray *nameArr;
     
-//    CycleScrollView *_topScrollView;
+    SearchView *_searchView;
     TopScrollView *_topScrollView;
 }
 
@@ -59,11 +60,14 @@
         [namearr addObject:@"test"];
     }
     
+    _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
+    _searchView.delegate = self;
+    [self.view addSubview:_searchView];
+    
     _topScrollView = [[TopScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 230)];
     _topScrollView.delegate = self;
     [_topScrollView reloadDataWithPictures:arr infos:nil];
     [self.view addSubview:_topScrollView];
-    
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, app.window.bounds.size.height-293) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor whiteColor];
@@ -92,10 +96,24 @@
 }
 */
 
+#pragma mark - SearchViewDelegate
+- (void)SearchViewReturn:(UITextField *)field
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [field resignFirstResponder];
+    }];
+}
+
 #pragma mark - UIButtonAction
 - (void)searchAction:(id)sender
 {
-    
+    [UIView animateWithDuration:0.3f animations:^{
+        self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [_searchView searchViewBecomeFirstResponder];
+    }];
 }
 
 - (void)menuAction:(id)sender
@@ -136,8 +154,13 @@
         BuyViewController *buyView = [[BuyViewController alloc] init];
         buyView.view.backgroundColor = [UIColor clearColor];
         [self.navigationController pushViewController:buyView animated:YES];
+        [buyView setBuyType:1];
     } else if (btn.tag == 1) {
         //餐饮
+        BuyViewController *buyView = [[BuyViewController alloc] init];
+        buyView.view.backgroundColor = [UIColor clearColor];
+        [self.navigationController pushViewController:buyView animated:YES];
+        [buyView setBuyType:2];
     } else if (btn.tag == 2) {
         //路线
     } else if (btn.tag == 3) {

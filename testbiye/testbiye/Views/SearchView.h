@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchView : UIView
+@protocol SearchViewDelegate <NSObject>
+@optional
+
+- (void)SearchViewReturn:(UITextField *)field;
+
+@end
+
+@interface SearchView : UIView<UITextFieldDelegate>
+{
+    UITextField *searchField;
+}
+
+@property(nonatomic,assign) id<SearchViewDelegate> delegate;
+
+- (void)searchViewBecomeFirstResponder;
 
 @end

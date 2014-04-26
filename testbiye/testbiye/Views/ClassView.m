@@ -17,43 +17,63 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self initview];
+        
     }
     return self;
 }
 
+- (void)initdata
+{
+    if (dataArr == nil) {
+        dataArr = [[NSMutableArray alloc] init];
+    }
+    
+    [dataArr removeAllObjects];
+    
+    if (nowType == 1) {
+        [dataArr addObjectsFromArray:@[@"全部分类",@"综合商场",@"服饰鞋帽",@"便利超市",@"食品茶酒",@"化妆品",@"家具家居",@"数码家电",@"珠宝饰品",@"书店",@"眼镜店",@"药店",@"鲜花店",@"文化用品",@"更多"]];
+    } else if (nowType == 2) {
+        [dataArr addObjectsFromArray:@[@"西餐",@"小吃",@"快餐",@"面包甜点",@"奶茶饮品",@"烧烤",@"咖啡厅"]];
+    }
+}
+
 - (void)initview
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     if (_scrollView == nil) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         [self addSubview:_scrollView];
     }
     
     float distance = 320/4;
-    for (int i = 0; i < 4; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(distance*i, 0, distance, 30)];
+    for (int i = 0; i < dataArr.count; i++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(distance*i, 0, distance, 40)];
         btn.tag = i+BTNTAG;
         btn.backgroundColor = [UIColor clearColor];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        switch (i) {
-            case 0:
-                [btn setTitle:@"全部分类" forState:UIControlStateNormal];
-                break;
-            case 1:
-                [btn setTitle:@"综合商场" forState:UIControlStateNormal];
-                break;
-            case 2:
-                [btn setTitle:@"服饰鞋帽" forState:UIControlStateNormal];
-                break;
-            case 3:
-                [btn setTitle:@"便利超市" forState:UIControlStateNormal];
-                break;
+        [btn setTitle:[dataArr objectAtIndex:i] forState:UIControlStateNormal];
 
-            default:
-                break;
-        }
         [_scrollView addSubview:btn];
+        _scrollView.contentSize = CGSizeMake(distance*dataArr.count, 40);
     }
+    
+    
+    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 39, 320, 1)];
+    [self addSubview:img];
+    img.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (void)setClassType:(int)type
+{
+    nowType = type;
+    [self initdata];
+    [self initview];
 }
 
 - (void)btnAction:(id)sender

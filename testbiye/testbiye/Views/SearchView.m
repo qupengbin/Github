@@ -22,16 +22,28 @@
 
 - (void)initview
 {
+    self.backgroundColor = [UIColor lightGrayColor];
+    
+    searchField = [[UITextField alloc] initWithFrame:CGRectMake(20, 5, 280, 30)];
+    searchField.borderStyle = UITextBorderStyleRoundedRect;
+    [self addSubview:searchField];
+    searchField.delegate = self;
+    searchField.placeholder = @"Search";
     
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)searchViewBecomeFirstResponder
 {
-    // Drawing code
+    [searchField becomeFirstResponder];
 }
-*/
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(SearchViewReturn:)]) {
+        [self.delegate SearchViewReturn:textField];
+    }
+    return YES;
+}
 
 @end
