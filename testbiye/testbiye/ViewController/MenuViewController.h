@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ICSDrawerController.h"
 
+@protocol MenuViewDelegate <NSObject>
+
+- (void)tableviewSelect:(int)index;
+
+- (void)loginOrRegistAction;
+
+@end
+
 @interface MenuViewController : UIViewController<ICSDrawerControllerChild, ICSDrawerControllerPresenting>
 
+@property(nonatomic,assign) id<MenuViewDelegate> delegate;
 @property(nonatomic,weak) ICSDrawerController *drawer;
 @property(nonatomic,weak) IBOutlet UITableView *tableView;
 

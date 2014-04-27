@@ -38,6 +38,13 @@
     iconImg.backgroundColor = [UIColor clearColor];
     [headerView addSubview:iconImg];
     
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 90, 90)];
+    [btn addTarget:self
+            action:@selector(btnAction:)
+  forControlEvents:UIControlEventTouchUpInside];
+    [headerView addSubview:btn];
+    btn.backgroundColor = [UIColor clearColor];
+    
     UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
     titlelab.backgroundColor = [UIColor clearColor];
     titlelab.font = [UIFont systemFontOfSize:12.0f];
@@ -60,12 +67,20 @@
 
 - (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController
 {
-    self.view.userInteractionEnabled = NO;
+//    self.view.userInteractionEnabled = NO;
 }
 
 - (void)drawerControllerDidClose:(ICSDrawerController *)drawerController
 {
     self.view.userInteractionEnabled = YES;
+}
+
+#pragma mark - BtnAction
+- (void)btnAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loginOrRegistAction)]) {
+        [self.delegate loginOrRegistAction];
+    }
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
@@ -96,7 +111,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loginOrRegistAction)]) {
+        [self.delegate loginOrRegistAction];
+    }
 }
 
 @end

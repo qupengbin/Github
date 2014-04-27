@@ -13,6 +13,18 @@
 		7D10375419060E85001D9C33 /* TabbarToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375319060E85001D9C33 /* TabbarToolView.m */; };
 		7D10375819063A73001D9C33 /* BuyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375719063A73001D9C33 /* BuyViewCell.m */; };
 		7D10375C19063E93001D9C33 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375B19063E93001D9C33 /* SearchView.m */; };
+		7D4E4CB8190CDFE60058DC38 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E4CB6190CDFE60058DC38 /* RegistViewController.m */; };
+		7D4E4CB9190CDFE60058DC38 /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CB7190CDFE60058DC38 /* RegistViewController.xib */; };
+		7D4E4CBD190CE0DB0058DC38 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E4CBB190CE0DB0058DC38 /* LoginViewController.m */; };
+		7D4E4CBE190CE0DB0058DC38 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CBC190CE0DB0058DC38 /* LoginViewController.xib */; };
+		7D4E4CC1190CE14A0058DC38 /* loginicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC0190CE14A0058DC38 /* loginicon.png */; };
+		7D4E4CC3190CE2570058DC38 /* loginselicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC2190CE2570058DC38 /* loginselicon.png */; };
+		7D4E4CC6190CE25F0058DC38 /* loginicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC4190CE25F0058DC38 /* loginicon@2x.png */; };
+		7D4E4CC7190CE25F0058DC38 /* loginselicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC5190CE25F0058DC38 /* loginselicon@2x.png */; };
+		7D4E4CCA190CE3400058DC38 /* iobgimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC8190CE3400058DC38 /* iobgimg.png */; };
+		7D4E4CCB190CE3400058DC38 /* loginbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CC9190CE3400058DC38 /* loginbtn.png */; };
+		7D4E4CCE190CE3470058DC38 /* iobgimg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CCC190CE3470058DC38 /* iobgimg@2x.png */; };
+		7D4E4CCF190CE3470058DC38 /* loginbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4E4CCD190CE3470058DC38 /* loginbtn@2x.png */; };
 		7DED15AC18FE224A00A24340 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AB18FE224A00A24340 /* Foundation.framework */; };
 		7DED15AE18FE224A00A24340 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AD18FE224A00A24340 /* CoreGraphics.framework */; };
 		7DED15B018FE224A00A24340 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DED15AF18FE224A00A24340 /* UIKit.framework */; };
@@ -185,6 +197,20 @@
 		7D10375719063A73001D9C33 /* BuyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewCell.m; sourceTree = "<group>"; };
 		7D10375A19063E93001D9C33 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		7D10375B19063E93001D9C33 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
+		7D4E4CB5190CDFE60058DC38 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		7D4E4CB6190CDFE60058DC38 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		7D4E4CB7190CDFE60058DC38 /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
+		7D4E4CBA190CE0DB0058DC38 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7D4E4CBB190CE0DB0058DC38 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7D4E4CBC190CE0DB0058DC38 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		7D4E4CC0190CE14A0058DC38 /* loginicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginicon.png; sourceTree = "<group>"; };
+		7D4E4CC2190CE2570058DC38 /* loginselicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginselicon.png; sourceTree = "<group>"; };
+		7D4E4CC4190CE25F0058DC38 /* loginicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginicon@2x.png"; sourceTree = "<group>"; };
+		7D4E4CC5190CE25F0058DC38 /* loginselicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginselicon@2x.png"; sourceTree = "<group>"; };
+		7D4E4CC8190CE3400058DC38 /* iobgimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iobgimg.png; sourceTree = "<group>"; };
+		7D4E4CC9190CE3400058DC38 /* loginbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbtn.png; sourceTree = "<group>"; };
+		7D4E4CCC190CE3470058DC38 /* iobgimg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iobgimg@2x.png"; sourceTree = "<group>"; };
+		7D4E4CCD190CE3470058DC38 /* loginbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginbtn@2x.png"; sourceTree = "<group>"; };
 		7DED15A818FE224A00A24340 /* testbiye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testbiye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DED15AB18FE224A00A24340 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DED15AD18FE224A00A24340 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -407,6 +433,30 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		7D4E4CB4190CDFCA0058DC38 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E4CB5190CDFE60058DC38 /* RegistViewController.h */,
+				7D4E4CB6190CDFE60058DC38 /* RegistViewController.m */,
+				7D4E4CB7190CDFE60058DC38 /* RegistViewController.xib */,
+				7D4E4CBA190CE0DB0058DC38 /* LoginViewController.h */,
+				7D4E4CBB190CE0DB0058DC38 /* LoginViewController.m */,
+				7D4E4CBC190CE0DB0058DC38 /* LoginViewController.xib */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		7D4E4CBF190CE13C0058DC38 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E4CC8190CE3400058DC38 /* iobgimg.png */,
+				7D4E4CC9190CE3400058DC38 /* loginbtn.png */,
+				7D4E4CC0190CE14A0058DC38 /* loginicon.png */,
+				7D4E4CC2190CE2570058DC38 /* loginselicon.png */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		7DED159F18FE224A00A24340 = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +572,7 @@
 		7DED15E218FE22F900A24340 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7D4E4CB4190CDFCA0058DC38 /* LoginViewController */,
 				9241AAEB190BD689008C9A6C /* StoreViewController */,
 				7DED15EE18FE253F00A24340 /* MainViewController */,
 				7DED15EB18FE241C00A24340 /* MHNavViewController.h */,
@@ -751,6 +802,10 @@
 		92F987851907FE77005C3E97 /* height */ = {
 			isa = PBXGroup;
 			children = (
+				7D4E4CCC190CE3470058DC38 /* iobgimg@2x.png */,
+				7D4E4CCD190CE3470058DC38 /* loginbtn@2x.png */,
+				7D4E4CC4190CE25F0058DC38 /* loginicon@2x.png */,
+				7D4E4CC5190CE25F0058DC38 /* loginselicon@2x.png */,
 				9241AABD190BD689008C9A6C /* backimg@2x.png */,
 				9241AAB3190BD689008C9A6C /* distanceicon@2x.png */,
 				9241AAB4190BD689008C9A6C /* gradeicon@2x.png */,
@@ -801,6 +856,7 @@
 			isa = PBXGroup;
 			children = (
 				9241AABB190BD689008C9A6C /* backimg.png */,
+				7D4E4CBF190CE13C0058DC38 /* Login */,
 				925CCD471909C7CE00B0F7D2 /* Buy */,
 				92F987901907FE77005C3E97 /* Main */,
 			);
@@ -935,6 +991,7 @@
 				9241AAD3190BD689008C9A6C /* buyicon12.png in Resources */,
 				9241AAE4190BD689008C9A6C /* buyicon9@2x.png in Resources */,
 				925CCD461909C7CE00B0F7D2 /* usericonbg@2x.png in Resources */,
+				7D4E4CC1190CE14A0058DC38 /* loginicon.png in Resources */,
 				9241AAE3190BD689008C9A6C /* buyicon8@2x.png in Resources */,
 				9241AAB2190BD689008C9A6C /* numbericon.png in Resources */,
 				92F987B01907FE77005C3E97 /* menuicon1.png in Resources */,
@@ -949,6 +1006,7 @@
 				925CCD441909C7CE00B0F7D2 /* top_main4@2x.png in Resources */,
 				92F987A51907FE77005C3E97 /* mainicon8@2x.png in Resources */,
 				9241AAC2190BD689008C9A6C /* sortimg@2x.png in Resources */,
+				7D4E4CB9190CDFE60058DC38 /* RegistViewController.xib in Resources */,
 				9241AAD5190BD689008C9A6C /* buyicon14.png in Resources */,
 				92F987BE190800D2005C3E97 /* top_main4.png in Resources */,
 				7DF202AB18FE52B5007E1AFB /* default_avatar.png in Resources */,
@@ -958,6 +1016,7 @@
 				92F9879E1907FE77005C3E97 /* mainicon1@2x.png in Resources */,
 				92F987B11907FE77005C3E97 /* menuicon2.png in Resources */,
 				9241AAB8190BD689008C9A6C /* gradeicon@2x.png in Resources */,
+				7D4E4CCE190CE3470058DC38 /* iobgimg@2x.png in Resources */,
 				925CCD451909C7CE00B0F7D2 /* top_main5@2x.png in Resources */,
 				925CCD5A1909C7CE00B0F7D2 /* buyicon4@2x.png in Resources */,
 				9241AABE190BD689008C9A6C /* backimg@2x.png in Resources */,
@@ -974,6 +1033,8 @@
 				925CCD431909C7CE00B0F7D2 /* top_main3@2x.png in Resources */,
 				9241AAE1190BD689008C9A6C /* buyicon6@2x.png in Resources */,
 				7DF202AC18FE52B5007E1AFB /* default_avatar@2x.png in Resources */,
+				7D4E4CC7190CE25F0058DC38 /* loginselicon@2x.png in Resources */,
+				7D4E4CCF190CE3470058DC38 /* loginbtn@2x.png in Resources */,
 				92F987A31907FE77005C3E97 /* mainicon6@2x.png in Resources */,
 				9241AAE5190BD689008C9A6C /* buyicon10@2x.png in Resources */,
 				92F987A61907FE77005C3E97 /* mainicon9@2x.png in Resources */,
@@ -1006,6 +1067,7 @@
 				92F987AA1907FE77005C3E97 /* mainicon4.png in Resources */,
 				92F987C1190802E2005C3E97 /* searchicon.png in Resources */,
 				92F987B21907FE77005C3E97 /* menuicon3.png in Resources */,
+				7D4E4CCA190CE3400058DC38 /* iobgimg.png in Resources */,
 				925CCD571909C7CE00B0F7D2 /* buyicon1@2x.png in Resources */,
 				9241AAD1190BD689008C9A6C /* buyicon10.png in Resources */,
 				925CCD501909C7CE00B0F7D2 /* buyicon4.png in Resources */,
@@ -1013,11 +1075,15 @@
 				925CCD3E1909C7CE00B0F7D2 /* menuicon3@2x.png in Resources */,
 				92F987B31907FE77005C3E97 /* menuicon4.png in Resources */,
 				92F987BD190800D2005C3E97 /* top_main3.png in Resources */,
+				7D4E4CC3190CE2570058DC38 /* loginselicon.png in Resources */,
+				7D4E4CCB190CE3400058DC38 /* loginbtn.png in Resources */,
 				92F987AD1907FE77005C3E97 /* mainicon7.png in Resources */,
+				7D4E4CBE190CE0DB0058DC38 /* LoginViewController.xib in Resources */,
 				9241AAAF190BD689008C9A6C /* distanceicon.png in Resources */,
 				9241AAD2190BD689008C9A6C /* buyicon11.png in Resources */,
 				9241AAB7190BD689008C9A6C /* distanceicon@2x.png in Resources */,
 				92F987AC1907FE77005C3E97 /* mainicon6.png in Resources */,
+				7D4E4CC6190CE25F0058DC38 /* loginicon@2x.png in Resources */,
 				9241AAE6190BD689008C9A6C /* buyicon11@2x.png in Resources */,
 				92F987A11907FE77005C3E97 /* mainicon4@2x.png in Resources */,
 				925CCD511909C7CE00B0F7D2 /* buyicon5.png in Resources */,
@@ -1054,6 +1120,7 @@
 				7DF2029418FE50EA007E1AFB /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				7DF2026718FE4FB1007E1AFB /* NSObject+KeyVset.m in Sources */,
 				7DF2026A18FE4FB1007E1AFB /* UIImage+Rotate.m in Sources */,
+				7D4E4CB8190CDFE60058DC38 /* RegistViewController.m in Sources */,
 				7DF2029D18FE50EA007E1AFB /* Reachability.m in Sources */,
 				7DF2029A18FE50EA007E1AFB /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				7D10375119060E65001D9C33 /* ClassView.m in Sources */,
@@ -1063,6 +1130,7 @@
 				7DF2027318FE50B7007E1AFB /* MHNetworkEngine.m in Sources */,
 				7DEE56791905101A00962113 /* TopScrollView.m in Sources */,
 				7DF2029818FE50EA007E1AFB /* NSString+MKNetworkKitAdditions.m in Sources */,
+				7D4E4CBD190CE0DB0058DC38 /* LoginViewController.m in Sources */,
 				7DF2029518FE50EA007E1AFB /* NSData+MKBase64.m in Sources */,
 				7DF2026818FE4FB1007E1AFB /* NSString+Base64.m in Sources */,
 				7D10375419060E85001D9C33 /* TabbarToolView.m in Sources */,
@@ -1200,13 +1268,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testbiye/testbiye-Prefix.pch";
 				INFOPLIST_FILE = "testbiye/testbiye-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7F24C0CA-CB86-4888-BCB2-712F157CEE2F";
+				PROVISIONING_PROFILE = "37F49CC6-CC97-42AE-A61A-4F5E4A08DEDF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1216,13 +1285,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testbiye/testbiye-Prefix.pch";
 				INFOPLIST_FILE = "testbiye/testbiye-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7F24C0CA-CB86-4888-BCB2-712F157CEE2F";
+				PROVISIONING_PROFILE = "37F49CC6-CC97-42AE-A61A-4F5E4A08DEDF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

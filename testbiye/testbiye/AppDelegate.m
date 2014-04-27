@@ -11,6 +11,7 @@
 #import "MHNavViewController.h"
 #import "ICSDrawerController.h"
 #import "MenuViewController.h"
+#import "LoginViewController.h"
 
 AppDelegate *app;
 
@@ -29,6 +30,7 @@ AppDelegate *app;
     MenuViewController *menuViewController = [[MenuViewController alloc] init];
     
     MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:mainViewController];
+    menuViewController.delegate = self;
     
     ICSDrawerController *drawController = [[ICSDrawerController alloc] initWithLeftViewController:menuViewController centerViewController:nav rightViewController:nil];
     self.window.rootViewController = drawController;
@@ -65,6 +67,22 @@ AppDelegate *app;
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - MenuViewDelegate
+- (void)tableviewSelect:(int)index
+{
+    
+}
+
+- (void)loginOrRegistAction
+{
+    LoginViewController *login = [[LoginViewController alloc] init];
+    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:login];
+    
+    [self.window.rootViewController presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 
 @end
