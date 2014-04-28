@@ -7,8 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "RegistViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
+
+@property(nonatomic,weak) IBOutlet UIButton *selBtn;
 
 @end
 
@@ -40,6 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIButtonAction
 - (void)backBtnAction:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:^{
@@ -49,7 +53,53 @@
 
 - (void)registAction:(id)sender
 {
-    
+    RegistViewController *regist = [[RegistViewController alloc] initWithNibName:@"RegistViewController" bundle:nil];
+    [self.navigationController pushViewController:regist animated:YES];
+}
+
+- (IBAction)selectBtnAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    btn.selected = !btn.selected;
+}
+
+- (void)showAlertView:(NSString *)str
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:str
+                                                   delegate:nil
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+#pragma mark - UITextField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    switch (textField.tag) {
+        case 100:
+            if (textField.text.length==0) {
+                [self showAlertView:@"请输入用户名"];
+                return YES;
+            }
+            break;
+        case 200:
+            if (textField.text.length==0) {
+                [self showAlertView:@"请输入密码"];
+                return YES;
+            }
+            break;
+ 
+        default:
+            break;
+    }
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self backBtnAction:nil];
+    });
+    return YES;
 }
 
 @end

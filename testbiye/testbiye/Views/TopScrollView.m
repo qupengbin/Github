@@ -8,8 +8,10 @@
 
 #import "TopScrollView.h"
 
-@interface TopScrollView(){
+@interface TopScrollView()<UIScrollViewDelegate>{
     UIScrollView *scrollView;
+    NSTimer *_timer;
+    int index;
 }
 
 @end
@@ -28,10 +30,13 @@
 
 - (void)initview
 {
+    index = 0;
+    
     if (scrollView == nil) {
         scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         scrollView.backgroundColor = [UIColor clearColor];
         scrollView.pagingEnabled = YES;
+        scrollView.delegate = self;
         [self addSubview:scrollView];
     }
     
@@ -64,6 +69,7 @@
     UIImageView *buyicon = [[UIImageView alloc] initWithFrame:CGRectMake(290, 25, 19, 19)];
     buyicon.image = [UIImage imageNamed:@"buyicon.png"];
     [bgImage addSubview:buyicon];
+    
 }
 
 - (void)reloadDataWithPictures:(NSArray *)picts infos:(NSDictionary *)infos
@@ -83,6 +89,19 @@
         [scrollView addSubview:btn];
     }
     scrollView.contentSize = CGSizeMake(self.bounds.size.width*picts.count, self.bounds.size.height);
+    
+    [self startTimer];
+}
+
+
+- (void)startTimer
+{
+    _timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(scrollSelf) userInfo:nil repeats:YES];
+}
+
+- (void)scrollSelf
+{
+    [scrollView scrollRectToVisible:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
 }
 
 - (void)btnAction:(id)sender
@@ -93,5 +112,7 @@
         [self.delegate topScrollViewAction:btn.tag-1000];
     }
 }
+
+
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface RegistViewController : UIViewController
+@interface RegistViewController : BaseViewController
 
 @end

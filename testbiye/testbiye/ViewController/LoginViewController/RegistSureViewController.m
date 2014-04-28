@@ -1,18 +1,18 @@
 //
-//  RegistViewController.m
+//  RegistSureViewController.m
 //  testbiye
 //
-//  Created by qupengbin on 14-4-27.
+//  Created by qupengbin on 14-4-28.
 //  Copyright (c) 2014年 qupengbin. All rights reserved.
 //
 
-#import "RegistViewController.h"
+#import "RegistSureViewController.h"
 
-@interface RegistViewController ()<UITextFieldDelegate>
+@interface RegistSureViewController ()<UITextFieldDelegate>
 
 @end
 
-@implementation RegistViewController
+@implementation RegistSureViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,10 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.titlelab.text = @"注 册";
-    [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -37,12 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - BtnAction
-- (void)backBtnAction:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
