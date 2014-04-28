@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface RegistNextViewController : UIViewController
+@interface RegistNextViewController : BaseViewController
+
+- (void)setNumber:(NSString *)str;
 
 @end

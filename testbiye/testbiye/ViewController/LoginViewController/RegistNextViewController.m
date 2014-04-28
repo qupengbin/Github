@@ -7,8 +7,11 @@
 //
 
 #import "RegistNextViewController.h"
+#import "RegistSureViewController.h"
 
 @interface RegistNextViewController ()<UITextFieldDelegate>
+
+@property(nonatomic,weak) IBOutlet UILabel *numberlab;
 
 @end
 
@@ -26,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.titlelab.text = @"注 册";
+    [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,6 +39,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setNumber:(NSString *)str
+{
+    self.numberlab.text = str;
+}
+
+#pragma mark - UIButtonAction
+- (void)backBtnAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)commitBtnAction:(id)sender
+{
+    RegistSureViewController *sureView = [[RegistSureViewController alloc] initWithNibName:@"RegistSureViewController" bundle:nil];
+    [self.navigationController pushViewController:sureView animated:YES];
 }
 
 @end

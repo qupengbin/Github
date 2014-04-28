@@ -7,8 +7,11 @@
 //
 
 #import "RegistViewController.h"
+#import "RegistNextViewController.h"
 
 @interface RegistViewController ()<UITextFieldDelegate>
+
+@property(nonatomic,weak) IBOutlet UITextField *numberField;
 
 @end
 
@@ -43,6 +46,15 @@
 - (void)backBtnAction:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)registAction:(id)sender
+{
+    RegistNextViewController *nextView = [[RegistNextViewController alloc] initWithNibName:@"RegistNextViewController" bundle:nil];
+    [self.navigationController pushViewController:nextView animated:YES];
+    NSLog(@"self.numberField.text %@",self.numberField.text);
+    NSString *str = [NSString stringWithFormat:@"验证码短信已发送到%@",self.numberField.text];
+    [nextView setNumber:str];
 }
 
 @end
