@@ -52,6 +52,10 @@
     titlelab.text = @"点击登录或注册";
     [headerView addSubview:titlelab];
     
+    UIButton *labBtn = [[UIButton alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
+    [labBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [headerView addSubview:labBtn];
+    
     self.tableView.tableHeaderView = headerView;
     
     // Do any additional setup after loading the view from its nib.
@@ -111,8 +115,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(loginOrRegistAction)]) {
-        [self.delegate loginOrRegistAction];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableviewSelect:)]) {
+        [self.delegate tableviewSelect:indexPath.row];
     }
 }
 

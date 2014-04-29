@@ -13,8 +13,11 @@
 #import "MainViewCell.h"
 #import "TopScrollView.h"
 #import "SearchView.h"
+#import "TabbarToolView.h"
+#import "MainLittleView.h"
+#import "LineViewController.h"
 
-@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate>
+@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
     UIButton *_touchBtn;
     UITableView *_tableView;
@@ -22,7 +25,9 @@
     NSArray *nameArr;
     
     SearchView *_searchView;
+    TabbarToolView *_tabbarView;
     TopScrollView *_topScrollView;
+    MainLittleView *_littleView;
 }
 
 @end
@@ -69,7 +74,12 @@
     [_topScrollView reloadDataWithPictures:arr infos:nil];
     [self.view addSubview:_topScrollView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, app.window.bounds.size.height-293) style:UITableViewStylePlain];
+    _littleView = [[MainLittleView alloc] initWithFrame:CGRectMake(0, 230, 320, 45)];
+    _littleView.backgroundColor = [UIColor whiteColor];
+    _littleView.delegate = self;
+    [self.view addSubview:_littleView];
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230+45, 320, app.window.bounds.size.height-293-40) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
@@ -130,7 +140,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.0f;
+    return 110.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -163,6 +173,9 @@
         [buyView setBuyType:2];
     } else if (btn.tag == 2) {
         //路线
+        LineViewController *lineView = [[LineViewController alloc] init];
+        [self.navigationController pushViewController:lineView animated:YES];
+
     } else if (btn.tag == 3) {
         //我的一天
     } else if (btn.tag == 4) {
@@ -183,5 +196,12 @@
 {
     NSLog(@"now select top index %d",index);
 }
+
+#pragma mark - MainLittleViewDelegate
+- (void)MainLittleAction:(int)tag
+{
+    NSLog(@"tag %d",tag);
+}
+
 @end
 

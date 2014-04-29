@@ -42,19 +42,19 @@
     [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
     if (titleLab1 == nil) {
-        titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(distance, 85+5, iconsize, 20)];
+        titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(distance, 75+5, iconsize, 20)];
         titleLab1.font = [UIFont systemFontOfSize:12.0f];
         titleLab1.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab1];
     }
     if (titleLab2 == nil) {
-        titleLab2 = [[UILabel alloc] initWithFrame:CGRectMake(distance*2+iconsize, 85+5, iconsize, 20)];
+        titleLab2 = [[UILabel alloc] initWithFrame:CGRectMake(distance*2+iconsize, 75+5, iconsize, 20)];
         titleLab2.font = [UIFont systemFontOfSize:12.0f];
         titleLab2.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab2];
     }
     if (titleLab3 == nil) {
-        titleLab3 = [[UILabel alloc] initWithFrame:CGRectMake(distance*3+iconsize*2, 85+5, iconsize, 20)];
+        titleLab3 = [[UILabel alloc] initWithFrame:CGRectMake(distance*3+iconsize*2, 75+5, iconsize, 20)];
         titleLab3.font = [UIFont systemFontOfSize:12.0f];
         titleLab3.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:titleLab3];

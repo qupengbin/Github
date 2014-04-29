@@ -12,6 +12,7 @@
     UIScrollView *scrollView;
     NSTimer *_timer;
     int index;
+    int count;
 }
 
 @end
@@ -88,6 +89,9 @@
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:btn];
     }
+    
+    count = picts.count;
+    
     scrollView.contentSize = CGSizeMake(self.bounds.size.width*picts.count, self.bounds.size.height);
     
     [self startTimer];
@@ -101,7 +105,7 @@
 
 - (void)scrollSelf
 {
-    [scrollView scrollRectToVisible:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
+    [scrollView scrollRectToVisible:CGRectMake(320*(index+1), 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
 }
 
 - (void)btnAction:(id)sender
@@ -113,6 +117,14 @@
     }
 }
 
-
+#pragma mark - UIScrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (index<count) {
+        index = index+1;
+    } else {
+        index = 0;
+    }
+}
 
 @end
