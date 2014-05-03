@@ -1134,5 +1134,50 @@
 			<string>86</string>
 		</dict>
 	</array>
+	<key>sport</key>
+	<array>
+		<dict>
+			<key>icon</key>
+			<string>sporticon1.png</string>
+			<key>address</key>
+			<string>河西万达</string>
+			<key>name</key>
+			<string>奇迹健身</string>
+			<key>grade</key>
+			<string>5.4</string>
+			<key>distance</key>
+			<string>123</string>
+			<key>number</key>
+			<string>532</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>sporticon2.png</string>
+			<key>address</key>
+			<string>南京新街口</string>
+			<key>name</key>
+			<string>新街口健身</string>
+			<key>grade</key>
+			<string>4.4</string>
+			<key>distance</key>
+			<string>60</string>
+			<key>number</key>
+			<string>109</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>sporticon3.png</string>
+			<key>address</key>
+			<string>紫荆山</string>
+			<key>name</key>
+			<string>梅花健身</string>
+			<key>grade</key>
+			<string>7.8</string>
+			<key>distance</key>
+			<string>43</string>
+			<key>number</key>
+			<string>56</string>
+		</dict>
+	</array>
 </dict>
 </plist>

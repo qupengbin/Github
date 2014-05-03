@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TabbarToolViewDelegate <NSObject>
+@optional
+
+- (void)TabbarToolSelectIndex:(id)sender;
+
+@end
+
 @interface TabbarToolView : UIView
+
+@property(nonatomic,assign) id<TabbarToolViewDelegate> delegate;
 
 @end

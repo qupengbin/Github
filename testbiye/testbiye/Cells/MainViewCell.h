@@ -30,6 +30,7 @@
 @property(nonatomic,assign) id<MainViewCellDelegate> delegate;
 
 - (void)reloadData:(NSArray *)titleArr
+              icon:(NSArray *)icon
              index:(int)index;
 
 @end

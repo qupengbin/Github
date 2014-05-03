@@ -15,6 +15,14 @@
 
 AppDelegate *app;
 
+@interface AppDelegate()
+{
+    MainViewController *mainViewController;
+    MenuViewController *menuViewController;
+}
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,8 +34,8 @@ AppDelegate *app;
     [self.window makeKeyAndVisible];
     
     
-    MainViewController *mainViewController = [[MainViewController alloc] init];
-    MenuViewController *menuViewController = [[MenuViewController alloc] init];
+    mainViewController = [[MainViewController alloc] init];
+    menuViewController = [[MenuViewController alloc] init];
     
     MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:mainViewController];
     menuViewController.delegate = self;
@@ -35,8 +43,9 @@ AppDelegate *app;
     ICSDrawerController *drawController = [[ICSDrawerController alloc] initWithLeftViewController:menuViewController centerViewController:nav rightViewController:nil];
     self.window.rootViewController = drawController;
 
-    self.tabbar = [[TabbarToolView alloc] initWithFrame:CGRectMake(0, self.window.bounds.size.height-40, 320, 40)];
+    self.tabbar = [[TabbarToolView alloc] initWithFrame:CGRectMake(0, self.window.bounds.size.height-49, 320, 49)];
     [self.window addSubview:self.tabbar];
+    self.tabbar.delegate = self;
     self.tabbar.hidden = YES;
     
     return YES;
@@ -83,6 +92,12 @@ AppDelegate *app;
     [self.window.rootViewController presentViewController:nav animated:YES completion:^{
         
     }];
+}
+
+#pragma mark - TabbarToolViewDelegate
+- (void)TabbarToolSelectIndex:(id)sender
+{
+    [mainViewController iconBtnAction:sender];
 }
 
 @end

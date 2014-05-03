@@ -8,6 +8,13 @@
 
 #import "TabbarToolView.h"
 
+@interface TabbarToolView()
+{
+    
+}
+
+@end
+
 @implementation TabbarToolView
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,8 +22,46 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self initview];
     }
     return self;
+}
+
+- (void)initview
+{
+    float distance = (320-25*5)/6;
+    
+    NSArray *arr =@[@"购 物",@"餐 饮",@"路 线",
+                    @"一 天",@"附 近",@"去 哪",
+                    @"闹 铃",@"运 动",@"更 多",];
+    
+    UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+    bg.image = [UIImage imageNamed:@"tabbgimg.png"];
+    [self addSubview:bg];
+    
+    UIScrollView *_scoll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+    _scoll.showsHorizontalScrollIndicator = NO;
+    _scoll.showsVerticalScrollIndicator = NO;
+    
+    [self addSubview:_scoll];
+    
+    for (int i = 0; i < 9; i ++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(distance*(i+1)+25*i, 8, 25, 22)];
+        NSString *img = [NSString stringWithFormat:@"tabicon%d.png",i+1];
+        [btn setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i;
+        [_scoll addSubview:btn];
+        
+        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(distance*(i+1)+25*i, 27, 25, 22)];
+        [_scoll addSubview:name];
+        name.backgroundColor = [UIColor clearColor];
+        name.textColor = [UIColor lightGrayColor];
+        name.font = [UIFont systemFontOfSize:10.0];
+        name.text = [arr objectAtIndex:i];
+    }
+    
+    [_scoll setContentSize:CGSizeMake((320/5)*9-25, 49)];
 }
 
 /*e
@@ -27,5 +72,12 @@
     // Drawing code
 }
 */
+
+- (void)btnAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(TabbarToolSelectIndex:)]) {
+        [self.delegate TabbarToolSelectIndex:sender];
+    }
+}
 
 @end

@@ -75,27 +75,30 @@
 }
 
 - (void)reloadData:(NSArray *)titleArr
+              icon:(NSArray *)icon
              index:(int)index
 {
     int a = index*3;
     int b = index*3+1;
     int c = index*3+2;
     
-    UIImage *img1 = [UIImage imageNamed:[NSString stringWithFormat:@"mainicon%d",a+1]];
-    UIImage *img2 = [UIImage imageNamed:[NSString stringWithFormat:@"mainicon%d",b+1]];
-    UIImage *img3 = [UIImage imageNamed:[NSString stringWithFormat:@"mainicon%d",c+1]];
-    
+    UIImage *img1 = [UIImage imageNamed:[icon objectAtIndex:a]];
     [iconBtn1 setBackgroundImage:img1 forState:UIControlStateNormal];
-    [iconBtn2 setBackgroundImage:img2 forState:UIControlStateNormal];
-    [iconBtn3 setBackgroundImage:img3 forState:UIControlStateNormal];
-    
     iconBtn1.tag = a;
-    iconBtn2.tag = b;
-    iconBtn3.tag = c;
-    
     titleLab1.text = [titleArr objectAtIndex:a];
-    titleLab2.text = [titleArr objectAtIndex:b];
-    titleLab3.text = [titleArr objectAtIndex:c];
+
+    if (b<icon.count) {
+        UIImage *img2 = [UIImage imageNamed:[icon objectAtIndex:b]];
+        [iconBtn2 setBackgroundImage:img2 forState:UIControlStateNormal];
+        iconBtn2.tag = b;
+        titleLab2.text = [titleArr objectAtIndex:b];
+    }
+    if (c<icon.count) {
+        UIImage *img3 = [UIImage imageNamed:[icon objectAtIndex:c]];
+        [iconBtn3 setBackgroundImage:img3 forState:UIControlStateNormal];
+        iconBtn3.tag = c;
+        titleLab3.text = [titleArr objectAtIndex:c];
+    }
 }
 
 - (void)btnAction:(id)sender

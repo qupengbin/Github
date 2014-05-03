@@ -76,6 +76,10 @@
         grade.textColor = [UIColor lightGrayColor];
         distance.textColor = [UIColor lightGrayColor];
         number.textColor = [UIColor lightGrayColor];
+        
+        UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 89, 320, 0.5)];
+        line.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:line];
     }
     
     

@@ -9,7 +9,7 @@
 #import "TopScrollView.h"
 
 @interface TopScrollView()<UIScrollViewDelegate>{
-    UIScrollView *scrollView;
+    UIScrollView *_scrollView;
     NSTimer *_timer;
     int index;
     int count;
@@ -33,12 +33,12 @@
 {
     index = 0;
     
-    if (scrollView == nil) {
-        scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        scrollView.backgroundColor = [UIColor clearColor];
-        scrollView.pagingEnabled = YES;
-        scrollView.delegate = self;
-        [self addSubview:scrollView];
+    if (_scrollView == nil) {
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView.backgroundColor = [UIColor clearColor];
+        _scrollView.pagingEnabled = YES;
+        _scrollView.delegate = self;
+        [self addSubview:_scrollView];
     }
     
     UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-50, 320, 50)];
@@ -81,18 +81,18 @@
     for (int i = 0; i < picts.count; i++) {
         UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(widht*i, 0, widht, height)];
         img.image = [UIImage imageNamed:[picts objectAtIndex:i]];
-        [scrollView addSubview:img];
+        [_scrollView addSubview:img];
         
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(widht*i, 0, widht, height)];
         btn.backgroundColor = [UIColor clearColor];
         btn.tag = i+1000;
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [scrollView addSubview:btn];
+        [_scrollView addSubview:btn];
     }
     
     count = picts.count;
     
-    scrollView.contentSize = CGSizeMake(self.bounds.size.width*picts.count, self.bounds.size.height);
+    _scrollView.contentSize = CGSizeMake(self.bounds.size.width*picts.count, self.bounds.size.height);
     
     [self startTimer];
 }
@@ -105,7 +105,12 @@
 
 - (void)scrollSelf
 {
-    [scrollView scrollRectToVisible:CGRectMake(320*(index+1), 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
+    if (index<count) {
+        index = index+1;
+    } else {
+        index = 0;
+    }
+    [_scrollView scrollRectToVisible:CGRectMake(320*(index), 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
 }
 
 - (void)btnAction:(id)sender
@@ -118,13 +123,19 @@
 }
 
 #pragma mark - UIScrollView
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    if (index<count) {
-        index = index+1;
-    } else {
-        index = 0;
-    }
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int x = scrollView.contentOffset.x/320;
+    index = x;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
 }
 
 @end

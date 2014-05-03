@@ -12,4 +12,6 @@
 
 @interface MainViewController : BaseViewController
 
+- (void)iconBtnAction:(id)sender;
+
 @end

@@ -43,11 +43,11 @@
 
         [self setNeedsStatusBarAppearanceUpdate];
         
-        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25.0f/255.0f green:188.0f/255.0f blue:149.0f/255.0f alpha:1.0f];
+        self.navigationController.navigationBar.barTintColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
         //self.navigationController.interactivePopGestureRecognizer.enabled = YES;
         //self.navigationController.interactivePopGestureRecognizer.delegate = self;
     } else {
-        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:25.0f/255.0f green:188.0f/255.0f blue:149.0f/255.0f alpha:1.0f];
+        self.navigationController.navigationBar.tintColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     }
     

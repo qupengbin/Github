@@ -16,6 +16,11 @@
 #import "TabbarToolView.h"
 #import "MainLittleView.h"
 #import "LineViewController.h"
+#import "MyDaysViewController.h"
+#import "MyNearViewController.h"
+#import "GoWhereViewController.h"
+#import "TimeClockViewController.h"
+#import "SportViewController.h"
 
 @interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
@@ -23,6 +28,7 @@
     UITableView *_tableView;
     
     NSArray *nameArr;
+    NSArray *iconArr;
     
     SearchView *_searchView;
     TabbarToolView *_tabbarView;
@@ -52,6 +58,10 @@
                 @"我的一天",@"我的附近",@"小伙伴去哪",
                 @"乐行闹铃",@"运动健身",@"更多服务",];
 
+    iconArr = @[@"mainicon1.png",@"mainicon2.png",@"mainicon3.png",
+                @"mainicon4.png",@"mainicon5.png",@"mainicon6.png",
+                @"mainicon7.png",@"mainicon8.png",@"mainicon9.png",];
+    
     [self leftItem:[UIImage imageNamed:@"menubtn.png"] sel:@selector(menuAction:)];
     [self rightItem:[UIImage imageNamed:@"searchicon.png"] sel:@selector(searchAction:)];
     
@@ -87,6 +97,11 @@
     
     [self.view addSubview:_tableView];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    app.tabbar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,13 +167,15 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr index:indexPath.row];
+    [cell reloadData:nameArr icon:iconArr index:indexPath.row];
     return cell;
 }
 #pragma mark - MainViewCellDelegate
 - (void)iconBtnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
+    app.tabbar.hidden = NO;
+    
     if (btn.tag == 0) {
         //购物
         BuyViewController *buyView = [[BuyViewController alloc] init];
@@ -178,14 +195,29 @@
 
     } else if (btn.tag == 3) {
         //我的一天
+        MyDaysViewController *dayView = [[MyDaysViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
+
     } else if (btn.tag == 4) {
         //我的附件
+        MyNearViewController *dayView = [[MyNearViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
+
     } else if (btn.tag == 5) {
         //小伙伴去哪
+        GoWhereViewController *dayView = [[GoWhereViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
+
     } else if (btn.tag == 6) {
         //闹钟
+        TimeClockViewController *dayView = [[TimeClockViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
+
     } else if (btn.tag == 7) {
         //运动健身
+        SportViewController *dayView = [[SportViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
+
     } else if (btn.tag == 8) {
         //更多服务
     }

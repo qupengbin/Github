@@ -10,7 +10,7 @@
 #import "MenuViewController.h"
 #import "TabbarToolView.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,MenuViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,MenuViewDelegate,TabbarToolViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) TabbarToolView *tabbar;
