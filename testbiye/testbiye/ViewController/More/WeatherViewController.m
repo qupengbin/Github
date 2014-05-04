@@ -1,22 +1,24 @@
 //
-//  MoreViewController.m
+//  WeatherViewController.m
 //  testbiye
 //
-//  Created by qu on 14-5-3.
+//  Created by qu on 14-5-4.
 //  Copyright (c) 2014年 qupengbin. All rights reserved.
 //
 
-#import "MoreViewController.h"
+#import "WeatherViewController.h"
 
-@interface MoreViewController ()
-{
-    NSArray *nameArr;
-    NSArray *iconArr;
-}
+@interface WeatherViewController ()<UIScrollViewDelegate>
+
+@property(nonatomic,weak) IBOutlet UILabel *daylab; //星期
+@property(nonatomic,weak) IBOutlet UILabel *momlab; //日月
+@property(nonatomic,weak) IBOutlet UILabel *temperature; //温度
+
+@property(nonatomic,weak) IBOutlet UIScrollView *scroll;
 
 @end
 
-@implementation MoreViewController
+@implementation WeatherViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,15 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titlelab.text = @"更 多 服 务";
+    
+    self.titlelab.text = @"今 日 天 气";
+    
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-    
-    nameArr = @[@"今日推荐",@"超值热购",@"最旺人气",
-                @"活动秒杀",@"生活圈"];
-    
-    iconArr = @[@"nearicon1.png",@"nearicon2.png",@"nearicon3.png",
-                @"nearicon4.png",@"nearicon5.png"];
-    
 
     // Do any additional setup after loading the view from its nib.
 }

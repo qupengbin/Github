@@ -21,6 +21,7 @@
 #import "GoWhereViewController.h"
 #import "TimeClockViewController.h"
 #import "SportViewController.h"
+#import "MoreViewController.h"
 
 @interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
@@ -174,7 +175,7 @@
 - (void)iconBtnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    app.tabbar.hidden = NO;
+//    app.tabbar.hidden = NO;
     
     if (btn.tag == 0) {
         //购物
@@ -220,6 +221,8 @@
 
     } else if (btn.tag == 8) {
         //更多服务
+        MoreViewController *dayView = [[MoreViewController alloc] init];
+        [self.navigationController pushViewController:dayView animated:YES];
     }
 }
 
