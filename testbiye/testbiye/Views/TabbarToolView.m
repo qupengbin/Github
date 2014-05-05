@@ -10,7 +10,11 @@
 
 @interface TabbarToolView()
 {
+    UIScrollView *_scroll;
     
+    UIButton *_btn;
+    
+    UIImageView *_icon;
 }
 
 @end
@@ -39,11 +43,11 @@
     bg.image = [UIImage imageNamed:@"tabbgimg.png"];
     [self addSubview:bg];
     
-    UIScrollView *_scoll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
-    _scoll.showsHorizontalScrollIndicator = NO;
-    _scoll.showsVerticalScrollIndicator = NO;
+    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+    _scroll.showsHorizontalScrollIndicator = NO;
+    _scroll.showsVerticalScrollIndicator = NO;
     
-    [self addSubview:_scoll];
+    [self addSubview:_scroll];
     
     for (int i = 0; i < 9; i ++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(distance*(i+1)+25*i, 8, 25, 22)];
@@ -51,17 +55,29 @@
         [btn setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i;
-        [_scoll addSubview:btn];
+        [_scroll addSubview:btn];
         
         UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(distance*(i+1)+25*i, 27, 25, 22)];
-        [_scoll addSubview:name];
+        [_scroll addSubview:name];
         name.backgroundColor = [UIColor clearColor];
         name.textColor = [UIColor lightGrayColor];
         name.font = [UIFont systemFontOfSize:10.0];
         name.text = [arr objectAtIndex:i];
     }
     
-    [_scoll setContentSize:CGSizeMake((320/5)*9-25, 49)];
+    [_scroll setContentSize:CGSizeMake((320/5)*9-25, 49)];
+    _scroll.hidden = YES;
+    
+    _btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+    [_btn addTarget:self
+             action:@selector(showAction:)
+   forControlEvents:UIControlEventTouchUpInside];
+    _btn.backgroundColor = [UIColor clearColor];
+    [self addSubview:_btn];
+    
+    _icon = [[UIImageView alloc] initWithFrame:CGRectMake((320-37)/2, (49-7)/2, 37, 7)];
+    _icon.image = [UIImage imageNamed:@"tabbarshowicon.png"];
+    [self addSubview:_icon];
 }
 
 /*e
@@ -78,6 +94,17 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(TabbarToolSelectIndex:)]) {
         [self.delegate TabbarToolSelectIndex:sender];
     }
+}
+
+- (void)showAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if (btn.selected) {
+        _icon.hidden = btn.selected;
+        _btn.hidden = btn.selected;
+    }
+    btn.selected = !btn.selected;
+    
 }
 
 @end
