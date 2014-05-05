@@ -1412,5 +1412,38 @@
 			<string>76</string>
 		</dict>
 	</array>
+	<key>buycar</key>
+	<array>
+		<dict>
+			<key>icon</key>
+			<string>buycaricon1.png</string>
+			<key>name</key>
+			<string>极美孜然调味料</string>
+			<key>price</key>
+			<string>￥:5.4元</string>
+			<key>number</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>buycaricon2.png</string>
+			<key>name</key>
+			<string>西葫芦</string>
+			<key>price</key>
+			<string>￥:6.4元</string>
+			<key>number</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>buycaricon3.png</string>
+			<key>name</key>
+			<string>糖水黄桃水果罐头</string>
+			<key>price</key>
+			<string>￥:11.4元</string>
+			<key>number</key>
+			<string>1</string>
+		</dict>
+	</array>
 </dict>
 </plist>

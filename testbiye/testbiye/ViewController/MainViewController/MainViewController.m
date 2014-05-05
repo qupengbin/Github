@@ -22,6 +22,9 @@
 #import "TimeClockViewController.h"
 #import "SportViewController.h"
 #import "MoreViewController.h"
+#import "WeatherViewController.h"
+#import "DayAlertViewController.h"
+#import "BuyCarViewController.h"
 
 @interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
@@ -235,7 +238,16 @@
 #pragma mark - MainLittleViewDelegate
 - (void)MainLittleAction:(int)tag
 {
-    NSLog(@"tag %d",tag);
+    if (tag == 100) {
+        WeatherViewController *weather = [[WeatherViewController alloc] init];
+        [self.navigationController pushViewController:weather animated:YES];
+    } else if (tag == 200) {
+        DayAlertViewController *alert = [[DayAlertViewController alloc] init];
+        [self.navigationController pushViewController:alert animated:YES];
+    } else if (tag == 300) {
+        BuyCarViewController *alert = [[BuyCarViewController alloc] init];
+        [self.navigationController pushViewController:alert animated:YES];
+    }
 }
 
 @end

@@ -1,28 +1,26 @@
 //
-//  MyDaysViewController.m
+//  StoreDetailViewController.m
 //  testbiye
 //
-//  Created by qu on 14-5-1.
+//  Created by qupengbin on 14-5-5.
 //  Copyright (c) 2014年 qupengbin. All rights reserved.
 //
 
-#import "MyDaysViewController.h"
-#import "DayPlanViewController.h"
-#import "DayAlertViewController.h"
-#import "BuyPlanViewController.h"
+#import "StoreDetailViewController.h"
 #import "MainViewCell.h"
+#import "MHFileTool.h"
 
-@interface MyDaysViewController ()<UITableViewDelegate,UITableViewDataSource,MainViewCellDelegate>
+@interface StoreDetailViewController ()<MainViewCellDelegate,UITableViewDelegate,UITableViewDataSource>
 {
-    NSArray *nameArr;
-    NSArray *iconArr;
+    NSMutableArray *nameArr;
+    NSMutableArray *iconArr;
 }
 
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
 
 @end
 
-@implementation MyDaysViewController
+@implementation StoreDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,16 +34,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.titlelab.text = @"我 的 一 天";
+    self.titlelab.text = @"苏 果 便 利";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
 
-    nameArr = @[@"日程安排",@"活动提醒",@"餐饮预定",
-                @"购物计划",@"添加"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"buydata.plist"]];
+    NSArray *arr = [dict objectForKey:@"dataone"];
     
-    iconArr = @[@"mydayicon1.png",@"mydayicon2.png",@"mydayicon3.png",
-                @"mydayicon4.png",@"mydayicon5.png"];
+    nameArr = [[NSMutableArray alloc] init];
+    iconArr = [[NSMutableArray alloc] init];
 
+    for (int i = 0; i < arr.count; i++) {
+        NSDictionary *dic = [arr objectAtIndex:i];
+        [nameArr addObject:[dic objectForKey:@"name"]];
+        [iconArr addObject:[dic objectForKey:@"icon"]];
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -64,7 +67,7 @@
 #pragma mark - UITableViewDelegate/UITableViewDataSource
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,28 +86,6 @@
     }
     [cell reloadData:nameArr icon:iconArr index:indexPath.row];
     return cell;
-}
-
-#pragma mark - MainViewCellDelegate
-- (void)iconBtnAction:(id)sender
-{
-    UIButton *btn = (UIButton *)sender;
-    if (btn.tag == 0) {
-        DayPlanViewController *plan = [[DayPlanViewController alloc] init];
-        [self.navigationController pushViewController:plan animated:YES];
-    } else if (btn.tag == 1) {
-        DayAlertViewController *alert = [[DayAlertViewController alloc] init];
-        [self.navigationController pushViewController:alert animated:YES];
-        
-    } else if (btn.tag == 2) {
-        BuyPlanViewController *buy = [[BuyPlanViewController alloc] init];
-        [self.navigationController pushViewController:buy animated:YES];
-    } else if (btn.tag == 3) {
-        
-    } else if (btn.tag == 4) {
-        
-    }
-    
 }
 
 @end

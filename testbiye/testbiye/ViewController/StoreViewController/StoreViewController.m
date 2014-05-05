@@ -9,6 +9,7 @@
 #import "StoreViewController.h"
 #import "TopScrollView.h"
 #import "MHFileTool.h"
+#import "StoreDetailViewController.h"
 
 @interface StoreViewController ()<TopScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -141,7 +142,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 @end
