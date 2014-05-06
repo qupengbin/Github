@@ -10,4 +10,6 @@
 
 @interface StoreCell : UITableViewCell
 
+- (void)reloadData:(NSString *)icon name:(NSString *)name;
+
 @end

@@ -9,6 +9,7 @@
 #import "BuyCarViewController.h"
 #import "BuyCarCell.h"
 #import "MHFileTool.h"
+#import "MyIndentViewController.h"
 
 //购物车
 @interface BuyCarView()
@@ -78,6 +79,7 @@
     [commit setBackgroundImage:[UIImage imageNamed:@"loginbtn.png"] forState:UIControlStateNormal];
     [commit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [commit setTitle:@"提 交 订 单" forState:UIControlStateNormal];
+    [commit addTarget:self action:@selector(commitAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:commit];
 }
 
@@ -91,12 +93,18 @@
     } else if (btn.tag == 200) {
         payonln.selected = NO;
     }
-    
+}
+
+- (void)commitAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(buyCarCommitAction:)]) {
+        [self.delegate buyCarCommitAction:sender];
+    }
 }
 
 @end
 
-@interface BuyCarViewController ()<BuyCarCellDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface BuyCarViewController ()<BuyCarCellDelegate,UITableViewDelegate,UITableViewDataSource,BuyCarViewDelegate>
 {
     NSMutableArray *dataArr;
     
@@ -130,6 +138,7 @@
     
     
     footView = [[BuyCarView alloc] initWithFrame:CGRectMake(0, 0, 320, 120)];
+    footView.delegate = self;
     self.tabView.tableFooterView = footView;
     
     // Do any additional setup after loading the view from its nib.
@@ -145,6 +154,14 @@
 - (void)backBtnAction:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark
+- (void)buyCarCommitAction:(id)sender
+{
+    MyIndentViewController *indent = [[MyIndentViewController alloc] init];
+    indent.type = 2;
+    [self.navigationController pushViewController:indent animated:YES];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource

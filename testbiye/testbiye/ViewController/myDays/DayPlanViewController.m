@@ -7,8 +7,12 @@
 //
 
 #import "DayPlanViewController.h"
+#import "DaysScrollView.h"
 
 @interface DayPlanViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+{
+    DaysScrollView *_daysScroll;
+}
 
 @property(nonatomic,weak) IBOutlet UIScrollView *scroView;
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
@@ -32,6 +36,8 @@
     self.titlelab.text = @"日 程 安 排";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
 
+    _daysScroll = [[DaysScrollView alloc] initWithFrame:CGRectMake(0, 568-44-20-70-10, 320, 70)];
+    [self.view addSubview:_daysScroll];
     // Do any additional setup after loading the view from its nib.
 }
 

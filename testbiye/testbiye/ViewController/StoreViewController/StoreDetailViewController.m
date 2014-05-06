@@ -9,6 +9,7 @@
 #import "StoreDetailViewController.h"
 #import "MainViewCell.h"
 #import "MHFileTool.h"
+#import "BuyCarViewController.h"
 
 @interface StoreDetailViewController ()<MainViewCellDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -36,9 +37,24 @@
     [super viewDidLoad];
     self.titlelab.text = @"苏 果 便 利";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-
+    [self rightItem:[UIImage imageNamed:@"buycarimg.png"] sel:@selector(buycarBtnAction:)];
+    
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"buydata.plist"]];
-    NSArray *arr = [dict objectForKey:@"dataone"];
+    
+    NSArray *arr = nil;
+    if (self.type == 1) {
+        arr = [dict objectForKey:@"dataone"];
+    }if (self.type == 2) {
+        arr = [dict objectForKey:@"datatwo"];
+    }if (self.type == 3) {
+        arr = [dict objectForKey:@"datathree"];
+    }if (self.type == 4) {
+        arr = [dict objectForKey:@"datafour"];
+    }if (self.type == 5) {
+        arr = [dict objectForKey:@"datafive"];
+    }if (self.type == 6) {
+        arr = [dict objectForKey:@"datasix"];
+    }
     
     nameArr = [[NSMutableArray alloc] init];
     iconArr = [[NSMutableArray alloc] init];
@@ -62,6 +78,12 @@
 - (void)backBtnAction:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)buycarBtnAction:(id)sender
+{
+    BuyCarViewController *buycar = [[BuyCarViewController alloc] init];
+    [self.navigationController pushViewController:buycar animated:YES];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource

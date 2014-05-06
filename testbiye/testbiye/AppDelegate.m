@@ -12,6 +12,9 @@
 #import "ICSDrawerController.h"
 #import "MenuViewController.h"
 #import "LoginViewController.h"
+#import "MyFavoriteViewController.h"
+#import "MyIntegralViewController.h"
+#import "MyIndentViewController.h"
 
 AppDelegate *app;
 
@@ -81,7 +84,32 @@ AppDelegate *app;
 #pragma mark - MenuViewDelegate
 - (void)tableviewSelect:(int)index
 {
-    
+    if (index == 0) {
+        //我的积分
+        MyIntegralViewController *integ = [[MyIntegralViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:^{
+            
+        }];
+
+    } else if (index == 1) {
+        //我的订单
+        MyIndentViewController *integ = [[MyIndentViewController alloc] init];
+        integ.type = 1;
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:^{
+            
+        }];
+    } else if (index == 2) {
+        //消费统计
+    } else if (index == 3) {
+        //我的收藏
+        MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (void)loginOrRegistAction

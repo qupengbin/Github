@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
+@protocol BuyCarViewDelegate <NSObject>
+@optional
+
+- (void)buyCarCommitAction:(id)sender;
+
+@end
+
 //购物车
 @interface BuyCarView : UIView
+
+@property(nonatomic,assign) id<BuyCarViewDelegate> delegate;
 
 @end
 

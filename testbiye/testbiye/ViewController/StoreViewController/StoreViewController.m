@@ -10,6 +10,7 @@
 #import "TopScrollView.h"
 #import "MHFileTool.h"
 #import "StoreDetailViewController.h"
+#import "StoreCell.h"
 
 @interface StoreViewController ()<TopScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -19,6 +20,8 @@
     TopScrollView *_topScrollView;
     
     NSArray *dataArr;
+    NSMutableArray *iconArr;
+    NSMutableArray *nameArr;
 }
 @end
 
@@ -56,7 +59,7 @@
     [_topScrollView reloadDataWithPictures:arr infos:nil];
     [self.view addSubview:_topScrollView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, self.view.bounds.size.height-230-44-20) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, self.view.bounds.size.height-230-44-20-12) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -71,24 +74,21 @@
 - (void)initdata
 {
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"storedata.plist"]];
+    dataArr = [dict objectForKey:@"allclass"];
     
-    switch (nowType) {
-        case 1:
-            dataArr = [dict objectForKey:@"allclass"];
-            break;
-        case 2:
-            dataArr = [dict objectForKey:@"shops"];
-            break;
-        case 3:
-            dataArr = [dict objectForKey:@"clothing"];
-            break;
-        case 4:
-            dataArr = [dict objectForKey:@"supermarket"];
-            break;
-            
-        default:
-            break;
+    if (iconArr == nil) {
+        iconArr = [[NSMutableArray alloc] init];
     }
+    if (nameArr == nil) {
+        nameArr = [[NSMutableArray alloc] init];
+    }
+
+    for (int i = 0; i < dataArr.count; i++) {
+        NSDictionary *dic = [dataArr objectAtIndex:i];
+        [iconArr addObject:[dic objectForKey:@"icon"]];
+        [nameArr addObject:[dic objectForKey:@"name"]];
+    }
+    
     [_tableView reloadData];
 }
 
@@ -111,38 +111,38 @@
 #pragma mark - TopScrollViewDelegate
 - (void)topScrollViewAction:(int)index
 {
-    
+    StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];
+    detail.type = index+1;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataArr.count;
+    return nameArr.count;
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40.0f;
+    return 49.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *string = @"BuyViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    StoreCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell = [[StoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
-    cell.textLabel.text = [[dataArr objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.imageView.image = [UIImage imageNamed:@"buyicon1.png"];
-//    [cell reloadData:dataArr index:indexPath.row];
+    [cell reloadData:[iconArr objectAtIndex:indexPath.row] name:[nameArr objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];
+    detail.type = indexPath.row+1;
     [self.navigationController pushViewController:detail animated:YES];
 }
 

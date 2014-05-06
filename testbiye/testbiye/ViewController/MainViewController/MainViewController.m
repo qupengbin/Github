@@ -25,6 +25,7 @@
 #import "WeatherViewController.h"
 #import "DayAlertViewController.h"
 #import "BuyCarViewController.h"
+#import "StoreDetailViewController.h"
 
 @interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
@@ -232,7 +233,9 @@
 #pragma mark - CycleScrollViewDelegate
 - (void)topScrollViewAction:(int)index
 {
-    NSLog(@"now select top index %d",index);
+    StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];
+    detail.type = index+1;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - MainLittleViewDelegate
