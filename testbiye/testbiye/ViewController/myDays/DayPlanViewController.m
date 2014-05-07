@@ -8,13 +8,17 @@
 
 #import "DayPlanViewController.h"
 #import "DaysScrollView.h"
+#import "ChangeScrollView.h"
+#import "MHFileTool.h"
 
-@interface DayPlanViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface DayPlanViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
+    NSArray *allData;
+    NSArray *indexData;
     DaysScrollView *_daysScroll;
+    ChangeScrollView *_changeScroll;
 }
 
-@property(nonatomic,weak) IBOutlet UIScrollView *scroView;
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
 
 @end
@@ -35,9 +39,17 @@
     [super viewDidLoad];
     self.titlelab.text = @"日 程 安 排";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"datasource.plist"]];
+    allData = [dict objectForKey:@"dayplan"];
+    indexData = [allData objectAtIndex:0];
+    
     _daysScroll = [[DaysScrollView alloc] initWithFrame:CGRectMake(0, 568-44-20-70-10, 320, 70)];
     [self.view addSubview:_daysScroll];
+    
+    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, _daysScroll.frame.origin.y-117, 320, 117)];
+    [_changeScroll reloadData:nil icon:@""];
+    [self.view addSubview:_changeScroll];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -47,6 +59,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - DaysScrollViewDelegate
+- (void)daysScrollViewSelectIndex:(int)index
+{
+    [_changeScroll changeViewToIndex:index];
+    indexData = [allData objectAtIndex:index];
+}
+
+#pragma mark - ChangeScrollViewDelegate
+- (void)changeScrollViewIndex:(int)index
+{
+    [_daysScroll changeDaysToIndex:index];
+    indexData = [allData objectAtIndex:index];
+}
+
 #pragma mark - BtnAction
 - (void)backBtnAction:(id)sender
 {
@@ -54,28 +80,26 @@
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return indexData.count;
 }
 
-- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110.0f;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *string = @"myDaysCell";
-//    MainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
-//    if (cell == nil) {
-//        cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        cell.delegate = self;
-//    }
-//    [cell reloadData:nameArr icon:iconArr index:indexPath.row];
-//    return cell;
-    return nil;
+    static NSString *string = @"myDayPlanCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.textLabel.text = [indexData objectAtIndex:indexPath.row];
+    return cell;
 }
 
 @end

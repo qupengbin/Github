@@ -98,16 +98,21 @@
     _xin.textColor = [UIColor lightGrayColor];
 }
 
-- (void)btnAction:(id)sender
+- (void)showSelected
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dayBtnAction:)]) {
-        [self.delegate dayBtnAction:sender];
-    }
     _selimg.hidden = NO;
     _bgimg.hidden = YES;
     
     _day.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
     _xin.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
+}
+
+- (void)btnAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dayBtnAction:)]) {
+        [self.delegate dayBtnAction:sender];
+    }
+    [self showSelected];
 }
 
 @end
@@ -183,14 +188,36 @@
 
 - (void)dayBtnAction:(id)sender
 {
+    UIButton *btna = (UIButton *)sender;
+
     for (UIView *vi in _scroll.subviews) {
         if ([vi isKindOfClass:[DayButton class]]) {
             DayButton *btn = (DayButton *)vi;
             [btn hiddenSelected];
+            if (btn.tag == btna.tag) {
+                [_scroll scrollRectToVisible:CGRectMake(btn.center.x+115, 0, btn.frame.size.width, btn.frame.size.height) animated:YES];
+            }
         }
     }
-    UIButton *btn = (UIButton *)sender;
-    NSLog(@"now select index %d",btn.tag);
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(daysScrollViewSelectIndex:)]) {
+        [self.delegate daysScrollViewSelectIndex:btna.tag];
+    }
+}
+
+- (void)changeDaysToIndex:(int)index
+{
+    for (UIView *vi in _scroll.subviews) {
+        if ([vi isKindOfClass:[DayButton class]]) {
+            DayButton *btn = (DayButton *)vi;
+            [btn hiddenSelected];
+            if (btn.tag == index) {
+                [btn showSelected];
+                [_scroll scrollRectToVisible:CGRectMake(btn.center.x+115, 0, btn.frame.size.width, btn.frame.size.height) animated:YES];
+            }
+        }
+    }
+    
 }
 
 @end

@@ -8,10 +8,12 @@
 
 #import "MyIntegralViewController.h"
 #import "DaysScrollView.h"
+#import "ChangeScrollView.h"
 
-@interface MyIntegralViewController ()
+@interface MyIntegralViewController ()<DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
     DaysScrollView *_daysScroll;
+    ChangeScrollView *_changeScroll;
 }
 
 @end
@@ -35,6 +37,10 @@
     
     _daysScroll = [[DaysScrollView alloc] initWithFrame:CGRectMake(0, 568-44-20-70-10, 320, 70)];
     [self.view addSubview:_daysScroll];
+    
+    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, _daysScroll.frame.origin.y-117, 320, 117)];
+    [_changeScroll reloadData:nil icon:@""];
+    [self.view addSubview:_changeScroll];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,6 +49,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - DaysScrollViewDelegate
+- (void)daysScrollViewSelectIndex:(int)index
+{
+    [_changeScroll changeViewToIndex:index];
+}
+
+#pragma mark - ChangeScrollViewDelegate
+- (void)changeScrollViewIndex:(int)index
+{
+    [_daysScroll changeDaysToIndex:index];
 }
 
 #pragma mark - BtnAction

@@ -8,9 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChangeViewDelegate <NSObject>
+@optional
+
+- (void)changeViewBtnAction:(int)index;
+
+@end
+
+@interface ChangeView : UIView
+
+@property(nonatomic,assign) id<ChangeViewDelegate> delegate;
+
+@end
+
+@protocol ChangeScrollViewDelegate <NSObject>
+@optional
+
+- (void)changeScrollViewIndex:(int)index;
+
+@end
+
 @interface ChangeScrollView : UIView
 
-- (void)reloadData:(NSArray *)arr
-             image:(UIImage *)image;
+@property(nonatomic,assign) id<ChangeScrollViewDelegate> delegate;
+
+- (void)changeViewToIndex:(int)index;
+
+- (void)reloadData:(NSArray *)arr icon:(NSString *)icon;
 
 @end

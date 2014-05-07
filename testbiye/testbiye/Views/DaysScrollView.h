@@ -22,6 +22,16 @@
 @end
 
 
+@protocol DaysScrollViewDelegate <NSObject>
+@optional
+
+- (void)daysScrollViewSelectIndex:(int)index;
+
+@end
 @interface DaysScrollView : UIView
+
+@property(nonatomic,assign) id<DaysScrollViewDelegate> delegate;
+
+- (void)changeDaysToIndex:(int)index;
 
 @end
