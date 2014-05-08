@@ -15,6 +15,7 @@
 #import "MyFavoriteViewController.h"
 #import "MyIntegralViewController.h"
 #import "MyIndentViewController.h"
+#import "StatisticsViewController.h"
 
 AppDelegate *app;
 
@@ -102,6 +103,12 @@ AppDelegate *app;
         }];
     } else if (index == 2) {
         //消费统计
+        StatisticsViewController *favorite = [[StatisticsViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:^{
+            
+        }];
+
     } else if (index == 3) {
         //我的收藏
         MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];

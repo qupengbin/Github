@@ -11,6 +11,7 @@
 #import "DayAlertViewController.h"
 #import "BuyPlanViewController.h"
 #import "MainViewCell.h"
+#import "YudingViewController.h"
 
 @interface MyDaysViewController ()<UITableViewDelegate,UITableViewDataSource,MainViewCellDelegate>
 {
@@ -97,10 +98,12 @@
         [self.navigationController pushViewController:alert animated:YES];
         
     } else if (btn.tag == 2) {
+        YudingViewController *yuding = [[YudingViewController alloc] init];
+        [self.navigationController pushViewController:yuding animated:YES];
+    } else if (btn.tag == 3) {
         BuyPlanViewController *buy = [[BuyPlanViewController alloc] init];
         [self.navigationController pushViewController:buy animated:YES];
-    } else if (btn.tag == 3) {
-        
+
     } else if (btn.tag == 4) {
         
     }
