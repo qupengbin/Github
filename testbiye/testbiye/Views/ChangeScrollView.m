@@ -11,6 +11,8 @@
 @interface ChangeView()
 {
     UIImage *_image;
+    UILabel *_momlab;
+    UILabel *_titlelab;
     UIImageView *iconimg;
 }
 
@@ -19,7 +21,7 @@
 //变小
 - (void)refrushSmall;
 //平常
-- (void)refrushNomal;
+- (void)refrushNomal:(int)index;
 
 @end
 
@@ -46,6 +48,19 @@
     iconimg.image = image;
     [self addSubview:iconimg];
     
+    _titlelab = [[UILabel alloc] initWithFrame:CGRectMake((self.frame.size.width-100)/2+2, 65, 100, 40)];
+    [self addSubview:_titlelab];
+    _titlelab.textColor = [UIColor whiteColor];
+    _titlelab.textAlignment = NSTextAlignmentCenter;
+    _titlelab.font = [UIFont systemFontOfSize:30.0f];
+    
+    _momlab = [[UILabel alloc] initWithFrame:CGRectMake((self.frame.size.width-100)/2, 95, 100, 30)];
+    [self addSubview:_momlab];
+    _momlab.textColor = [UIColor whiteColor];
+    _momlab.textAlignment = NSTextAlignmentCenter;
+    _momlab.font = [UIFont systemFontOfSize:12.0f];
+
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:self.bounds];
     [btn addTarget:self
             action:@selector(btnAction:)
@@ -56,6 +71,8 @@
 - (void)reloadData:(NSString *)title index:(int)index
 {
     self.tag = index;
+    _titlelab.text = [NSString stringWithFormat:@"%d日",index+1];
+    _momlab.text = @"03月";
 }
 
 //变小
@@ -63,14 +80,20 @@
 {
     float w = _image.size.width-50;
     float h = _image.size.height-50;
+    _titlelab.font = [UIFont systemFontOfSize:24.0f];
+    _momlab.font = [UIFont systemFontOfSize:8.0f];
+
     iconimg.frame = CGRectMake((self.frame.size.width-w)/2, (self.frame.size.height-h)/2, w, h);
 }
 
 //平常
-- (void)refrushNomal
+- (void)refrushNomal:(int)index
 {
     float w = _image.size.width;
     float h = _image.size.height;
+    _titlelab.font = [UIFont systemFontOfSize:30.0f];
+    _momlab.font = [UIFont systemFontOfSize:12.0f];
+
     iconimg.frame = CGRectMake((self.frame.size.width-w)/2, (self.frame.size.height-h)/2, w, h);
 }
 
@@ -116,7 +139,7 @@
     for (int i = 0; i < arr.count; i++) {
         ChangeView *view = [[ChangeView alloc] initWithFrame:CGRectMake(i*160, 0, 160, self.frame.size.height) image:[UIImage imageNamed:icon]];
         view.backgroundColor = [UIColor clearColor];
-        [view reloadData:@"a" index:i];
+        [view reloadData:[arr objectAtIndex:i] index:i];
         view.delegate = self;
         [_scroll addSubview:view];
     }
@@ -130,7 +153,7 @@
             ChangeView *change = (ChangeView *)vi;
             [change refrushSmall];
             if (change.tag == index) {
-                [change refrushNomal];
+                [change refrushNomal:index];
                 NSLog(@"change.center.x   %f",change.center.x);
                 [_scroll scrollRectToVisible:CGRectMake(change.center.x, 0, change.frame.size.width, change.frame.size.height) animated:YES];
             }
@@ -146,7 +169,7 @@
             ChangeView *change = (ChangeView *)vi;
             [change refrushSmall];
             if (change.tag == index) {
-                [change refrushNomal];
+                [change refrushNomal:index];
                 NSLog(@"change.center.x   %f",change.center.x);
                 [_scroll scrollRectToVisible:CGRectMake(change.center.x, 0, change.frame.size.width, change.frame.size.height) animated:YES];
             }

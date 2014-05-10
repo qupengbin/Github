@@ -45,11 +45,16 @@
     indexData = [allData objectAtIndex:0];
     
     _daysScroll = [[DaysScrollView alloc] initWithFrame:CGRectMake(0, 568-44-20-70-10, 320, 70)];
+    _daysScroll.delegate = self;
     [self.view addSubview:_daysScroll];
     
-    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, _daysScroll.frame.origin.y-117, 320, 117)];
-    [_changeScroll reloadData:nil icon:@""];
+    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, 50 , 320, 177)];
+    _changeScroll.delegate = self;
+    [_changeScroll reloadData:allData icon:@"dayplanicon.png"];
     [self.view addSubview:_changeScroll];
+    
+    [self daysScrollViewSelectIndex:1];
+    [self changeScrollViewIndex:1];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -64,6 +69,7 @@
 {
     [_changeScroll changeViewToIndex:index];
     indexData = [allData objectAtIndex:index];
+    [self.tabView reloadData];
 }
 
 #pragma mark - ChangeScrollViewDelegate
@@ -71,6 +77,7 @@
 {
     [_daysScroll changeDaysToIndex:index];
     indexData = [allData objectAtIndex:index];
+    [self.tabView reloadData];
 }
 
 #pragma mark - BtnAction
@@ -87,7 +94,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 20;
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,6 +105,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
     cell.textLabel.text = [indexData objectAtIndex:indexPath.row];
     return cell;
 }

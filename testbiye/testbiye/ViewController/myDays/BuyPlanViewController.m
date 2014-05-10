@@ -7,8 +7,15 @@
 //
 
 #import "BuyPlanViewController.h"
+#import "MHFileTool.h"
+#import "StatisCell.h"
 
-@interface BuyPlanViewController ()
+@interface BuyPlanViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray *dayArr;
+}
+
+@property(nonatomic,weak) IBOutlet UITableView *tabView;
 
 @end
 
@@ -29,8 +36,14 @@
     
     self.titlelab.text = @"购 物 计 划";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-
+    [self initdata];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)initdata
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"statis.plist"]];
+    dayArr = [dict objectForKey:@"day"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,4 +57,29 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - UITableViewDelegate/UITableViewDataSource
+- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return dayArr.count;
+}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 175.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *string = @"BuyViewCell";
+    StatisCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    if (cell == nil) {
+        cell = [[StatisCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    [cell reloadData:[dayArr objectAtIndex:indexPath.row]
+               index:indexPath.row];
+    return cell;
+}
+
 @end

@@ -32,18 +32,20 @@
 
 - (void)initview
 {
-    _icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 82, 101)];
+    float w = self.frame.size.width;
+    float h = self.frame.size.height;
+    
+    _icon = [[UIImageView alloc] initWithFrame:CGRectMake((w-82)/2, 0, 82, 101)];
     [self addSubview:_icon];
     
-    _price = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 40)];
+    _price = [[UILabel alloc] initWithFrame:CGRectMake((w-82)/2, 20, 82, 40)];
     _price.backgroundColor = [UIColor clearColor];
     _price.textColor = [UIColor whiteColor];
     _price.textAlignment = NSTextAlignmentCenter;
     _price.font = [UIFont systemFontOfSize:20.0f];
-    _price.center = _icon.center;
     [self addSubview:_price];
     
-    _name = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, 82, 20)];
+    _name = [[UILabel alloc] initWithFrame:CGRectMake((w-82)/2, h-25, 82, 20)];
     _name.backgroundColor = [UIColor clearColor];
     _name.textColor = [UIColor lightGrayColor];
     _name.textAlignment = NSTextAlignmentCenter;
@@ -88,23 +90,24 @@
 {
     float distance = 320/3;
     
-    _daylab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    _daylab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 30, 30)];
     _daylab.backgroundColor = [UIColor clearColor];
     _daylab.textAlignment = NSTextAlignmentCenter;
-    _daylab.font = [UIFont systemFontOfSize:20.0f];
+    _daylab.font = [UIFont systemFontOfSize:26.0f];
     [self addSubview:_daylab];
     
-    _momlab = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, 30, 20)];
+    _momlab = [[UILabel alloc] initWithFrame:CGRectMake(50, 8, 30, 20)];
     _momlab.backgroundColor = [UIColor clearColor];
     _momlab.font = [UIFont systemFontOfSize:14.0f];
+    _momlab.text = @"三月";
     [self addSubview:_momlab];
 
-    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, 320, 155)];
+    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 320, 155)];
     for (int i = 0; i < 6; i++) {
         StatisIconView *iconView = [[StatisIconView alloc] initWithFrame:CGRectMake(distance*i, 0, distance, 101+30)];
         [_scroll addSubview:iconView];
     }
-    
+    _scroll.contentSize = CGSizeMake(distance*6, 155);
     [self addSubview:_scroll];
 }
 
@@ -116,9 +119,10 @@
 }
 
 
-- (void)reloadData:(NSArray *)data
+- (void)reloadData:(NSArray *)data index:(int)index
 {
     int num = 0;
+    _daylab.text = [NSString stringWithFormat:@"%d",index+21];
     for (UIView *vi in _scroll.subviews) {
         if ([vi isKindOfClass:[StatisIconView class]]) {
             NSDictionary *dict = [data objectAtIndex:num];

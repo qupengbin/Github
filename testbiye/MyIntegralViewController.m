@@ -9,9 +9,11 @@
 #import "MyIntegralViewController.h"
 #import "DaysScrollView.h"
 #import "ChangeScrollView.h"
+#import "MHFileTool.h"
 
 @interface MyIntegralViewController ()<DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
+    NSArray *allData;
     DaysScrollView *_daysScroll;
     ChangeScrollView *_changeScroll;
 }
@@ -35,12 +37,20 @@
     self.titlelab.text = @"我 的 积 分";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
     
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"datasource.plist"]];
+    allData = [dict objectForKey:@"dayplan"];
+
     _daysScroll = [[DaysScrollView alloc] initWithFrame:CGRectMake(0, 568-44-20-70-10, 320, 70)];
+    _daysScroll.delegate = self;
     [self.view addSubview:_daysScroll];
     
-    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, _daysScroll.frame.origin.y-117, 320, 117)];
-    [_changeScroll reloadData:nil icon:@""];
+    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, 245 , 320, 177)];
+    _changeScroll.delegate = self;
+    [_changeScroll reloadData:allData icon:@"myintegralicon.png"];
     [self.view addSubview:_changeScroll];
+    
+    [self daysScrollViewSelectIndex:1];
+    [self changeScrollViewIndex:1];
 
     // Do any additional setup after loading the view from its nib.
 }
