@@ -14,6 +14,7 @@
     
     UIButton *_btn;
     
+    UIImageView *_bg;
     UIImageView *_icon;
 }
 
@@ -39,9 +40,10 @@
                     @"一 天",@"附 近",@"去 哪",
                     @"闹 铃",@"运 动",@"更 多",];
     
-    UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
-    bg.image = [UIImage imageNamed:@"tabbgimg.png"];
-    [self addSubview:bg];
+    _bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+    _bg.image = [UIImage imageNamed:@"tabbgimg.png"];
+    [self addSubview:_bg];
+    _bg.hidden = YES;
     
     _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
     _scroll.showsHorizontalScrollIndicator = NO;
@@ -96,12 +98,23 @@
     }
 }
 
+- (void)setTabbarToolHidden
+{
+    _icon.hidden = NO;
+    _btn.hidden = NO;
+    _bg.hidden = YES;
+    _scroll.hidden = YES;
+    _btn.selected = NO;
+}
+
 - (void)showAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    if (btn.selected) {
-        _icon.hidden = btn.selected;
-        _btn.hidden = btn.selected;
+    if (!btn.selected) {
+        _icon.hidden = !btn.selected;
+        _btn.hidden = !btn.selected;
+        _scroll.hidden = btn.selected;
+        _bg.hidden = btn.selected;
     }
     btn.selected = !btn.selected;
     

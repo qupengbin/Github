@@ -19,4 +19,6 @@
 
 @property(nonatomic,assign) id<TabbarToolViewDelegate> delegate;
 
+- (void)setTabbarToolHidden;
+
 @end

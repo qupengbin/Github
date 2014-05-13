@@ -34,6 +34,8 @@
 
 - (void)changeViewToIndex:(int)index;
 
-- (void)reloadData:(NSArray *)arr icon:(NSString *)icon;
+- (void)reloadData:(NSArray *)arr
+              icon:(NSString *)icon
+              type:(int)type;
 
 @end

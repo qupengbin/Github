@@ -11,11 +11,14 @@
 #import "ClassView.h"
 #import "BuyViewCell.h"
 #import "StoreViewController.h"
+#import "SortView.h"
 
-@interface BuyViewController ()<UITableViewDataSource,UITableViewDelegate,ClassViewDelegate>
+@interface BuyViewController ()<UITableViewDataSource,UITableViewDelegate,ClassViewDelegate,SortViewDelegate>
 {
     int buyType;
     NSArray *dataArr;
+    ClassView *_classView;
+    SortView *_sortView;
     UITableView *_tableView;
 }
 
@@ -46,17 +49,21 @@
 
 - (void)initview
 {
-    ClassView *classview = [[ClassView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-    classview.backgroundColor = [UIColor clearColor];
-    classview.delegate = self;
-    [classview setClassType:buyType];
-    [self.view addSubview:classview];
+    _classView = [[ClassView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    _classView.backgroundColor = [UIColor clearColor];
+    _classView.delegate = self;
+    [_classView setClassType:buyType];
+    [self.view addSubview:_classView];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, self.view.bounds.size.height-40-44-20) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+    _sortView = [[SortView alloc] initWithFrame:CGRectMake(320, 0, 200, self.view.bounds.size.height)];
+    _sortView.delegate = self;
+    [self.view addSubview:_sortView];
 }
 
 - (void)initdata
@@ -136,7 +143,26 @@
 
 - (void)sortBtnAction:(id)sender
 {
+    UIButton *btn = (UIButton *)sender;
     
+    if (!btn.selected) {
+        [UIView animateWithDuration:0.3f animations:^{
+            _tableView.frame = CGRectMake(-200, 40, 320, self.view.frame.size.height);
+            _classView.frame = CGRectMake(-200, 0, 320, 40);
+            _sortView.frame = CGRectMake(320-200, 0, 200, self.view.frame.size.height);
+        } completion:^(BOOL finished) {
+            
+        }];
+    } else {
+        [UIView animateWithDuration:0.3f animations:^{
+            _tableView.frame = CGRectMake(0, 40, 320, self.view.frame.size.height);
+            _classView.frame = CGRectMake(0, 0, 320, 40);
+            _sortView.frame = CGRectMake(320, 0, 200, self.view.frame.size.height);
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    btn.selected = !btn.selected;
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
@@ -172,6 +198,20 @@
     
     [storeView setNowTypeAndTitle:[dict objectForKey:@"name"]];
 
+}
+
+#pragma mark - SortViewDelegate
+- (void)sortViewDidSelect:(int)index
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        _tableView.frame = CGRectMake(0, 40, 320, self.view.frame.size.height);
+        _classView.frame = CGRectMake(0, 0, 320, 40);
+        _sortView.frame = CGRectMake(320, 0, 200, self.view.frame.size.height);
+    } completion:^(BOOL finished) {
+        self.type = index;
+        [self initdata];
+        [_tableView reloadData];
+    }];
 }
 
 #pragma mark - ClassViewDelegate

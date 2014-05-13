@@ -10,13 +10,16 @@
 
 @interface ChangeView()
 {
+    int _type;
     UIImage *_image;
     UILabel *_momlab;
     UILabel *_titlelab;
     UIImageView *iconimg;
 }
 
-- (void)reloadData:(NSString *)title index:(int)index;
+- (void)reloadData:(NSString *)title
+             index:(int)index
+              type:(int)type;
 
 //变小
 - (void)refrushSmall;
@@ -68,11 +71,29 @@
     [self addSubview:btn];
 }
 
-- (void)reloadData:(NSString *)title index:(int)index
+- (void)reloadData:(NSString *)title index:(int)index type:(int)type
 {
     self.tag = index;
-    _titlelab.text = [NSString stringWithFormat:@"%d日",index+1];
-    _momlab.text = @"03月";
+    _type = type;
+    if (type == 1) {
+        _titlelab.text = [NSString stringWithFormat:@"%d日",index+1];
+        _momlab.text = @"03月";
+        
+        _titlelab.textColor = [UIColor whiteColor];
+        _momlab.textColor = [UIColor whiteColor];
+        
+        _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 65, 100, 40);
+        _momlab.frame = CGRectMake((self.frame.size.width-100)/2, 95, 100, 30);
+    } else if (type == 2) {
+        _titlelab.text = [NSString stringWithFormat:@"%d",index*100+index*10+10];
+        _momlab.text = [NSString stringWithFormat:@"%d",index+1];
+
+        _titlelab.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
+//        _momlab.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
+
+        _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 65, 100, 40);
+        _momlab.frame = CGRectMake(18, 96, 30, 30);
+    }
 }
 
 //变小
@@ -80,9 +101,18 @@
 {
     float w = _image.size.width-50;
     float h = _image.size.height-50;
-    _titlelab.font = [UIFont systemFontOfSize:24.0f];
-    _momlab.font = [UIFont systemFontOfSize:8.0f];
 
+    if (_type == 1) {
+        _titlelab.font = [UIFont systemFontOfSize:24.0f];
+        _momlab.font = [UIFont systemFontOfSize:8.0f];
+        
+    } else if (_type == 2) {
+        _titlelab.font = [UIFont systemFontOfSize:18.0f];
+        _momlab.font = [UIFont systemFontOfSize:7.0f];
+
+        _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 70, 100, 40);
+        _momlab.frame = CGRectMake(37, 87, 30, 30);
+    }
     iconimg.frame = CGRectMake((self.frame.size.width-w)/2, (self.frame.size.height-h)/2, w, h);
 }
 
@@ -91,9 +121,18 @@
 {
     float w = _image.size.width;
     float h = _image.size.height;
-    _titlelab.font = [UIFont systemFontOfSize:30.0f];
-    _momlab.font = [UIFont systemFontOfSize:12.0f];
 
+    if (_type == 1) {
+        _titlelab.font = [UIFont systemFontOfSize:30.0f];
+        _momlab.font = [UIFont systemFontOfSize:12.0f];
+        
+    } else if (_type == 2) {
+        _titlelab.font = [UIFont systemFontOfSize:30.0f];
+        _momlab.font = [UIFont systemFontOfSize:12.0f];
+        
+        _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 65, 100, 40);
+        _momlab.frame = CGRectMake(18, 96, 30, 30);
+    }
     iconimg.frame = CGRectMake((self.frame.size.width-w)/2, (self.frame.size.height-h)/2, w, h);
 }
 
@@ -134,12 +173,16 @@
     [self addSubview:_scroll];
 }
 
-- (void)reloadData:(NSArray *)arr icon:(NSString *)icon
+- (void)reloadData:(NSArray *)arr
+              icon:(NSString *)icon
+              type:(int)type
 {
     for (int i = 0; i < arr.count; i++) {
-        ChangeView *view = [[ChangeView alloc] initWithFrame:CGRectMake(i*160, 0, 160, self.frame.size.height) image:[UIImage imageNamed:icon]];
+        ChangeView *view = [[ChangeView alloc]
+                            initWithFrame:CGRectMake(i*160, 0, 160, self.frame.size.height)
+                            image:[UIImage imageNamed:icon]];
         view.backgroundColor = [UIColor clearColor];
-        [view reloadData:[arr objectAtIndex:i] index:i];
+        [view reloadData:[arr objectAtIndex:i] index:i type:type];
         view.delegate = self;
         [_scroll addSubview:view];
     }

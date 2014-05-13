@@ -107,6 +107,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     app.tabbar.hidden = YES;
+    [app.tabbar setTabbarToolHidden];
 }
 
 - (void)didReceiveMemoryWarning
@@ -179,7 +180,7 @@
 - (void)iconBtnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-//    app.tabbar.hidden = NO;
+    app.tabbar.hidden = NO;
     
     if (btn.tag == 0) {
         //购物

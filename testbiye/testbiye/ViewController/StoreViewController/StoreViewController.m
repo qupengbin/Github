@@ -11,6 +11,7 @@
 #import "MHFileTool.h"
 #import "StoreDetailViewController.h"
 #import "StoreCell.h"
+#import "SortView.h"
 
 @interface StoreViewController ()<TopScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -59,11 +60,11 @@
     [_topScrollView reloadDataWithPictures:arr infos:nil];
     [self.view addSubview:_topScrollView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, self.view.bounds.size.height-230-44-20-12) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, 320, self.view.bounds.size.height-230-44-20) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+        
     nowType = 1;
     
     [self initdata];

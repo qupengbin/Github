@@ -46,7 +46,7 @@
     
     _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, 245 , 320, 177)];
     _changeScroll.delegate = self;
-    [_changeScroll reloadData:allData icon:@"myintegralicon.png"];
+    [_changeScroll reloadData:allData icon:@"myintegralicon.png" type:2];
     [self.view addSubview:_changeScroll];
     
     [self daysScrollViewSelectIndex:1];
