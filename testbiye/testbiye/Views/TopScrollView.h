@@ -18,6 +18,6 @@
 
 @property(nonatomic,assign) id<TopScrollViewDelegate> delegate;
 
-- (void)reloadDataWithPictures:(NSArray *)picts infos:(NSDictionary *)infos;
+- (void)reloadDataWithPictures:(NSArray *)picts infos:(NSArray *)infos;
 
 @end

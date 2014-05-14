@@ -69,6 +69,7 @@
 		7DF6C6501918895500F0233E /* buycarimg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C64F1918895500F0233E /* buycarimg@2x.png */; };
 		7DF6C65519188ADB00F0233E /* MyFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6C65319188ADB00F0233E /* MyFavoriteViewController.m */; };
 		7DF6C65619188ADB00F0233E /* MyFavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C65419188ADB00F0233E /* MyFavoriteViewController.xib */; };
+		9207C70F1923BD7D005777D3 /* timeclockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9207C70E1923BD7D005777D3 /* timeclockicon.png */; };
 		920DF51F19223FFA00695ADD /* SortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DF51E19223FFA00695ADD /* SortView.m */; };
 		920DF5251922433C00695ADD /* buysorticon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 920DF5211922433C00695ADD /* buysorticon1.png */; };
 		920DF5261922433C00695ADD /* buysorticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 920DF5221922433C00695ADD /* buysorticon2.png */; };
@@ -723,6 +724,7 @@
 		7DF6C65219188ADB00F0233E /* MyFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriteViewController.h; sourceTree = "<group>"; };
 		7DF6C65319188ADB00F0233E /* MyFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteViewController.m; sourceTree = "<group>"; };
 		7DF6C65419188ADB00F0233E /* MyFavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriteViewController.xib; sourceTree = "<group>"; };
+		9207C70E1923BD7D005777D3 /* timeclockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeclockicon.png; sourceTree = "<group>"; };
 		920DF51D19223FFA00695ADD /* SortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortView.h; sourceTree = "<group>"; };
 		920DF51E19223FFA00695ADD /* SortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortView.m; sourceTree = "<group>"; };
 		920DF5211922433C00695ADD /* buysorticon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buysorticon1.png; sourceTree = "<group>"; };
@@ -1623,6 +1625,14 @@
 			path = favorite;
 			sourceTree = "<group>";
 		};
+		9207C70D1923BD73005777D3 /* timeclock */ = {
+			isa = PBXGroup;
+			children = (
+				9207C70E1923BD7D005777D3 /* timeclockicon.png */,
+			);
+			path = timeclock;
+			sourceTree = "<group>";
+		};
 		92376A4019166C2B0097C9D3 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -1789,13 +1799,6 @@
 				923B74BD1915200700B2CF41 /* sporticon3.png */,
 			);
 			path = sport;
-			sourceTree = "<group>";
-		};
-		923B74BA19151FF800B2CF41 /* timeClock */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = timeClock;
 			sourceTree = "<group>";
 		};
 		923B74CC1915286600B2CF41 /* More */ = {
@@ -2360,13 +2363,13 @@
 				7D3B42D21918CBFF00853417 /* dayselected.png */,
 				928BB520191E34FC00859323 /* myintegralbg.png */,
 				928BB524191E389400859323 /* myintegralicon.png */,
+				9207C70D1923BD73005777D3 /* timeclock */,
 				928BB4DC191E02B100859323 /* statis */,
 				928BB3F3191DF39400859323 /* Food */,
 				92A53470191BA82B0067DF2F /* menu */,
 				92AC9F931917D14300A6743D /* data */,
 				92376A4019166C2B0097C9D3 /* More */,
 				923B74B919151FF800B2CF41 /* sport */,
-				923B74BA19151FF800B2CF41 /* timeClock */,
 				923B748B191518B500B2CF41 /* goWhere */,
 				923B73E01914F2F600B2CF41 /* myNear */,
 				923B736E1914B7FC00B2CF41 /* Myday */,
@@ -2861,6 +2864,7 @@
 				923B749319151A8A00B2CF41 /* gowhere1.png in Resources */,
 				928BB4ED191E02BB00859323 /* statisicong.png in Resources */,
 				928E63B7190FF46200D7AA7C /* linemap.png in Resources */,
+				9207C70F1923BD7D005777D3 /* timeclockicon.png in Resources */,
 				92376A92191678550097C9D3 /* sharebg.png in Resources */,
 				9241AACD190BD689008C9A6C /* buyicon6.png in Resources */,
 				923B738E1914BD9700B2CF41 /* tabicon2.png in Resources */,

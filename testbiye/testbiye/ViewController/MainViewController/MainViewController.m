@@ -73,11 +73,39 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    NSMutableArray *namearr = [[NSMutableArray alloc] init];
+    NSMutableArray *infos = [[NSMutableArray alloc] init];
     for (int i = 0; i<5; i++) {
         NSString *name = [NSString stringWithFormat:@"top_main%d.png",i+1];
         [arr addObject:name];
-        [namearr addObject:@"test"];
+        NSString *price = nil;
+        NSString *title = nil;
+        switch (i) {
+            case 0:
+                price = @"今日五折";
+                title = @"草莓奶油泡芙";
+                break;
+            case 1:
+                price = @"今日九折";
+                title = @"五彩茶杯";
+                break;
+            case 2:
+                price = @"今日四折";
+                title = @"派克钢笔";
+                break;
+            case 3:
+                price = @"今日七五折";
+                title = @"餐具";
+                break;
+            case 4:
+                price = @"今日八折";
+                title = @"葱花鸡蛋";
+                break;
+
+            default:
+                break;
+        }
+        NSDictionary *dict = @{@"price":price,@"title":title};
+        [infos addObject:dict];
     }
     
     _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
@@ -86,7 +114,7 @@
     
     _topScrollView = [[TopScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 230)];
     _topScrollView.delegate = self;
-    [_topScrollView reloadDataWithPictures:arr infos:nil];
+    [_topScrollView reloadDataWithPictures:arr infos:infos];
     [self.view addSubview:_topScrollView];
     
     _littleView = [[MainLittleView alloc] initWithFrame:CGRectMake(0, 230, 320, 45)];
@@ -140,11 +168,21 @@
 #pragma mark - UIButtonAction
 - (void)searchAction:(id)sender
 {
-    [UIView animateWithDuration:0.3f animations:^{
-        self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
-    } completion:^(BOOL finished) {
-        [_searchView searchViewBecomeFirstResponder];
-    }];
+    UIButton *btn = (UIButton *)sender;
+    if (!btn.selected) {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
+        } completion:^(BOOL finished) {
+            [_searchView searchViewBecomeFirstResponder];
+        }];
+    } else {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
+        } completion:^(BOOL finished) {
+            [_searchView searchViewResignFirstResponder];
+        }];
+    }
+    btn.selected = !btn.selected;
 }
 
 - (void)menuAction:(id)sender

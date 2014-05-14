@@ -161,7 +161,7 @@
 				<key>name</key>
 				<string>买电脑</string>
 				<key>price</key>
-				<string>4000元</string>
+				<string>400元</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -169,7 +169,7 @@
 				<key>name</key>
 				<string>买电视</string>
 				<key>price</key>
-				<string>2000元</string>
+				<string>200元</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -177,7 +177,7 @@
 				<key>name</key>
 				<string>买冰箱</string>
 				<key>price</key>
-				<string>2000元</string>
+				<string>200元</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -185,7 +185,7 @@
 				<key>name</key>
 				<string>买汽车</string>
 				<key>price</key>
-				<string>400000元</string>
+				<string>900元</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -193,7 +193,7 @@
 				<key>name</key>
 				<string>买空调</string>
 				<key>price</key>
-				<string>2000元</string>
+				<string>200元</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -201,7 +201,7 @@
 				<key>name</key>
 				<string>买房子</string>
 				<key>price</key>
-				<string>1000元</string>
+				<string>100元</string>
 			</dict>
 		</array>
 		<array>

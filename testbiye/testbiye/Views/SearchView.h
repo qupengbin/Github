@@ -24,4 +24,6 @@
 
 - (void)searchViewBecomeFirstResponder;
 
+- (void)searchViewResignFirstResponder;
+
 @end

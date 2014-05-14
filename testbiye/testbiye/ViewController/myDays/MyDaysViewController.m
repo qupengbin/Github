@@ -42,10 +42,10 @@
     self.titlelab.text = @"我 的 一 天";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
 
-    nameArr = @[@"日程安排",@"活动提醒",@"餐饮预定",
+    nameArr = @[@"日程安排",@"活动提醒",
                 @"购物计划",@"添加"];
     
-    iconArr = @[@"mydayicon1.png",@"mydayicon2.png",@"mydayicon3.png",
+    iconArr = @[@"mydayicon1.png",@"mydayicon2.png",
                 @"mydayicon4.png",@"mydayicon5.png"];
 
     // Do any additional setup after loading the view from its nib.
@@ -99,12 +99,16 @@
         [self.navigationController pushViewController:alert animated:YES];
         
     } else if (btn.tag == 2) {
-        MyIndentViewController *yuding = [[MyIndentViewController alloc] init];
-        yuding.type = 2;
-        [self.navigationController pushViewController:yuding animated:YES];
-    } else if (btn.tag == 3) {
+//        MyIndentViewController *yuding = [[MyIndentViewController alloc] init];
+//        yuding.type = 2;
+//        [self.navigationController pushViewController:yuding animated:YES];
+        
         BuyPlanViewController *buy = [[BuyPlanViewController alloc] init];
         [self.navigationController pushViewController:buy animated:YES];
+
+    } else if (btn.tag == 3) {
+//        BuyPlanViewController *buy = [[BuyPlanViewController alloc] init];
+//        [self.navigationController pushViewController:buy animated:YES];
 
     } else if (btn.tag == 4) {
         

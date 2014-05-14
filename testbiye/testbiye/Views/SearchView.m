@@ -37,6 +37,11 @@
     [searchField becomeFirstResponder];
 }
 
+- (void)searchViewResignFirstResponder
+{
+    [searchField resignFirstResponder];
+}
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

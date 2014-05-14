@@ -10,6 +10,8 @@
 
 @interface TimeClockViewController ()
 
+@property(nonatomic,weak) IBOutlet UIPickerView *pickerView;
+
 @end
 
 @implementation TimeClockViewController

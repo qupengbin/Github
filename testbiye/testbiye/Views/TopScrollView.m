@@ -13,6 +13,11 @@
     NSTimer *_timer;
     int index;
     int count;
+    
+    UILabel *_title;
+    UILabel *_price;
+    
+    NSArray *allData;
 }
 
 @end
@@ -46,19 +51,19 @@
     bgImage.alpha = 0.5f;
     [self addSubview:bgImage];
     
-    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 30)];
-    price.backgroundColor = [UIColor clearColor];
-    price.font = [UIFont systemFontOfSize:20.0f];
-    price.textColor = [UIColor whiteColor];
-    price.text = @"今日五折";
-    [bgImage addSubview:price];
+    _price = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 30)];
+    _price.backgroundColor = [UIColor clearColor];
+    _price.font = [UIFont systemFontOfSize:20.0f];
+    _price.textColor = [UIColor whiteColor];
+    _price.text = @"今日五折";
+    [bgImage addSubview:_price];
     
-    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(20, 25, 100, 20)];
-    name.backgroundColor = [UIColor clearColor];
-    name.font = [UIFont systemFontOfSize:14.0f];
-    name.textColor = [UIColor whiteColor];
-    name.text = @"草莓奶油泡芙";
-    [bgImage addSubview:name];
+    _title = [[UILabel alloc] initWithFrame:CGRectMake(20, 25, 100, 20)];
+    _title.backgroundColor = [UIColor clearColor];
+    _title.font = [UIFont systemFontOfSize:14.0f];
+    _title.textColor = [UIColor whiteColor];
+    _title.text = @"草莓奶油泡芙";
+    [bgImage addSubview:_title];
     
     UILabel *buy = [[UILabel alloc] initWithFrame:CGRectMake(220, 25, 100, 20)];
     buy.backgroundColor = [UIColor clearColor];
@@ -73,7 +78,7 @@
     
 }
 
-- (void)reloadDataWithPictures:(NSArray *)picts infos:(NSDictionary *)infos
+- (void)reloadDataWithPictures:(NSArray *)picts infos:(NSArray *)infos
 {
     float widht = self.bounds.size.width;
     float height = self.bounds.size.height;
@@ -89,6 +94,8 @@
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView addSubview:btn];
     }
+    
+    allData = infos;
     
     count = picts.count;
     
@@ -111,6 +118,11 @@
         index = 0;
     }
     [_scrollView scrollRectToVisible:CGRectMake(320*(index), 0, self.bounds.size.width, self.bounds.size.height) animated:YES];
+    if (index<allData.count) {
+        NSDictionary *dict = [allData objectAtIndex:index];
+        _price.text = [dict objectForKey:@"price"];
+        _title.text = [dict objectForKey:@"title"];
+    }
 }
 
 - (void)btnAction:(id)sender
@@ -132,6 +144,11 @@
 {
     int x = scrollView.contentOffset.x/320;
     index = x;
+    if (index<allData.count) {
+        NSDictionary *dict = [allData objectAtIndex:index];
+        _price.text = [dict objectForKey:@"price"];
+        _title.text = [dict objectForKey:@"title"];
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
