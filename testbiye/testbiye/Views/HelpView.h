@@ -12,6 +12,12 @@
 
 - (void)reloadData:(int)index;
 
+- (void)changeframePrcent:(float)prcent;
+
+- (void)changeframeLastPrcent:(float)prcent;
+
 - (void)startAnimation;
+
+- (void)changeViewImage:(int)index;
 
 @end

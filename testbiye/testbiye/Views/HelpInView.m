@@ -11,7 +11,9 @@
 
 @interface HelpInView()<UIScrollViewDelegate>
 {
+    int _nowpage;
     UIScrollView *_scroll;
+    NSMutableArray *pagesView;
 }
 
 @end
@@ -30,26 +32,49 @@
 
 - (void)initview
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     _scroll = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scroll.delegate = self;
     _scroll.showsHorizontalScrollIndicator = NO;
     _scroll.showsVerticalScrollIndicator = NO;
     [self addSubview:_scroll];
 
+    if (pagesView == nil) {
+        pagesView = [[NSMutableArray alloc] init];
+    }
+    
     for (int i = 0 ; i < 4; i ++) {
         HelpView *help = [[HelpView alloc] initWithFrame:CGRectMake(0, 568*i, 320, 568)];
         [help reloadData:i];
         [_scroll addSubview:help];
+        [pagesView addObject:help];
     }
-    [_scroll setContentSize:CGSizeMake(320, 568*4)];
+    [_scroll setContentSize:CGSizeMake(320, 568*5)];
     _scroll.pagingEnabled = YES;
+    
+    _nowpage = 0;
 }
 
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
-//    NSInteger page = (int)(offset);
-//    
-//    self.alpha = ((_scroll.frame.size.height*3)-_scroll.contentOffset.y)/_scroll.frame.size.height;
+    float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
+    NSInteger page = (int)(offset);
+    NSLog(@"now page %d",page);
+    NSLog(@"offset  %f",offset);
+    
+    if (page<pagesView.count-1) {
+        HelpView *help1 = (HelpView *)[pagesView objectAtIndex:page+1];
+        [help1 changeframePrcent:offset-page];
+        [help1 changeViewImage:page+1];
+    }
+    if (page<pagesView.count-1) {
+        HelpView *help = (HelpView *)[pagesView objectAtIndex:page];
+        [help changeframeLastPrcent:offset-page];
+    }
+    
+    self.alpha = ((_scroll.frame.size.height*4)-_scroll.contentOffset.y)/_scroll.frame.size.height;
 }
+
 
 @end

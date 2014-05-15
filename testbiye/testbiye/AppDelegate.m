@@ -16,6 +16,7 @@
 #import "MyIntegralViewController.h"
 #import "MyIndentViewController.h"
 #import "StatisticsViewController.h"
+#import "HelpInView.h"
 
 AppDelegate *app;
 
@@ -52,6 +53,9 @@ AppDelegate *app;
     self.tabbar.delegate = self;
     self.tabbar.hidden = YES;
     
+    HelpInView *helpView = [[HelpInView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+    [self.window addSubview:helpView];
+
     return YES;
 }
 

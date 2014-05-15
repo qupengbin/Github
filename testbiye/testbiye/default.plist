@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>更加方便的筛选方式</string>
+		<string>更加详细的分类</string>
+		<string>随时随地订购商品</string>
+		<string>及时查看当日推荐和周围商家活动优惠</string>
+		<string>随时领取无需等待,更加方便快捷</string>
+	</array>
+	<array>
+		<string>火锅、自助餐、日韩、料理、蛋糕甜点</string>
+		<string>输入提取码、及时领取餐饮美食</string>
+		<string>快捷方便的筛选方式</string>
+		<string>查看消费统计情况</string>
+		<string>积分详情统计</string>
+	</array>
+	<array>
+		<string>及时定位</string>
+		<string>语音输入</string>
+		<string>设置站点闹铃</string>
+		<string>3D地图，全方位查看</string>
+		<string>地铁路线整体显示</string>
+	</array>
+	<array>
+		<string>景点推送</string>
+		<string>景点查找</string>
+		<string>景点详情介绍</string>
+		<string>附近景点详情</string>
+		<string>托尔斯泰</string>
+	</array>
+</array>
+</plist>
