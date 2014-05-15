@@ -13,6 +13,11 @@
 		7D10375419060E85001D9C33 /* TabbarToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375319060E85001D9C33 /* TabbarToolView.m */; };
 		7D10375819063A73001D9C33 /* BuyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375719063A73001D9C33 /* BuyViewCell.m */; };
 		7D10375C19063E93001D9C33 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375B19063E93001D9C33 /* SearchView.m */; };
+		7D1598981924C95700D82DBE /* HelpInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598951924C95700D82DBE /* HelpInView.m */; };
+		7D1598991924C95700D82DBE /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598971924C95700D82DBE /* HelpView.m */; };
+		7D15989E1924C97600D82DBE /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989B1924C97600D82DBE /* 1.png */; };
+		7D15989F1924C97600D82DBE /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989C1924C97600D82DBE /* 2.png */; };
+		7D1598A01924C97600D82DBE /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989D1924C97600D82DBE /* 3.png */; };
 		7D3B427F1918AF3200853417 /* ChangeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B427E1918AF3200853417 /* ChangeScrollView.m */; };
 		7D3B42CE1918CA8700853417 /* DaysScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B42CD1918CA8700853417 /* DaysScrollView.m */; };
 		7D3B42D31918CBFF00853417 /* dayselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B42D21918CBFF00853417 /* dayselected.png */; };
@@ -648,6 +653,13 @@
 		7D10375719063A73001D9C33 /* BuyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewCell.m; sourceTree = "<group>"; };
 		7D10375A19063E93001D9C33 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		7D10375B19063E93001D9C33 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
+		7D1598941924C95700D82DBE /* HelpInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpInView.h; sourceTree = "<group>"; };
+		7D1598951924C95700D82DBE /* HelpInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpInView.m; sourceTree = "<group>"; };
+		7D1598961924C95700D82DBE /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
+		7D1598971924C95700D82DBE /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
+		7D15989B1924C97600D82DBE /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		7D15989C1924C97600D82DBE /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		7D15989D1924C97600D82DBE /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		7D3B427D1918AF3200853417 /* ChangeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScrollView.h; sourceTree = "<group>"; };
 		7D3B427E1918AF3200853417 /* ChangeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScrollView.m; sourceTree = "<group>"; };
 		7D3B42CC1918CA8700853417 /* DaysScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaysScrollView.h; sourceTree = "<group>"; };
@@ -1526,6 +1538,10 @@
 		7DED15E318FE22F900A24340 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7D1598941924C95700D82DBE /* HelpInView.h */,
+				7D1598951924C95700D82DBE /* HelpInView.m */,
+				7D1598961924C95700D82DBE /* HelpView.h */,
+				7D1598971924C95700D82DBE /* HelpView.m */,
 				7DEE56771905101A00962113 /* TopScrollView.h */,
 				7DEE56781905101A00962113 /* TopScrollView.m */,
 				7D10374F19060E65001D9C33 /* ClassView.h */,
@@ -2355,6 +2371,9 @@
 		92F9878F1907FE77005C3E97 /* nomal */ = {
 			isa = PBXGroup;
 			children = (
+				7D15989B1924C97600D82DBE /* 1.png */,
+				7D15989C1924C97600D82DBE /* 2.png */,
+				7D15989D1924C97600D82DBE /* 3.png */,
 				7DF6C64D1918894E00F0233E /* buycarimg.png */,
 				923B73C01914CE0500B2CF41 /* offimg.png */,
 				923B73C11914CE0500B2CF41 /* onimg.png */,
@@ -2715,6 +2734,7 @@
 				92376A6A1916727C0097C9D3 /* printicon1.png in Resources */,
 				923B74601914FFF800B2CF41 /* nearhot7@2x.png in Resources */,
 				92F987B11907FE77005C3E97 /* menuicon2.png in Resources */,
+				7D1598A01924C97600D82DBE /* 3.png in Resources */,
 				923B73941914BD9700B2CF41 /* tabicon8.png in Resources */,
 				9241AAB8190BD689008C9A6C /* gradeicon@2x.png in Resources */,
 				923B74C41915201100B2CF41 /* sporticon1@2x.png in Resources */,
@@ -2736,6 +2756,7 @@
 				9241AAE2190BD689008C9A6C /* buyicon7@2x.png in Resources */,
 				923B7477191500F700B2CF41 /* nextmiao2@2x.png in Resources */,
 				92AC9FF11917D23700A6743D /* datafouricon10.png in Resources */,
+				7D15989E1924C97600D82DBE /* 1.png in Resources */,
 				9241AACF190BD689008C9A6C /* buyicon8.png in Resources */,
 				92AC9F811917C41600A6743D /* buycaricon1.png in Resources */,
 				923B74401914FED400B2CF41 /* nearsell4@2x.png in Resources */,
@@ -2819,6 +2840,7 @@
 				923B743D1914FED400B2CF41 /* nearsell1@2x.png in Resources */,
 				92F987BC190800D2005C3E97 /* top_main2.png in Resources */,
 				928BB3FF191DF39400859323 /* foodicon1.png in Resources */,
+				7D15989F1924C97600D82DBE /* 2.png in Resources */,
 				92AC9FF21917D23700A6743D /* datafouricon11.png in Resources */,
 				92AC9FBE1917D1A700A6743D /* datatwoicon7.png in Resources */,
 				92F987A41907FE77005C3E97 /* mainicon7@2x.png in Resources */,
@@ -3140,6 +3162,8 @@
 				7D3B42CE1918CA8700853417 /* DaysScrollView.m in Sources */,
 				92AC9F751917BB1100A6743D /* BuyCarCell.m in Sources */,
 				7DED900C18FFDF2D00F0DAC4 /* MainViewCell.m in Sources */,
+				7D1598981924C95700D82DBE /* HelpInView.m in Sources */,
+				7D1598991924C95700D82DBE /* HelpView.m in Sources */,
 				7DED15F118FE255400A24340 /* MainViewController.m in Sources */,
 				7D3B42D71918CC9800853417 /* MyIntegralViewController.m in Sources */,
 				92AC9F701917BA9100A6743D /* BuyCarViewController.m in Sources */,
