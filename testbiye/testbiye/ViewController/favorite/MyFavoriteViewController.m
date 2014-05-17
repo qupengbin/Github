@@ -51,10 +51,13 @@
 
 - (void)backbtnAction:(id)sender
 {
-//    [self.navigationController popViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    if (self.type == 1) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    } else if (self.type == 2) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource

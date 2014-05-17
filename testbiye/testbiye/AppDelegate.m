@@ -116,6 +116,7 @@ AppDelegate *app;
     } else if (index == 3) {
         //我的收藏
         MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];
+        favorite.type = 1;
         MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
         [self.window.rootViewController presentViewController:nav animated:YES completion:^{
             

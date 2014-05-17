@@ -41,7 +41,7 @@
     label3.textColor = [UIColor lightGrayColor];
 
     label1.text = @"天 气";
-    label2.text = @"活 动";
+    label2.text = @"计 划";
     label3.text = @"购物车";
 
     icon1.image = [UIImage imageNamed:@"weather.png"];

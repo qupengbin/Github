@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
+@protocol TimeClockDelegate <NSObject>
+
+- (void)deleteTimeClock:(int)index;
+
+@end
+
 @interface TimeClockViewController : BaseViewController
+
+@property(nonatomic,assign) id<TimeClockDelegate> delegate;
+@property(nonatomic,assign) int index;
 
 @end

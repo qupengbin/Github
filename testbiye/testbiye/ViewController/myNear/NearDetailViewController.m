@@ -114,7 +114,8 @@
     [cell reloadData:iconArr
                title:nameArr
                price:priceArr
-               index:indexPath.row];
+               index:indexPath.row
+                type:1];
     return cell;
 }
 

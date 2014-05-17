@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface NearCycleViewController : UIViewController
+@interface NearCycleViewController : BaseViewController
 
 @end

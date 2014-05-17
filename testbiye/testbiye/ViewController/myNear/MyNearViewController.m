@@ -9,6 +9,7 @@
 #import "MyNearViewController.h"
 #import "MainViewCell.h"
 #import "NearDetailViewController.h"
+#import "NearCycleViewController.h"
 
 @interface MyNearViewController ()<MainViewCellDelegate>
 {
@@ -87,6 +88,12 @@
 - (void)iconBtnAction:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
+    
+    if (btn.tag == 4) {
+        NearCycleViewController *cycle = [[NearCycleViewController alloc] init];
+        [self.navigationController pushViewController:cycle animated:YES];
+        return;
+    }
     NearDetailViewController *detail = [[NearDetailViewController alloc] init];
     detail.type = btn.tag;
     [self.navigationController pushViewController:detail animated:YES];

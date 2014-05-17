@@ -8,7 +8,7 @@
 
 #import "AlertViewCell.h"
 
-@interface AlertViewCell()
+@interface AlertViewCell()<UITextFieldDelegate>
 {
     UITextField *timelab;
     UITextField *titlelab;
@@ -46,6 +46,7 @@
     timelab.textColor = [UIColor whiteColor];
     timelab.textAlignment = NSTextAlignmentCenter;
     timelab.userInteractionEnabled = NO;
+    timelab.delegate = self;
     [self addSubview:timelab];
     
     titlelab = [[UITextField alloc] initWithFrame:CGRectMake(110, (height-40)/2, 150, 40)];
@@ -53,6 +54,7 @@
     titlelab.font = [UIFont systemFontOfSize:16.0f];
     titlelab.textColor = [UIColor lightGrayColor];
     titlelab.userInteractionEnabled = NO;
+    titlelab.delegate = self;
     [self addSubview:titlelab];
     
     UISwitch *swi = [[UISwitch alloc] initWithFrame:CGRectMake(320-50-10, (height-25)/2, 50, 25)];
@@ -88,6 +90,12 @@
 {
     timelab.text = time;
     titlelab.text = title;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

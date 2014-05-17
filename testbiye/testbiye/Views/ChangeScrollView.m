@@ -99,6 +99,7 @@
 //变小
 - (void)refrushSmall
 {
+    self.alpha = 0.7f;
     float w = _image.size.width-50;
     float h = _image.size.height-50;
 
@@ -119,6 +120,8 @@
 //平常
 - (void)refrushNomal:(int)index
 {
+    self.alpha = 1.0f;
+
     float w = _image.size.width;
     float h = _image.size.height;
 

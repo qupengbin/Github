@@ -46,14 +46,14 @@
         [self addSubview:grade];
         
         UIImageView *distanceimg = [[UIImageView alloc] initWithFrame:CGRectMake(grade.frame.origin.x+grade.frame.size.width+5, 25, 16, 15)];
-        distanceimg.image = [UIImage imageNamed:@"gradeicon.png"];
+        distanceimg.image = [UIImage imageNamed:@"distanceicon.png"];
         [self addSubview:distanceimg];
         
         distance = [[UILabel alloc] initWithFrame:CGRectMake(distanceimg.frame.origin.x+distanceimg.frame.size.width+4, 21, 30, 20)];
         [self addSubview:distance];
 
         UIImageView *numberimg = [[UIImageView alloc] initWithFrame:CGRectMake(distance.frame.origin.x+distance.frame.size.width+5, 25, 16, 15)];
-        numberimg.image = [UIImage imageNamed:@"gradeicon.png"];
+        numberimg.image = [UIImage imageNamed:@"numbericon.png"];
         [self addSubview:numberimg];
         
         UIImageView *buynext = [[UIImageView alloc] initWithFrame:CGRectMake(300-18, (90-28)/2, 28, 28)];

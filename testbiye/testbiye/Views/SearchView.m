@@ -22,7 +22,7 @@
 
 - (void)initview
 {
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = RGBCOLOR(242, 242, 242);
     
     searchField = [[UITextField alloc] initWithFrame:CGRectMake(20, 5, 280, 30)];
     searchField.borderStyle = UITextBorderStyleRoundedRect;

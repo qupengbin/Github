@@ -40,7 +40,9 @@
     
     if (_scrollView == nil) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _scrollView.backgroundColor = [UIColor clearColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.backgroundColor = RGBCOLOR(242, 242, 242);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         [self addSubview:_scrollView];

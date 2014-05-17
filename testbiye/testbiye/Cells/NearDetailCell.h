@@ -13,6 +13,7 @@
 - (void)reloadData:(NSArray *)imgs
              title:(NSArray *)title
              price:(NSArray *)price
-             index:(int)index;
+             index:(int)index
+              type:(int)type;
 
 @end

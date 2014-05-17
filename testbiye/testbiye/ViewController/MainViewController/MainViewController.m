@@ -19,13 +19,13 @@
 #import "MyDaysViewController.h"
 #import "MyNearViewController.h"
 #import "GoWhereViewController.h"
-#import "TimeClockViewController.h"
 #import "SportViewController.h"
 #import "MoreViewController.h"
 #import "WeatherViewController.h"
 #import "DayAlertViewController.h"
 #import "BuyCarViewController.h"
 #import "StoreDetailViewController.h"
+#import "SetClockViewController.h"
 
 @interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
 {
@@ -39,6 +39,8 @@
     TabbarToolView *_tabbarView;
     TopScrollView *_topScrollView;
     MainLittleView *_littleView;
+    
+    BOOL showsearch;
 }
 
 @end
@@ -130,6 +132,13 @@
     
     [self.view addSubview:_tableView];
     
+    _touchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568-44-20-40-216)];
+    [self.view addSubview:_touchBtn];
+    _touchBtn.backgroundColor = [UIColor clearColor];
+    [_touchBtn addTarget:self action:@selector(touchBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    _touchBtn.alpha = 0.3f;
+    _touchBtn.hidden = YES;
+
     // Do any additional setup after loading the view.
 }
 
@@ -167,23 +176,30 @@
 }
 
 #pragma mark - UIButtonAction
+- (void)touchBtnAction
+{
+    [self searchAction:nil];
+    _touchBtn.hidden = YES;
+}
+
 - (void)searchAction:(id)sender
 {
-    UIButton *btn = (UIButton *)sender;
-    if (!btn.selected) {
+    if (!showsearch) {
         [UIView animateWithDuration:0.3f animations:^{
             self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
             [_searchView searchViewBecomeFirstResponder];
+            _touchBtn.hidden = NO;
         }];
     } else {
         [UIView animateWithDuration:0.3f animations:^{
             self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
             [_searchView searchViewResignFirstResponder];
+            _touchBtn.hidden = YES;
         }];
     }
-    btn.selected = !btn.selected;
+    showsearch = !showsearch;
 }
 
 - (void)menuAction:(id)sender
@@ -255,7 +271,7 @@
 
     } else if (btn.tag == 6) {
         //闹钟
-        TimeClockViewController *dayView = [[TimeClockViewController alloc] init];
+        SetClockViewController *dayView = [[SetClockViewController alloc] init];
         [self.navigationController pushViewController:dayView animated:YES];
 
     } else if (btn.tag == 7) {

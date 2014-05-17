@@ -15,9 +15,6 @@
 		7D10375C19063E93001D9C33 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375B19063E93001D9C33 /* SearchView.m */; };
 		7D1598981924C95700D82DBE /* HelpInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598951924C95700D82DBE /* HelpInView.m */; };
 		7D1598991924C95700D82DBE /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598971924C95700D82DBE /* HelpView.m */; };
-		7D15989E1924C97600D82DBE /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989B1924C97600D82DBE /* 1.png */; };
-		7D15989F1924C97600D82DBE /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989C1924C97600D82DBE /* 2.png */; };
-		7D1598A01924C97600D82DBE /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D15989D1924C97600D82DBE /* 3.png */; };
 		7D3B427F1918AF3200853417 /* ChangeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B427E1918AF3200853417 /* ChangeScrollView.m */; };
 		7D3B42CE1918CA8700853417 /* DaysScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B42CD1918CA8700853417 /* DaysScrollView.m */; };
 		7D3B42D31918CBFF00853417 /* dayselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B42D21918CBFF00853417 /* dayselected.png */; };
@@ -358,6 +355,25 @@
 		9241AAEA190BD689008C9A6C /* buyicon15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9241AAE0190BD689008C9A6C /* buyicon15@2x.png */; };
 		9241AAEE190BD689008C9A6C /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241AAED190BD689008C9A6C /* StoreViewController.m */; };
 		9241AAF1190BD689008C9A6C /* storedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9241AAF0190BD689008C9A6C /* storedata.plist */; };
+		924ED64A19272CB200F53A41 /* ClockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 924ED64919272CB200F53A41 /* ClockCell.m */; };
+		924ED64C192731AF00F53A41 /* timeclocknext.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED64B192731AF00F53A41 /* timeclocknext.png */; };
+		924ED64E192732BD00F53A41 /* timeclockadd.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED64D192732BD00F53A41 /* timeclockadd.png */; };
+		924ED650192732C500F53A41 /* timeclockadd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED64F192732C500F53A41 /* timeclockadd@2x.png */; };
+		924ED6521927355300F53A41 /* timeclockdelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED6511927355300F53A41 /* timeclockdelete.png */; };
+		924ED6541927355E00F53A41 /* timeclockdelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED6531927355E00F53A41 /* timeclockdelete@2x.png */; };
+		924ED65619273AFA00F53A41 /* lifesay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924ED65519273AFA00F53A41 /* lifesay.plist */; };
+		924ED65919273CA900F53A41 /* LifeSayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 924ED65819273CA900F53A41 /* LifeSayCell.m */; };
+		924ED65E1927444200F53A41 /* lifesayicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED65A1927444200F53A41 /* lifesayicon1.png */; };
+		924ED65F1927444200F53A41 /* lifesayicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED65B1927444200F53A41 /* lifesayicon2.png */; };
+		924ED6601927444200F53A41 /* lifesayimg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED65C1927444200F53A41 /* lifesayimg1.png */; };
+		924ED6611927444200F53A41 /* lifesayimg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED65D1927444200F53A41 /* lifesayimg2.png */; };
+		924ED664192750E000F53A41 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 924ED663192750E000F53A41 /* MenuCell.m */; };
+		924ED66619275D9B00F53A41 /* favoriteicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED66519275D9B00F53A41 /* favoriteicon.png */; };
+		924ED668192763B000F53A41 /* nearbgw.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED667192763B000F53A41 /* nearbgw.png */; };
+		924ED66A1927659100F53A41 /* loginbackbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED6691927659100F53A41 /* loginbackbtn.png */; };
+		924ED66C1927659900F53A41 /* loginbackbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED66B1927659900F53A41 /* loginbackbtn@2x.png */; };
+		924ED66E1927687800F53A41 /* registbgimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED66D1927687800F53A41 /* registbgimg.png */; };
+		924ED6701927698D00F53A41 /* linemapimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 924ED66F1927698D00F53A41 /* linemapimg.png */; };
 		925CCD2D1909C7CE00B0F7D2 /* usericonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 925CCD2C1909C7CE00B0F7D2 /* usericonbg.png */; };
 		925CCD3B1909C7CE00B0F7D2 /* menubtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925CCD2F1909C7CE00B0F7D2 /* menubtn@2x.png */; };
 		925CCD3C1909C7CE00B0F7D2 /* menuicon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925CCD301909C7CE00B0F7D2 /* menuicon1@2x.png */; };
@@ -674,9 +690,6 @@
 		7D1598951924C95700D82DBE /* HelpInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpInView.m; sourceTree = "<group>"; };
 		7D1598961924C95700D82DBE /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		7D1598971924C95700D82DBE /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
-		7D15989B1924C97600D82DBE /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		7D15989C1924C97600D82DBE /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		7D15989D1924C97600D82DBE /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		7D3B427D1918AF3200853417 /* ChangeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScrollView.h; sourceTree = "<group>"; };
 		7D3B427E1918AF3200853417 /* ChangeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScrollView.m; sourceTree = "<group>"; };
 		7D3B42CC1918CA8700853417 /* DaysScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaysScrollView.h; sourceTree = "<group>"; };
@@ -1059,6 +1072,28 @@
 		9241AAEC190BD689008C9A6C /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
 		9241AAED190BD689008C9A6C /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
 		9241AAF0190BD689008C9A6C /* storedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storedata.plist; sourceTree = "<group>"; };
+		924ED64819272CB200F53A41 /* ClockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockCell.h; sourceTree = "<group>"; };
+		924ED64919272CB200F53A41 /* ClockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockCell.m; sourceTree = "<group>"; };
+		924ED64B192731AF00F53A41 /* timeclocknext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeclocknext.png; sourceTree = "<group>"; };
+		924ED64D192732BD00F53A41 /* timeclockadd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeclockadd.png; sourceTree = "<group>"; };
+		924ED64F192732C500F53A41 /* timeclockadd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeclockadd@2x.png"; sourceTree = "<group>"; };
+		924ED6511927355300F53A41 /* timeclockdelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeclockdelete.png; sourceTree = "<group>"; };
+		924ED6531927355E00F53A41 /* timeclockdelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeclockdelete@2x.png"; sourceTree = "<group>"; };
+		924ED65519273AFA00F53A41 /* lifesay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lifesay.plist; sourceTree = "<group>"; };
+		924ED65719273CA900F53A41 /* LifeSayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeSayCell.h; sourceTree = "<group>"; };
+		924ED65819273CA900F53A41 /* LifeSayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeSayCell.m; sourceTree = "<group>"; };
+		924ED65A1927444200F53A41 /* lifesayicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lifesayicon1.png; sourceTree = "<group>"; };
+		924ED65B1927444200F53A41 /* lifesayicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lifesayicon2.png; sourceTree = "<group>"; };
+		924ED65C1927444200F53A41 /* lifesayimg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lifesayimg1.png; sourceTree = "<group>"; };
+		924ED65D1927444200F53A41 /* lifesayimg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lifesayimg2.png; sourceTree = "<group>"; };
+		924ED662192750E000F53A41 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = SOURCE_ROOT; };
+		924ED663192750E000F53A41 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = SOURCE_ROOT; };
+		924ED66519275D9B00F53A41 /* favoriteicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoriteicon.png; sourceTree = "<group>"; };
+		924ED667192763B000F53A41 /* nearbgw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearbgw.png; sourceTree = "<group>"; };
+		924ED6691927659100F53A41 /* loginbackbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackbtn.png; sourceTree = "<group>"; };
+		924ED66B1927659900F53A41 /* loginbackbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginbackbtn@2x.png"; sourceTree = "<group>"; };
+		924ED66D1927687800F53A41 /* registbgimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registbgimg.png; sourceTree = "<group>"; };
+		924ED66F1927698D00F53A41 /* linemapimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linemapimg.png; sourceTree = "<group>"; };
 		925CCD2C1909C7CE00B0F7D2 /* usericonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usericonbg.png; sourceTree = "<group>"; };
 		925CCD2F1909C7CE00B0F7D2 /* menubtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubtn@2x.png"; sourceTree = "<group>"; };
 		925CCD301909C7CE00B0F7D2 /* menuicon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon1@2x.png"; sourceTree = "<group>"; };
@@ -1427,6 +1462,8 @@
 		7D4E4CBF190CE13C0058DC38 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				924ED66D1927687800F53A41 /* registbgimg.png */,
+				924ED6691927659100F53A41 /* loginbackbtn.png */,
 				921EBEDB190E81E900E3E83F /* fengeicon.png */,
 				7D4E4CC8190CE3400058DC38 /* iobgimg.png */,
 				7D4E4CC9190CE3400058DC38 /* loginbtn.png */,
@@ -1491,6 +1528,7 @@
 		7DED15B218FE224A00A24340 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				924ED65519273AFA00F53A41 /* lifesay.plist */,
 				9298D92D192507B40044B0F3 /* default.plist */,
 				928BB51E191E2D8100859323 /* buyplan.plist */,
 				92A53473191BACE00067DF2F /* statis.plist */,
@@ -1635,6 +1673,8 @@
 		7DF2020318FE4C91007E1AFB /* ManuViewController */ = {
 			isa = PBXGroup;
 			children = (
+				924ED662192750E000F53A41 /* MenuCell.h */,
+				924ED663192750E000F53A41 /* MenuCell.m */,
 				7DF1744F18FF6F2200D8147A /* MenuViewController.h */,
 				7DF1745018FF6F2200D8147A /* MenuViewController.m */,
 				7DF1745118FF6F2200D8147A /* MenuViewController.xib */,
@@ -1679,6 +1719,9 @@
 		9207C70D1923BD73005777D3 /* timeclock */ = {
 			isa = PBXGroup;
 			children = (
+				924ED64D192732BD00F53A41 /* timeclockadd.png */,
+				924ED6511927355300F53A41 /* timeclockdelete.png */,
+				924ED64B192731AF00F53A41 /* timeclocknext.png */,
 				9207C70E1923BD7D005777D3 /* timeclockicon.png */,
 			);
 			path = timeclock;
@@ -1748,6 +1791,8 @@
 				923B74861915179D00B2CF41 /* NearCycleViewController.h */,
 				923B74871915179D00B2CF41 /* NearCycleViewController.m */,
 				923B74881915179D00B2CF41 /* NearCycleViewController.xib */,
+				924ED65719273CA900F53A41 /* LifeSayCell.h */,
+				924ED65819273CA900F53A41 /* LifeSayCell.m */,
 			);
 			path = myNear;
 			sourceTree = "<group>";
@@ -1755,6 +1800,7 @@
 		923B73E01914F2F600B2CF41 /* myNear */ = {
 			isa = PBXGroup;
 			children = (
+				924ED667192763B000F53A41 /* nearbgw.png */,
 				923B73E11914F30500B2CF41 /* nearicon1.png */,
 				923B73E21914F30500B2CF41 /* nearicon2.png */,
 				923B73E31914F30500B2CF41 /* nearicon3.png */,
@@ -1828,6 +1874,8 @@
 				923B74AE19151BD500B2CF41 /* SetClockViewController.h */,
 				923B74AF19151BD500B2CF41 /* SetClockViewController.m */,
 				923B74B019151BD500B2CF41 /* SetClockViewController.xib */,
+				924ED64819272CB200F53A41 /* ClockCell.h */,
+				924ED64919272CB200F53A41 /* ClockCell.m */,
 			);
 			path = timeClock;
 			sourceTree = "<group>";
@@ -2256,6 +2304,9 @@
 		92F987851907FE77005C3E97 /* height */ = {
 			isa = PBXGroup;
 			children = (
+				924ED66B1927659900F53A41 /* loginbackbtn@2x.png */,
+				924ED64F192732C500F53A41 /* timeclockadd@2x.png */,
+				924ED6531927355E00F53A41 /* timeclockdelete@2x.png */,
 				928BB51C191E17E400859323 /* dayplanicon@2x.png */,
 				920DF5291922434C00695ADD /* buysorticon1@2x.png */,
 				920DF52A1922434C00695ADD /* buysorticon2@2x.png */,
@@ -2429,9 +2480,12 @@
 		92F9878F1907FE77005C3E97 /* nomal */ = {
 			isa = PBXGroup;
 			children = (
-				7D15989B1924C97600D82DBE /* 1.png */,
-				7D15989C1924C97600D82DBE /* 2.png */,
-				7D15989D1924C97600D82DBE /* 3.png */,
+				924ED66F1927698D00F53A41 /* linemapimg.png */,
+				924ED66519275D9B00F53A41 /* favoriteicon.png */,
+				924ED65A1927444200F53A41 /* lifesayicon1.png */,
+				924ED65B1927444200F53A41 /* lifesayicon2.png */,
+				924ED65C1927444200F53A41 /* lifesayimg1.png */,
+				924ED65D1927444200F53A41 /* lifesayimg2.png */,
 				7DF6C64D1918894E00F0233E /* buycarimg.png */,
 				923B73C01914CE0500B2CF41 /* offimg.png */,
 				923B73C11914CE0500B2CF41 /* onimg.png */,
@@ -2618,10 +2672,12 @@
 			files = (
 				925CCD3D1909C7CE00B0F7D2 /* menuicon2@2x.png in Resources */,
 				923B740B1914F64A00B2CF41 /* neartoday5.png in Resources */,
+				924ED66C1927659900F53A41 /* loginbackbtn@2x.png in Resources */,
 				928BB444191DF3D900859323 /* statisyicon5.png in Resources */,
 				92ACA0041917D28200A6743D /* datafiveicon5.png in Resources */,
 				928BB435191DF3D900859323 /* statisoicon2.png in Resources */,
 				928BB408191DF39400859323 /* foodicon8.png in Resources */,
+				924ED668192763B000F53A41 /* nearbgw.png in Resources */,
 				92AC9FEA1917D23700A6743D /* datafouricon3.png in Resources */,
 				7DED8FF118FFC1D800F0DAC4 /* comm_default@2x.png in Resources */,
 				928BB432191DF3D900859323 /* statisgicon5.png in Resources */,
@@ -2661,6 +2717,7 @@
 				928E63A9190FEAE800D7AA7C /* lineswitch.png in Resources */,
 				923B73C61914CE0D00B2CF41 /* offimg@2x.png in Resources */,
 				928E6384190FD24E00D7AA7C /* timeicon.png in Resources */,
+				924ED6601927444200F53A41 /* lifesayimg1.png in Resources */,
 				923B74D11915287200B2CF41 /* MoreViewController.xib in Resources */,
 				92376A7F1916758A0097C9D3 /* historyicon1@2x.png in Resources */,
 				925CCD461909C7CE00B0F7D2 /* usericonbg@2x.png in Resources */,
@@ -2709,8 +2766,10 @@
 				92AC9FEE1917D23700A6743D /* datafouricon7.png in Resources */,
 				923B74071914F64A00B2CF41 /* neartoday1.png in Resources */,
 				92F9879F1907FE77005C3E97 /* mainicon2@2x.png in Resources */,
+				924ED6611927444200F53A41 /* lifesayimg2.png in Resources */,
 				9241AAE8190BD689008C9A6C /* buyicon13@2x.png in Resources */,
 				923B74521914FFE900B2CF41 /* nearhot7.png in Resources */,
+				924ED64E192732BD00F53A41 /* timeclockadd.png in Resources */,
 				9241AAC0190BD689008C9A6C /* sortimg.png in Resources */,
 				928BB440191DF3D900859323 /* statisyicon1.png in Resources */,
 				92AC9FEF1917D23700A6743D /* datafouricon8.png in Resources */,
@@ -2750,6 +2809,7 @@
 				925CCD441909C7CE00B0F7D2 /* top_main4@2x.png in Resources */,
 				920DF5261922433C00695ADD /* buysorticon2.png in Resources */,
 				923B73C21914CE0500B2CF41 /* offimg.png in Resources */,
+				924ED65E1927444200F53A41 /* lifesayicon1.png in Resources */,
 				92376A66191671EC0097C9D3 /* PrintViewController.xib in Resources */,
 				928E63A6190FE95700D7AA7C /* lineclock@2x.png in Resources */,
 				923B73921914BD9700B2CF41 /* tabicon6.png in Resources */,
@@ -2766,10 +2826,12 @@
 				923B74B219151BD500B2CF41 /* SetClockViewController.xib in Resources */,
 				923B74421914FED400B2CF41 /* nearsell6@2x.png in Resources */,
 				92AC9F871917C42C00A6743D /* buycaricon1@2x.png in Resources */,
+				924ED6701927698D00F53A41 /* linemapimg.png in Resources */,
 				92376A4C19166C3B0097C9D3 /* moreicon4.png in Resources */,
 				7D4E4CB9190CDFE60058DC38 /* RegistViewController.xib in Resources */,
 				9298D90D1924F0E10044B0F3 /* defaulticon2.png in Resources */,
 				7DF6C64A1918807500F0233E /* storeicon6.png in Resources */,
+				924ED6541927355E00F53A41 /* timeclockdelete@2x.png in Resources */,
 				923B740E1914F64A00B2CF41 /* neartoday8.png in Resources */,
 				923B738F1914BD9700B2CF41 /* tabicon3.png in Resources */,
 				9241AAD5190BD689008C9A6C /* buyicon14.png in Resources */,
@@ -2798,7 +2860,6 @@
 				92F987B11907FE77005C3E97 /* menuicon2.png in Resources */,
 				9298D8FC1924EF920044B0F3 /* arrowicon4.png in Resources */,
 				9298D9291924FA1B0044B0F3 /* defaultbg1.png in Resources */,
-				7D1598A01924C97600D82DBE /* 3.png in Resources */,
 				923B73941914BD9700B2CF41 /* tabicon8.png in Resources */,
 				9241AAB8190BD689008C9A6C /* gradeicon@2x.png in Resources */,
 				9298D9101924F0E10044B0F3 /* defaultnext1.png in Resources */,
@@ -2815,6 +2876,7 @@
 				925CCD451909C7CE00B0F7D2 /* top_main5@2x.png in Resources */,
 				92376ACC19167E710097C9D3 /* weathericon2@2x.png in Resources */,
 				92376A72191672C00097C9D3 /* printicon3@2x.png in Resources */,
+				924ED6521927355300F53A41 /* timeclockdelete.png in Resources */,
 				925CCD5A1909C7CE00B0F7D2 /* buyicon4@2x.png in Resources */,
 				92ACA01C1917D2BF00A6743D /* datasixicon5.png in Resources */,
 				923B74321914FEC500B2CF41 /* nearsell6.png in Resources */,
@@ -2822,7 +2884,6 @@
 				9241AAE2190BD689008C9A6C /* buyicon7@2x.png in Resources */,
 				923B7477191500F700B2CF41 /* nextmiao2@2x.png in Resources */,
 				92AC9FF11917D23700A6743D /* datafouricon10.png in Resources */,
-				7D15989E1924C97600D82DBE /* 1.png in Resources */,
 				9241AACF190BD689008C9A6C /* buyicon8.png in Resources */,
 				92AC9F811917C41600A6743D /* buycaricon1.png in Resources */,
 				923B74401914FED400B2CF41 /* nearsell4@2x.png in Resources */,
@@ -2834,6 +2895,7 @@
 				92376A9C191678600097C9D3 /* sharebg@2x.png in Resources */,
 				92AC9F891917C42C00A6743D /* buycaricon3@2x.png in Resources */,
 				92376A4E19166C3B0097C9D3 /* moreicon6.png in Resources */,
+				924ED66A1927659100F53A41 /* loginbackbtn.png in Resources */,
 				7DED15B618FE224A00A24340 /* InfoPlist.strings in Resources */,
 				92F987AE1907FE77005C3E97 /* mainicon8.png in Resources */,
 				923B740A1914F64A00B2CF41 /* neartoday4.png in Resources */,
@@ -2908,7 +2970,6 @@
 				923B743D1914FED400B2CF41 /* nearsell1@2x.png in Resources */,
 				92F987BC190800D2005C3E97 /* top_main2.png in Resources */,
 				928BB3FF191DF39400859323 /* foodicon1.png in Resources */,
-				7D15989F1924C97600D82DBE /* 2.png in Resources */,
 				92AC9FF21917D23700A6743D /* datafouricon11.png in Resources */,
 				92AC9FBE1917D1A700A6743D /* datatwoicon7.png in Resources */,
 				92F987A41907FE77005C3E97 /* mainicon7@2x.png in Resources */,
@@ -2988,6 +3049,7 @@
 				9241AACE190BD689008C9A6C /* buyicon7.png in Resources */,
 				923B73BF1914C90500B2CF41 /* daylineimg@2x.png in Resources */,
 				92AC9FD01917D1EE00A6743D /* datathreeicon1.png in Resources */,
+				924ED66E1927687800F53A41 /* registbgimg.png in Resources */,
 				9241AABA190BD689008C9A6C /* numbericon@2x.png in Resources */,
 				7D3B42DD1918CEA600853417 /* MyIndentViewController.xib in Resources */,
 				92AC9FC31917D1A700A6743D /* datatwoicon12.png in Resources */,
@@ -3042,6 +3104,7 @@
 				92376A71191672C00097C9D3 /* printicon2@2x.png in Resources */,
 				923B744E1914FFE900B2CF41 /* nearhot3.png in Resources */,
 				92AC9FD91917D1EE00A6743D /* datathreeicon10.png in Resources */,
+				924ED66619275D9B00F53A41 /* favoriteicon.png in Resources */,
 				92376AA5191678730097C9D3 /* ShareViewController.xib in Resources */,
 				92376A4D19166C3B0097C9D3 /* moreicon5.png in Resources */,
 				925CCD5B1909C7CE00B0F7D2 /* buyicon5@2x.png in Resources */,
@@ -3077,6 +3140,7 @@
 				92F987B21907FE77005C3E97 /* menuicon3.png in Resources */,
 				923B747B191500F700B2CF41 /* nextmiao6@2x.png in Resources */,
 				7D4E4CCA190CE3400058DC38 /* iobgimg.png in Resources */,
+				924ED65619273AFA00F53A41 /* lifesay.plist in Resources */,
 				923B73901914BD9700B2CF41 /* tabicon4.png in Resources */,
 				923B73A41914BDAD00B2CF41 /* tabicon6@2x.png in Resources */,
 				923B74A319151A9700B2CF41 /* gowhere3@2x.png in Resources */,
@@ -3085,6 +3149,7 @@
 				923B73D01914D5F000B2CF41 /* DayPlanViewController.xib in Resources */,
 				923B745E1914FFF800B2CF41 /* nearhot5@2x.png in Resources */,
 				92376A6B1916727C0097C9D3 /* printicon2.png in Resources */,
+				924ED650192732C500F53A41 /* timeclockadd@2x.png in Resources */,
 				7DF6C64B1918807500F0233E /* storenext.png in Resources */,
 				923B74431914FED400B2CF41 /* nearsell7@2x.png in Resources */,
 				923B73A51914BDAD00B2CF41 /* tabicon7@2x.png in Resources */,
@@ -3103,7 +3168,9 @@
 				92AC9FC21917D1A700A6743D /* datatwoicon11.png in Resources */,
 				92376A5719166C4B0097C9D3 /* moreicon1@2x.png in Resources */,
 				923B73781914B86200B2CF41 /* mydayicon4.png in Resources */,
+				924ED65F1927444200F53A41 /* lifesayicon2.png in Resources */,
 				923B74AD19151B6900B2CF41 /* TimeClockViewController.xib in Resources */,
+				924ED64C192731AF00F53A41 /* timeclocknext.png in Resources */,
 				923B73771914B86200B2CF41 /* mydayicon3.png in Resources */,
 				928E6399190FE7E200D7AA7C /* LineSetViewController.xib in Resources */,
 				928BB51F191E2D8100859323 /* buyplan.plist in Resources */,
@@ -3186,14 +3253,17 @@
 			files = (
 				7D3B427F1918AF3200853417 /* ChangeScrollView.m in Sources */,
 				928BB3EF191DE79700859323 /* Reachability.m in Sources */,
+				924ED65919273CA900F53A41 /* LifeSayCell.m in Sources */,
 				92A5346E191BA60A0067DF2F /* StatisticsViewController.m in Sources */,
 				923B73DE1914F1D500B2CF41 /* MyNearViewController.m in Sources */,
 				923B73CF1914D5F000B2CF41 /* DayPlanViewController.m in Sources */,
 				7DED15E718FE237300A24340 /* MHDeviceTool.m in Sources */,
 				7DED15BC18FE224A00A24340 /* AppDelegate.m in Sources */,
+				924ED664192750E000F53A41 /* MenuCell.m in Sources */,
 				928BB3EB191DE79700859323 /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				7DF1745218FF6F2200D8147A /* MenuViewController.m in Sources */,
 				928E638E190FD2BD00D7AA7C /* MainLittleView.m in Sources */,
+				924ED64A19272CB200F53A41 /* ClockCell.m in Sources */,
 				923B74841915178E00B2CF41 /* GoWhereViewController.m in Sources */,
 				7DF6C65519188ADB00F0233E /* MyFavoriteViewController.m in Sources */,
 				923B74B119151BD500B2CF41 /* SetClockViewController.m in Sources */,

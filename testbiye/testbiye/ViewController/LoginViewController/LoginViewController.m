@@ -30,10 +30,20 @@
 {
     [super viewDidLoad];
     self.titlelab.text = @"登 录";
-    [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(registAction:)] ;
-    self.navigationItem.rightBarButtonItem = rightItem;
+    [self leftItem:[UIImage imageNamed:@"loginbackbtn.png"] sel:@selector(backBtnAction:)];
     
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn1.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn1 setTitle:@"注册" forState:UIControlStateNormal];
+    [btn1 addTarget:self
+             action:@selector(registAction:)
+   forControlEvents:UIControlEventTouchUpInside];
+    btn1.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:btn1];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn1];
+    self.navigationItem.rightBarButtonItem = item;
+
     // Do any additional setup after loading the view from its nib.
 }
 

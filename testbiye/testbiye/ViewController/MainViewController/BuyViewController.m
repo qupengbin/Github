@@ -15,6 +15,7 @@
 
 @interface BuyViewController ()<UITableViewDataSource,UITableViewDelegate,ClassViewDelegate,SortViewDelegate>
 {
+    BOOL showbool;
     int buyType;
     NSArray *dataArr;
     ClassView *_classView;
@@ -143,9 +144,7 @@
 
 - (void)sortBtnAction:(id)sender
 {
-    UIButton *btn = (UIButton *)sender;
-    
-    if (!btn.selected) {
+    if (!showbool) {
         [UIView animateWithDuration:0.3f animations:^{
             _tableView.frame = CGRectMake(-200, 40, 320, self.view.frame.size.height);
             _classView.frame = CGRectMake(-200, 0, 320, 40);
@@ -162,7 +161,7 @@
             
         }];
     }
-    btn.selected = !btn.selected;
+    showbool = !showbool;
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
@@ -203,15 +202,10 @@
 #pragma mark - SortViewDelegate
 - (void)sortViewDidSelect:(int)index
 {
-    [UIView animateWithDuration:0.3f animations:^{
-        _tableView.frame = CGRectMake(0, 40, 320, self.view.frame.size.height);
-        _classView.frame = CGRectMake(0, 0, 320, 40);
-        _sortView.frame = CGRectMake(320, 0, 200, self.view.frame.size.height);
-    } completion:^(BOOL finished) {
-        self.type = index;
-        [self initdata];
-        [_tableView reloadData];
-    }];
+    [self sortBtnAction:nil];
+    self.type = index;
+    [self initdata];
+    [_tableView reloadData];
 }
 
 #pragma mark - ClassViewDelegate

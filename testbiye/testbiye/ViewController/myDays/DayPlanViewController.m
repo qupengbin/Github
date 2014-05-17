@@ -105,6 +105,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.textLabel.textColor = RGBCOLOR(51, 51, 51);
     cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
     cell.textLabel.text = [indexData objectAtIndex:indexPath.row];
     return cell;

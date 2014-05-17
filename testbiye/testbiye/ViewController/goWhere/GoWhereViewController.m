@@ -8,9 +8,16 @@
 
 #import "GoWhereViewController.h"
 #import "NearDetailCell.h"
+#import "SearchView.h"
 
-@interface GoWhereViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface GoWhereViewController ()<UITableViewDataSource,UITableViewDelegate,SearchViewDelegate>
 {
+    BOOL showsearch;
+    
+    SearchView *_searchView;
+
+    UIButton *_touchBtn;
+    
     NSArray *priceArr;
     NSArray *nameArr;
     NSArray *iconArr;
@@ -43,6 +50,18 @@
     priceArr = @[@"免费",@"免费",@"免费",@"免费",@"免费",@"免费",@"免费"];
 
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
+    [self rightItem:[UIImage imageNamed:@"searchicon.png"] sel:@selector(searchAction:)];
+
+    _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
+    _searchView.delegate = self;
+    [self.view addSubview:_searchView];
+
+    _touchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568-44-20-40-216)];
+    [self.view addSubview:_touchBtn];
+    _touchBtn.backgroundColor = [UIColor clearColor];
+    [_touchBtn addTarget:self action:@selector(touchBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    _touchBtn.alpha = 0.3f;
+    _touchBtn.hidden = YES;
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -54,9 +73,45 @@
 }
 
 #pragma mark - BtnAction
+- (void)touchBtnAction
+{
+    [self searchAction:nil];
+    _touchBtn.hidden = YES;
+}
+
 - (void)backBtnAction:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)searchAction:(id)sender
+{
+    if (!showsearch) {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
+        } completion:^(BOOL finished) {
+            [_searchView searchViewBecomeFirstResponder];
+            _touchBtn.hidden = NO;
+        }];
+    } else {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
+        } completion:^(BOOL finished) {
+            [_searchView searchViewResignFirstResponder];
+            _touchBtn.hidden = YES;
+        }];
+    }
+    showsearch = !showsearch;
+}
+
+#pragma mark - SearchViewDelegate
+- (void)SearchViewReturn:(UITextField *)field
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [field resignFirstResponder];
+    }];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
@@ -81,7 +136,8 @@
     [cell reloadData:iconArr
                title:nameArr
                price:priceArr
-               index:indexPath.row];
+               index:indexPath.row
+                type:2];
     return cell;
 }
 

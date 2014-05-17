@@ -9,7 +9,9 @@
 #import "MyIndentViewController.h"
 #import "MapViewController.h"
 
-@interface MyIndentViewController ()
+@interface MyIndentViewController ()<UITextFieldDelegate>
+
+@property(nonatomic,weak) IBOutlet UITextField *timeField;
 
 @end
 
@@ -29,6 +31,7 @@
     [super viewDidLoad];
     self.titlelab.text = @"我 的 订 单";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
+    [self rightItem:[UIImage imageNamed:@"alertedit.png"] sel:@selector(editBtnAction:)];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -40,6 +43,13 @@
 }
 
 #pragma mark - BtnAction
+- (void)editBtnAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    self.timeField.userInteractionEnabled = !btn.selected;
+    btn.selected = !btn.selected;
+}
+
 - (IBAction)changeAddress:(id)sender
 {
     MapViewController *map = [[MapViewController alloc] init];
@@ -58,4 +68,9 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

@@ -10,6 +10,9 @@
 
 @interface NearDetailCell() {
     UIImageView *_img;
+    UIImageView *_bg;
+    UIImageView *next;
+    
     UILabel *_price;
     UILabel *_title;
 }
@@ -33,23 +36,23 @@
     _img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 151)];
     [self addSubview:_img];
     
-    UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(320-180, 151-45-15, 180, 45)];
-    bg.image = [UIImage imageNamed:@"nearbg.png"];
-    [self addSubview:bg];
+    _bg = [[UIImageView alloc] initWithFrame:CGRectMake(320-180, 151-45-15, 180, 45)];
+    _bg.image = [UIImage imageNamed:@"nearbg.png"];
+    [self addSubview:_bg];
     
-    _price = [[UILabel alloc] initWithFrame:CGRectMake(bg.frame.origin.x+10, bg.frame.origin.y, 180, 22)];
+    _price = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+10, _bg.frame.origin.y, 180, 22)];
     _price.font = [UIFont systemFontOfSize:20.0f];
     _price.textColor = [UIColor whiteColor];
     _price.backgroundColor = [UIColor clearColor];
     [self addSubview:_price];
     
-    _title = [[UILabel alloc] initWithFrame:CGRectMake(bg.frame.origin.x+10, bg.frame.origin.y+22, 180, 22)];
+    _title = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+10, _bg.frame.origin.y+22, 180, 22)];
     _title.font = [UIFont systemFontOfSize:14.0f];
     _title.textColor = [UIColor whiteColor];
     _title.backgroundColor = [UIColor clearColor];
     [self addSubview:_title];
     
-    UIImageView *next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-28-20, 28, 28)];
+    next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-28-20, 28, 28)];
     next.image = [UIImage imageNamed:@"nextbuy.png"];
     [self addSubview:next];
     
@@ -74,7 +77,22 @@
              title:(NSArray *)title
              price:(NSArray *)price
              index:(int)index
+              type:(int)type
 {
+    if (type == 1) {
+        _bg.image = [UIImage imageNamed:@"nearbg.png"];
+        next.image = [UIImage imageNamed:@"nextbuy.png"];
+        
+        _price.textColor = [UIColor whiteColor];
+        _title.textColor = [UIColor whiteColor];
+
+    } else if (type == 2) {
+        _bg.image = [UIImage imageNamed:@"nearbgw.png"];
+        next.image = [UIImage imageNamed:@"nextbuy.png"];
+
+        _price.textColor = [UIColor blackColor];
+        _title.textColor = [UIColor grayColor];
+    }
     NSString *str = [imgs objectAtIndex:index];
     _img.image = [UIImage imageNamed:str];
     _title.text = [title objectAtIndex:index];

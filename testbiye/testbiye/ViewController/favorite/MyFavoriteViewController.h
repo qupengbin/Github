@@ -11,4 +11,6 @@
 
 @interface MyFavoriteViewController : BaseViewController
 
+@property(nonatomic,assign) int type;
+
 @end

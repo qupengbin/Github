@@ -107,6 +107,7 @@
         StatisIconView *iconView = [[StatisIconView alloc] initWithFrame:CGRectMake(distance*i, 0, distance, 101+30)];
         [_scroll addSubview:iconView];
     }
+    _scroll.pagingEnabled = YES;
     _scroll.contentSize = CGSizeMake(distance*6, 155);
     [self addSubview:_scroll];
 }

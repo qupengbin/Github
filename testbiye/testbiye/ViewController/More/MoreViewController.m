@@ -48,7 +48,7 @@
                 @"人工服务"];
     
     iconArr = @[@"moreicon1.png",@"moreicon2.png",@"moreicon3.png",
-                @"moreicon5.png",@"moreicon5.png",@"moreicon6.png",
+                @"moreicon4.png",@"moreicon5.png",@"moreicon6.png",
                 @"moreicon7.png"];
     
 

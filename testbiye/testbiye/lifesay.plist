@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>lifesayicon2.png</string>
+		<key>name</key>
+		<string>蹲在街角看沧桑</string>
+		<key>content</key>
+		<string>你可以把吃喝玩乐的感受用图片文字记录下来，你的朋友马上也能看到</string>
+		<key>bgimg</key>
+		<string>lifesayimg2.png</string>
+		<key>time</key>
+		<string>4月8号  18:34</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>lifesayicon1.png</string>
+		<key>name</key>
+		<string>拥抱的太阳</string>
+		<key>content</key>
+		<string>欢迎大家来到乐行生活圈，这里有你和你朋友们的各类消费分析，以及身边开心的事情的分享，是大家生活交流、分享的好平台</string>
+		<key>bgimg</key>
+		<string>lifesayimg1.png</string>
+		<key>time</key>
+		<string>4月7号  16:34</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>lifesayicon2.png</string>
+		<key>name</key>
+		<string>蹲在街角看沧桑</string>
+		<key>content</key>
+		<string>你可以把吃喝玩乐的感受用图片文字记录下来，你的朋友马上也能看到</string>
+		<key>bgimg</key>
+		<string>lifesayimg2.png</string>
+		<key>time</key>
+		<string>4月8号  18:34</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>lifesayicon1.png</string>
+		<key>name</key>
+		<string>拥抱的太阳</string>
+		<key>content</key>
+		<string>欢迎大家来到乐行生活圈，这里有你和你朋友们的各类消费分析，以及身边开心的事情的分享，是大家生活交流、分享的好平台</string>
+		<key>bgimg</key>
+		<string>lifesayimg1.png</string>
+		<key>time</key>
+		<string>4月7号  16:34</string>
+	</dict>
+</array>
+</plist>

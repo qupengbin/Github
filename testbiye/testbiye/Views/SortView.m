@@ -7,6 +7,7 @@
 //
 
 #import "SortView.h"
+#import "MenuCell.h"
 
 @interface SortView()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -46,36 +47,43 @@
     return 4;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 48.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *string = @"SortViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell = [[MenuCell alloc] initWithStyle:UITableViewCellStyleDefault
+                               reuseIdentifier:string];
     }
-    
+    NSString *icon = nil;
+    NSString *title = nil;
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"默认排序";
-            cell.imageView.image = [UIImage imageNamed:@"buysorticon1.png"];
+            icon = @"buysorticon1.png";
+            title = @"默认排序";
             break;
         case 1:
-            cell.textLabel.text = @"按价格排序";
-            cell.imageView.image = [UIImage imageNamed:@"buysorticon2.png"];
+            icon = @"buysorticon2.png";
+            title = @"按价格排序";
             break;
         case 2:
-            cell.textLabel.text = @"按距离排序";
-            cell.imageView.image = [UIImage imageNamed:@"buysorticon3.png"];
+            icon = @"buysorticon3.png";
+            title = @"按距离排序";
             break;
         case 3:
-            cell.textLabel.text = @"按人气排序";
-            cell.imageView.image = [UIImage imageNamed:@"buysorticon4.png"];
+            icon = @"buysorticon4.png";
+            title = @"按人气排序";
             break;
 
         default:
             break;
     }
-    
+    [cell reloadData:icon title:title];
     return cell;
 }
 

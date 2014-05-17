@@ -149,6 +149,8 @@
     }
     self.scroll.contentSize = CGSizeMake(distance*dataArr.count, 79);
     
+    [self showIconAnimation];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -156,6 +158,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showIconAnimation
+{
+    self.icon.frame = CGRectMake(151, 91, 19, 17);
+    
+    [UIView animateWithDuration:0.8f animations:^{
+        
+        self.icon.frame = CGRectMake(123, 61, 74, 67);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 #pragma mark - BtnAction
@@ -176,5 +191,7 @@
     self.shidu.text = [dict objectForKey:@"shidu"];
     self.ziwai.text = [dict objectForKey:@"ziwai"];
     self.icon.image = [UIImage imageNamed:[dict objectForKey:@"icon"]];
+    
+    [self showIconAnimation];
 }
 @end
