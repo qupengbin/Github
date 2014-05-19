@@ -38,6 +38,14 @@
     _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 85)];
     [_scroll addSubview:_image];
     _scroll.contentSize = CGSizeMake(640, 85);
+    
+    float distance = 640.0f/30.0f;
+    for (int i = 0; i < 30; i++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i*distance, 0, distance, 85)];
+        btn.tag = i;
+        btn.backgroundColor = RGBCOLOR(5*i, 5*i, 5*i);
+        [_scroll addSubview:btn];
+    }
 }
 
 - (void)setImage:(UIImage *)img

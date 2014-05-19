@@ -54,6 +54,7 @@
 
     _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
     _searchView.delegate = self;
+    _searchView.hidden = YES;
     [self.view addSubview:_searchView];
 
     _touchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568-44-20-40-216)];
@@ -88,6 +89,7 @@
 {
     if (!showsearch) {
         [UIView animateWithDuration:0.3f animations:^{
+            _searchView.hidden = NO;
             self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
             [_searchView searchViewBecomeFirstResponder];
@@ -97,6 +99,7 @@
         [UIView animateWithDuration:0.3f animations:^{
             self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
+            _searchView.hidden = YES;
             [_searchView searchViewResignFirstResponder];
             _touchBtn.hidden = YES;
         }];

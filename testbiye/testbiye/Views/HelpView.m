@@ -12,6 +12,9 @@
 #define title_W 120
 #define title_H 50
 
+#define jianH 70
+#define arrowH 450
+
 @interface HelpView()
 {
     UILabel *_title1;
@@ -57,7 +60,7 @@
     
     alldata = [NSArray arrayWithContentsOfFile:[MHFileTool getResourcesFile:@"default.plist"]];
 
-    arrow = [[UIImageView alloc] initWithFrame:CGRectMake((320-23)/2, 100, 23, 12)];
+    arrow = [[UIImageView alloc] initWithFrame:CGRectMake((320-23)/2, 100+arrowH, 23, 12)];
     arrow.image = [UIImage imageNamed:@"arrowicon1.png"];
     [self addSubview:arrow];
     
@@ -65,39 +68,39 @@
     lineimg.backgroundColor = [UIColor grayColor];
     [self addSubview:lineimg];
     
-    dian1 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*0+260, 8, 8)];
+    dian1 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*0+260-jianH, 8, 8)];
     dian1.image = [UIImage imageNamed:@"defaultdian.png"];
     [self addSubview:dian1];
     
-    dian2 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*1+260, 8, 8)];
+    dian2 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*1+260-jianH, 8, 8)];
     dian2.image = [UIImage imageNamed:@"defaultdian.png"];
     [self addSubview:dian2];
     
-    dian3 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*2+260, 8, 8)];
+    dian3 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*2+260-jianH, 8, 8)];
     dian3.image = [UIImage imageNamed:@"defaultdian.png"];
     [self addSubview:dian3];
     
-    dian4 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*3+260, 8, 8)];
+    dian4 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*3+260-jianH, 8, 8)];
     dian4.image = [UIImage imageNamed:@"defaultdian.png"];
     [self addSubview:dian4];
     
-    dian5 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*4+260, 8, 8)];
+    dian5 = [[UIImageView alloc] initWithFrame:CGRectMake((320-8)/2, 50*4+260-jianH, 8, 8)];
     dian5.image = [UIImage imageNamed:@"defaultdian.png"];
     [self addSubview:dian5];
 
-    kuang = [[UIImageView alloc] initWithFrame:CGRectMake((320-160)/2-33, 100, 160, 123)];
+    kuang = [[UIImageView alloc] initWithFrame:CGRectMake((320-160)/2-33, 100-jianH, 160, 123)];
     kuang.image = [UIImage imageNamed:@"defaultbg1.png"];
     [self addSubview:kuang];
     
-    iconimg = [[UIImageView alloc] initWithFrame:CGRectMake((320-57)/2, 145, 57, 57)];
+    iconimg = [[UIImageView alloc] initWithFrame:CGRectMake((320-57)/2, 145-jianH, 57, 57)];
     iconimg.image = [UIImage imageNamed:@"defaulticon1.png"];
     [self addSubview:iconimg];
 
-    _title1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 250, title_W, title_H)];
-    _title2 = [[UILabel alloc] initWithFrame:CGRectMake(180, 300, title_W, title_H)];
-    _title3 = [[UILabel alloc] initWithFrame:CGRectMake(30, 350, title_W, title_H)];
-    _title4 = [[UILabel alloc] initWithFrame:CGRectMake(180, 400, title_W, title_H)];
-    _title5 = [[UILabel alloc] initWithFrame:CGRectMake(30, 450, title_W, title_H)];
+    _title1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 250-jianH, title_W, title_H)];
+    _title2 = [[UILabel alloc] initWithFrame:CGRectMake(180, 300-jianH, title_W, title_H)];
+    _title3 = [[UILabel alloc] initWithFrame:CGRectMake(30, 350-jianH, title_W, title_H)];
+    _title4 = [[UILabel alloc] initWithFrame:CGRectMake(180, 400-jianH, title_W, title_H)];
+    _title5 = [[UILabel alloc] initWithFrame:CGRectMake(30, 450-jianH, title_W, title_H)];
 
     _title1.backgroundColor = [UIColor clearColor];
     _title2.backgroundColor = [UIColor clearColor];
@@ -131,7 +134,7 @@
     [self addSubview:_title4];
     [self addSubview:_title5];
     
-    littleicon = [[UIImageView alloc] initWithFrame:CGRectMake((320-41)/2, (568-42-20), 41, 41)];
+    littleicon = [[UIImageView alloc] initWithFrame:CGRectMake((320-41)/2, (568-42-20)-jianH, 41, 41)];
     littleicon.image = [UIImage imageNamed:@"defaultnext1.png"];
     [self addSubview:littleicon];
 }
@@ -140,31 +143,31 @@
 {
     [self startAnimation];
     if (index == 0) {
-        dian1.frame = CGRectMake((320-8)/2, 50*0+460, 8, 8);
-        dian2.frame = CGRectMake((320-8)/2, 50*1+460, 8, 8);
-        dian3.frame = CGRectMake((320-8)/2, 50*2+460, 8, 8);
-        dian4.frame = CGRectMake((320-8)/2, 50*3+460, 8, 8);
-        dian5.frame = CGRectMake((320-8)/2, 50*4+460, 8, 8);
+        dian1.frame = CGRectMake((320-8)/2, 50*0+460-jianH, 8, 8);
+        dian2.frame = CGRectMake((320-8)/2, 50*1+460-jianH, 8, 8);
+        dian3.frame = CGRectMake((320-8)/2, 50*2+460-jianH, 8, 8);
+        dian4.frame = CGRectMake((320-8)/2, 50*3+460-jianH, 8, 8);
+        dian5.frame = CGRectMake((320-8)/2, 50*4+460-jianH, 8, 8);
         
-        _title1.frame = CGRectMake(30, 450, title_W, title_H);
-        _title2.frame = CGRectMake(180, 500, title_W, title_H);
-        _title3.frame = CGRectMake(30, 550, title_W, title_H);
-        _title4.frame = CGRectMake(180, 600, title_W, title_H);
-        _title5.frame = CGRectMake(30, 650, title_W, title_H);
+        _title1.frame = CGRectMake(30, 450-jianH, title_W, title_H);
+        _title2.frame = CGRectMake(180, 500-jianH, title_W, title_H);
+        _title3.frame = CGRectMake(30, 550-jianH, title_W, title_H);
+        _title4.frame = CGRectMake(180, 600-jianH, title_W, title_H);
+        _title5.frame = CGRectMake(30, 650-jianH, title_W, title_H);
 
         lineimg.frame = CGRectMake((320-0.5)/2, 50, 0.5, 568-50);
         [UIView animateWithDuration:0.7f animations:^{
-            dian1.frame = CGRectMake((320-8)/2, 50*0+460-200, 8, 8);
-            dian2.frame = CGRectMake((320-8)/2, 50*1+460-200, 8, 8);
-            dian3.frame = CGRectMake((320-8)/2, 50*2+460-200, 8, 8);
-            dian4.frame = CGRectMake((320-8)/2, 50*3+460-200, 8, 8);
-            dian5.frame = CGRectMake((320-8)/2, 50*4+460-200, 8, 8);
+            dian1.frame = CGRectMake((320-8)/2, 50*0+460-200-jianH, 8, 8);
+            dian2.frame = CGRectMake((320-8)/2, 50*1+460-200-jianH, 8, 8);
+            dian3.frame = CGRectMake((320-8)/2, 50*2+460-200-jianH, 8, 8);
+            dian4.frame = CGRectMake((320-8)/2, 50*3+460-200-jianH, 8, 8);
+            dian5.frame = CGRectMake((320-8)/2, 50*4+460-200-jianH, 8, 8);
             
-            _title1.frame = CGRectMake(30, 450-200, title_W, title_H);
-            _title2.frame = CGRectMake(180, 500-200, title_W, title_H);
-            _title3.frame = CGRectMake(30, 550-200, title_W, title_H);
-            _title4.frame = CGRectMake(180, 600-200, title_W, title_H);
-            _title5.frame = CGRectMake(30, 650-200, title_W, title_H);
+            _title1.frame = CGRectMake(30, 450-200-jianH, title_W, title_H);
+            _title2.frame = CGRectMake(180, 500-200-jianH, title_W, title_H);
+            _title3.frame = CGRectMake(30, 550-200-jianH, title_W, title_H);
+            _title4.frame = CGRectMake(180, 600-200-jianH, title_W, title_H);
+            _title5.frame = CGRectMake(30, 650-200-jianH, title_W, title_H);
         } completion:^(BOOL finished) {
             
         }];
@@ -180,17 +183,17 @@
 
 - (void)changeframePrcent:(float)prcent
 {
-    dian1.frame = CGRectMake((320-8)/2, 50*0+760-500*prcent, 8, 8);
-    dian2.frame = CGRectMake((320-8)/2, 50*1+760-500*prcent, 8, 8);
-    dian3.frame = CGRectMake((320-8)/2, 50*2+760-500*prcent, 8, 8);
-    dian4.frame = CGRectMake((320-8)/2, 50*3+760-500*prcent, 8, 8);
-    dian5.frame = CGRectMake((320-8)/2, 50*4+760-500*prcent, 8, 8);
+    dian1.frame = CGRectMake((320-8)/2, 50*0+760-500*prcent-jianH, 8, 8);
+    dian2.frame = CGRectMake((320-8)/2, 50*1+760-500*prcent-jianH, 8, 8);
+    dian3.frame = CGRectMake((320-8)/2, 50*2+760-500*prcent-jianH, 8, 8);
+    dian4.frame = CGRectMake((320-8)/2, 50*3+760-500*prcent-jianH, 8, 8);
+    dian5.frame = CGRectMake((320-8)/2, 50*4+760-500*prcent-jianH, 8, 8);
 
-    _title1.frame = CGRectMake(30, 50*0+550 -300*prcent, title_W, title_H);
-    _title2.frame = CGRectMake(180, 50*1+550-300*prcent, title_W, title_H);
-    _title3.frame = CGRectMake(30, 50*2+550-300*prcent, title_W, title_H);
-    _title4.frame = CGRectMake(180, 50*3+550-300*prcent, title_W, title_H);
-    _title5.frame = CGRectMake(30, 50*4+550-300*prcent, title_W, title_H);
+    _title1.frame = CGRectMake(30, 50*0+550 -300*prcent-jianH, title_W, title_H);
+    _title2.frame = CGRectMake(180, 50*1+550-300*prcent-jianH, title_W, title_H);
+    _title3.frame = CGRectMake(30, 50*2+550-300*prcent-jianH, title_W, title_H);
+    _title4.frame = CGRectMake(180, 50*3+550-300*prcent-jianH, title_W, title_H);
+    _title5.frame = CGRectMake(30, 50*4+550-300*prcent-jianH, title_W, title_H);
 }
 
 - (void)changeframeLastPrcent:(float)prcent
@@ -207,17 +210,17 @@
     _title5.alpha = 1-prcent;
 
     
-    dian1.frame = CGRectMake((320-8)/2, 50*0+260+500*prcent, 8, 8);
-    dian2.frame = CGRectMake((320-8)/2, 50*1+260+500*prcent, 8, 8);
-    dian3.frame = CGRectMake((320-8)/2, 50*2+260+500*prcent, 8, 8);
-    dian4.frame = CGRectMake((320-8)/2, 50*3+260+500*prcent, 8, 8);
-    dian5.frame = CGRectMake((320-8)/2, 50*4+260+500*prcent, 8, 8);
+    dian1.frame = CGRectMake((320-8)/2, 50*0+260+500*prcent-jianH, 8, 8);
+    dian2.frame = CGRectMake((320-8)/2, 50*1+260+500*prcent-jianH, 8, 8);
+    dian3.frame = CGRectMake((320-8)/2, 50*2+260+500*prcent-jianH, 8, 8);
+    dian4.frame = CGRectMake((320-8)/2, 50*3+260+500*prcent-jianH, 8, 8);
+    dian5.frame = CGRectMake((320-8)/2, 50*4+260+500*prcent-jianH, 8, 8);
     
-    _title1.frame = CGRectMake(30, 50*0+250+300*prcent, title_W, title_H);
-    _title2.frame = CGRectMake(180, 50*1+250+300*prcent, title_W, title_H);
-    _title3.frame = CGRectMake(30, 50*2+250+300*prcent, title_W, title_H);
-    _title4.frame = CGRectMake(180, 50*3+250+300*prcent, title_W, title_H);
-    _title5.frame = CGRectMake(30, 50*4+250+300*prcent, title_W, title_H);
+    _title1.frame = CGRectMake(30, 50*0+250+300*prcent-jianH, title_W, title_H);
+    _title2.frame = CGRectMake(180, 50*1+250+300*prcent-jianH, title_W, title_H);
+    _title3.frame = CGRectMake(30, 50*2+250+300*prcent-jianH, title_W, title_H);
+    _title4.frame = CGRectMake(180, 50*3+250+300*prcent-jianH, title_W, title_H);
+    _title5.frame = CGRectMake(30, 50*4+250+300*prcent-jianH, title_W, title_H);
 }
 
 - (void)startAnimation
@@ -251,12 +254,12 @@
 - (void)whileAnimation
 {
     [UIView animateWithDuration:1.5f animations:^{
-        arrow.frame = CGRectMake((320-23)/2, 50, 23, 12);
+        arrow.frame = CGRectMake((320-23)/2, 50+arrowH, 23, 12);
         arrow.alpha = 1.0f;
 
     } completion:^(BOOL finished) {
         //这是会不停循环的animation
-        arrow.frame = CGRectMake((320-23)/2, 100, 23, 12);
+        arrow.frame = CGRectMake((320-23)/2, 100+arrowH, 23, 12);
         arrow.alpha = 0.0f;
         [self whileAnimation];
     }];
@@ -270,16 +273,16 @@
     }
     switch (index) {
         case 0:
-            kuang.frame = CGRectMake((320-160)/2-33, 100, 160, 123);
+            kuang.frame = CGRectMake((320-160)/2-33, 100-jianH, 160, 123);
             break;
         case 1:
-            kuang.frame = CGRectMake((320-160)/2+33, 100, 160, 123);
+            kuang.frame = CGRectMake((320-160)/2+33, 100-jianH, 160, 123);
             break;
         case 2:
-            kuang.frame = CGRectMake((320-160)/2-33, 100, 159, 122);
+            kuang.frame = CGRectMake((320-160)/2-33, 100-jianH, 159, 122);
             break;
         case 3:
-            kuang.frame = CGRectMake((320-160)/2+33, 100, 163, 120);
+            kuang.frame = CGRectMake((320-160)/2+33, 100-jianH, 163, 120);
             break;
 
         default:

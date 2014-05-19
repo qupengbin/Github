@@ -112,6 +112,7 @@
     
     _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
     _searchView.delegate = self;
+    _searchView.hidden = YES;
     [self.view addSubview:_searchView];
     
     _topScrollView = [[TopScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 230)];
@@ -186,6 +187,7 @@
 {
     if (!showsearch) {
         [UIView animateWithDuration:0.3f animations:^{
+            _searchView.hidden = NO;
             self.view.bounds = CGRectMake(0, -40, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
             [_searchView searchViewBecomeFirstResponder];
@@ -196,6 +198,7 @@
             self.view.bounds = CGRectMake(0, 0, 320, self.view.bounds.size.height);
         } completion:^(BOOL finished) {
             [_searchView searchViewResignFirstResponder];
+            _searchView.hidden = YES;
             _touchBtn.hidden = YES;
         }];
     }

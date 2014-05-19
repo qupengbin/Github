@@ -89,6 +89,9 @@
 		921EBEE3190E847500E3E83F /* RegistNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921EBEE1190E847500E3E83F /* RegistNextViewController.xib */; };
 		921EBEE7190E848200E3E83F /* RegistSureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921EBEE5190E848200E3E83F /* RegistSureViewController.m */; };
 		921EBEE8190E848200E3E83F /* RegistSureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921EBEE6190E848200E3E83F /* RegistSureViewController.xib */; };
+		9223E12C192A9AEE00C6C670 /* nextbuyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9223E12B192A9AEE00C6C670 /* nextbuyg.png */; };
+		9223E12F192A9AEE00C6C670 /* curvey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9223E12E192A9AEE00C6C670 /* curvey.plist */; };
+		9223E131192A9AEE00C6C670 /* comm_default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9223E130192A9AEE00C6C670 /* comm_default.jpg */; };
 		92376A4919166C3B0097C9D3 /* moreicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 92376A4219166C3B0097C9D3 /* moreicon1.png */; };
 		92376A4A19166C3B0097C9D3 /* moreicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 92376A4319166C3B0097C9D3 /* moreicon2.png */; };
 		92376A4B19166C3B0097C9D3 /* moreicon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 92376A4419166C3B0097C9D3 /* moreicon3.png */; };
@@ -787,6 +790,9 @@
 		921EBEE4190E848200E3E83F /* RegistSureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistSureViewController.h; sourceTree = "<group>"; };
 		921EBEE5190E848200E3E83F /* RegistSureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistSureViewController.m; sourceTree = "<group>"; };
 		921EBEE6190E848200E3E83F /* RegistSureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistSureViewController.xib; sourceTree = "<group>"; };
+		9223E12B192A9AEE00C6C670 /* nextbuyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextbuyg.png; sourceTree = "<group>"; };
+		9223E12E192A9AEE00C6C670 /* curvey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = curvey.plist; sourceTree = "<group>"; };
+		9223E130192A9AEE00C6C670 /* comm_default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comm_default.jpg; sourceTree = "<group>"; };
 		92376A4219166C3B0097C9D3 /* moreicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreicon1.png; sourceTree = "<group>"; };
 		92376A4319166C3B0097C9D3 /* moreicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreicon2.png; sourceTree = "<group>"; };
 		92376A4419166C3B0097C9D3 /* moreicon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreicon3.png; sourceTree = "<group>"; };
@@ -1528,6 +1534,7 @@
 		7DED15B218FE224A00A24340 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9223E12E192A9AEE00C6C670 /* curvey.plist */,
 				924ED65519273AFA00F53A41 /* lifesay.plist */,
 				9298D92D192507B40044B0F3 /* default.plist */,
 				928BB51E191E2D8100859323 /* buyplan.plist */,
@@ -1694,6 +1701,7 @@
 		7DF202A818FE52B5007E1AFB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9223E130192A9AEE00C6C670 /* comm_default.jpg */,
 				923B74211914F8E000B2CF41 /* icon.png */,
 				923B74231914F8E500B2CF41 /* icon@2x.png */,
 				92F9878F1907FE77005C3E97 /* nomal */,
@@ -1937,6 +1945,7 @@
 		925CCD471909C7CE00B0F7D2 /* Buy */ = {
 			isa = PBXGroup;
 			children = (
+				9223E12B192A9AEE00C6C670 /* nextbuyg.png */,
 				9241AABF190BD689008C9A6C /* sortimg.png */,
 				920DF5211922433C00695ADD /* buysorticon1.png */,
 				920DF5221922433C00695ADD /* buysorticon2.png */,
@@ -2816,6 +2825,7 @@
 				923B746C191500D100B2CF41 /* nextmiao5.png in Resources */,
 				923B73A61914BDAD00B2CF41 /* tabicon8@2x.png in Resources */,
 				92F987A51907FE77005C3E97 /* mainicon8@2x.png in Resources */,
+				9223E12F192A9AEE00C6C670 /* curvey.plist in Resources */,
 				923B749419151A8A00B2CF41 /* gowhere2.png in Resources */,
 				9241AAC2190BD689008C9A6C /* sortimg@2x.png in Resources */,
 				92A53472191BA8360067DF2F /* statisbtnimg.png in Resources */,
@@ -2847,6 +2857,7 @@
 				923B746B191500D100B2CF41 /* nextmiao4.png in Resources */,
 				928BB430191DF3D900859323 /* statisgicon3.png in Resources */,
 				92F9879E1907FE77005C3E97 /* mainicon1@2x.png in Resources */,
+				9223E12C192A9AEE00C6C670 /* nextbuyg.png in Resources */,
 				923B74081914F64A00B2CF41 /* neartoday2.png in Resources */,
 				923B74851915178E00B2CF41 /* GoWhereViewController.xib in Resources */,
 				92ACA0081917D28200A6743D /* datafiveicon9.png in Resources */,
@@ -3223,6 +3234,7 @@
 				923B7478191500F700B2CF41 /* nextmiao3@2x.png in Resources */,
 				923B748A1915179D00B2CF41 /* NearCycleViewController.xib in Resources */,
 				92F987A11907FE77005C3E97 /* mainicon4@2x.png in Resources */,
+				9223E131192A9AEE00C6C670 /* comm_default.jpg in Resources */,
 				923B73F91914F3F400B2CF41 /* NearDetailViewController.xib in Resources */,
 				92376ACD19167E710097C9D3 /* weathericon3@2x.png in Resources */,
 				928BB436191DF3D900859323 /* statisoicon3.png in Resources */,

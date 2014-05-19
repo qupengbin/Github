@@ -52,7 +52,7 @@
     _title.backgroundColor = [UIColor clearColor];
     [self addSubview:_title];
     
-    next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-28-20, 28, 28)];
+    next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-18-20, 18, 18)];
     next.image = [UIImage imageNamed:@"nextbuy.png"];
     [self addSubview:next];
     
@@ -88,7 +88,7 @@
 
     } else if (type == 2) {
         _bg.image = [UIImage imageNamed:@"nearbgw.png"];
-        next.image = [UIImage imageNamed:@"nextbuy.png"];
+        next.image = [UIImage imageNamed:@"nextbuyg.png"];
 
         _price.textColor = [UIColor blackColor];
         _title.textColor = [UIColor grayColor];

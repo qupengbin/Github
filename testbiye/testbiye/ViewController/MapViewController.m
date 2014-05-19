@@ -38,7 +38,7 @@
     self.scroll.minimumZoomScale = 1.0f;
     self.scroll.maximumZoomScale = 50.0f;
 
-    UIImage *image = [UIImage imageNamed:@"comm_default.png"];
+    UIImage *image = [UIImage imageNamed:@"comm_default.jpg"];
     float scale = image.size.width/image.size.height;
     float h = 320/scale;
     
