@@ -7,11 +7,16 @@
 //
 
 #import "CurveView.h"
+#import "MHFileTool.h"
 
 @interface CurveView()
 {
+    UIImageView *_infobg;
+    UILabel *_info;
     UIImageView *_image;
     UIScrollView *_scroll;
+    
+    NSArray *_pointArr;
 }
 
 @end
@@ -39,27 +44,49 @@
     [_scroll addSubview:_image];
     _scroll.contentSize = CGSizeMake(640, 85);
     
+    _infobg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
+    _infobg.backgroundColor = [UIColor clearColor];
+    [self addSubview:_infobg];
+    
+    _info = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
+    _info.textAlignment = NSTextAlignmentCenter;
+    _info.backgroundColor = [UIColor clearColor];
+    _info.textColor = [UIColor blackColor];
+    _info.font = [UIFont systemFontOfSize:10.0f];
+    [_infobg addSubview:_info];
+    
     float distance = 640.0f/30.0f;
     for (int i = 0; i < 30; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i*distance, 0, distance, 85)];
         btn.tag = i;
-        btn.backgroundColor = RGBCOLOR(5*i, 5*i, 5*i);
+        [btn addTarget:self
+                action:@selector(btnAction:)
+      forControlEvents:UIControlEventTouchUpInside];
+        btn.backgroundColor = [UIColor clearColor];
         [_scroll addSubview:btn];
     }
 }
 
-- (void)setImage:(UIImage *)img
+- (void)btnAction:(id)sender
 {
-    _image.image = img;
+    UIButton *btn = (UIButton *)sender;
+    float distance = 640.0f/30.0f;
+    int y = [[_pointArr objectAtIndex:btn.tag] intValue];
+    _infobg.frame = CGRectMake(distance*btn.tag+10, y, 40, 25);
+    _info.text = [NSString stringWithFormat:@"%d",y*10];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)setImage:(UIImage *)img type:(int)type
 {
-    // Drawing code
+    NSArray *arr = [NSArray arrayWithContentsOfFile:[MHFileTool getResourcesFile:@"curvey.plist"]];
+    if (type == 1) {
+        _pointArr = [arr objectAtIndex:0];
+    } else if (type == 2) {
+        _pointArr = [arr objectAtIndex:1];
+    } else if (type == 3) {
+        _pointArr = [arr objectAtIndex:2];
+    }
+    _image.image = img;
 }
-*/
 
 @end

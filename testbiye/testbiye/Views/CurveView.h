@@ -10,6 +10,6 @@
 
 @interface CurveView : UIView
 
-- (void)setImage:(UIImage *)img;
+- (void)setImage:(UIImage *)img type:(int)type;
 
 @end

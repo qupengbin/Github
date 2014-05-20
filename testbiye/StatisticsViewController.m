@@ -138,7 +138,7 @@
                       forState:UIControlStateNormal];
         [self.cosmeticbtn setImage:[UIImage imageNamed:@"statiszhouy.png"]
                       forState:UIControlStateNormal];
-        [_curveView setImage:[UIImage imageNamed:@"statiscurvezhou.png"]];
+        [_curveView setImage:[UIImage imageNamed:@"statiscurvezhou.png"] type:1];
         
     } else if (_type == Statis_type_mom) {
         [self showLabel];
@@ -154,7 +154,7 @@
                          forState:UIControlStateNormal];
         [self.cosmeticbtn setImage:[UIImage imageNamed:@"statismomy.png"]
                           forState:UIControlStateNormal];
-        [_curveView setImage:[UIImage imageNamed:@"statiscurvemom.png"]];
+        [_curveView setImage:[UIImage imageNamed:@"statiscurvemom.png"] type:2];
 
     } else if (_type == Statis_type_year) {
         [self showLabel];
@@ -172,7 +172,7 @@
                           forState:UIControlStateNormal];
         [self.travelbtn setImage:[UIImage imageNamed:@"statisyearo.png"]
                           forState:UIControlStateNormal];
-        [_curveView setImage:[UIImage imageNamed:@"statiscurveyear.png"]];
+        [_curveView setImage:[UIImage imageNamed:@"statiscurveyear.png"] type:3];
 
     }
 }

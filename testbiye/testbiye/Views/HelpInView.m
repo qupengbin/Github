@@ -44,13 +44,13 @@
         pagesView = [[NSMutableArray alloc] init];
     }
     
-    for (int i = 0 ; i < 4; i ++) {
+    for (int i = 0 ; i < 5; i ++) {
         HelpView *help = [[HelpView alloc] initWithFrame:CGRectMake(0, 568*i, 320, 568)];
         [help reloadData:i];
         [_scroll addSubview:help];
         [pagesView addObject:help];
     }
-    [_scroll setContentSize:CGSizeMake(320, 568*5)];
+    [_scroll setContentSize:CGSizeMake(320, 568*6)];
     _scroll.pagingEnabled = YES;
     
     _nowpage = 0;
@@ -73,7 +73,7 @@
         [help changeframeLastPrcent:offset-page];
     }
     
-    self.alpha = ((_scroll.frame.size.height*4)-_scroll.contentOffset.y)/_scroll.frame.size.height;
+    self.alpha = ((_scroll.frame.size.height*5)-_scroll.contentOffset.y)/_scroll.frame.size.height;
 }
 
 

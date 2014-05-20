@@ -7,13 +7,15 @@
 //
 
 #import "MapViewController.h"
+#import "MMSpinImageView.h"
 
-@interface MapViewController () <UIScrollViewDelegate>
+@interface MapViewController () <UIScrollViewDelegate,MMSpinImageViewDelegate>
 {
     UIImageView *_mapImg;
 }
 
-@property(nonatomic,weak) IBOutlet UIScrollView *scroll;
+//@property(nonatomic,weak) IBOutlet UIScrollView *scroll;
+@property (nonatomic, strong) MMSpinImageView *imageView;
 
 @end
 
@@ -35,17 +37,23 @@
     
     self.titlelab.text = @"乐 行 地 图";
 
+    /*
     self.scroll.minimumZoomScale = 1.0f;
     self.scroll.maximumZoomScale = 50.0f;
 
     UIImage *image = [UIImage imageNamed:@"comm_default.jpg"];
     float scale = image.size.width/image.size.height;
     float h = 320/scale;
-    
     _mapImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, (504-h)/2, 320, h)];
     _mapImg.image = image;
     [self.scroll addSubview:_mapImg];
-
+     */
+    
+    self.imageView = [[MMSpinImageView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
+    self.imageView.delegate = self;
+    [self.view addSubview:self.imageView];
+    
+    [self actionFile];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -53,6 +61,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)actionFile
+{
+    [self.imageView loadDataFromZip:[[NSBundle mainBundle].resourcePath stringByAppendingString:@"/car.zip"]];
 }
 
 #pragma mark - BtnAction
@@ -74,7 +87,7 @@
     return _mapImg;
 }
 
-//实现图片在素芳过程中居中
+//实现图片在缩放过程中居中
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?(scrollView.bounds.size.width - scrollView.contentSize.width)/2 : 0.0;

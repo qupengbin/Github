@@ -39,6 +39,9 @@
     
     UIImageView *kuang;
     
+    //开始的icon(放在第一页)
+    UIImageView *defaultIcon;
+    
     NSArray *alldata;
 }
 
@@ -57,6 +60,9 @@
 
 - (void)initview
 {
+    defaultIcon = [[UIImageView alloc] initWithFrame:CGRectMake((320-10)/2, (568-10)/2, 10, 10)];
+    defaultIcon.image = [UIImage imageNamed:@"defaulticon.png"];
+    [self addSubview:defaultIcon];
     
     alldata = [NSArray arrayWithContentsOfFile:[MHFileTool getResourcesFile:@"default.plist"]];
 
@@ -141,8 +147,13 @@
 
 - (void)reloadData:(int)index
 {
-    [self startAnimation];
+    dian1.hidden = NO;dian2.hidden = NO;dian3.hidden = NO;dian4.hidden = NO;
+    dian5.hidden = NO;_title1.hidden = NO;_title2.hidden = NO;_title3.hidden = NO;_title4.hidden = NO;_title5.hidden = NO;lineimg.hidden = NO;iconimg.hidden = NO;littleicon.hidden = NO;kuang.hidden = NO;defaultIcon.hidden = YES;
+
     if (index == 0) {
+        dian1.hidden = YES;dian2.hidden = YES;dian3.hidden = YES;dian4.hidden = YES;
+        dian5.hidden = YES;_title1.hidden = YES;_title2.hidden = YES;_title3.hidden = YES;_title4.hidden = YES;_title5.hidden = YES;lineimg.hidden = YES;iconimg.hidden = YES;littleicon.hidden = YES;kuang.hidden = YES;defaultIcon.hidden = NO;
+        /*
         dian1.frame = CGRectMake((320-8)/2, 50*0+460-jianH, 8, 8);
         dian2.frame = CGRectMake((320-8)/2, 50*1+460-jianH, 8, 8);
         dian3.frame = CGRectMake((320-8)/2, 50*2+460-jianH, 8, 8);
@@ -171,14 +182,20 @@
         } completion:^(BOOL finished) {
             
         }];
+         */
+    } else if (index == 1) {
+        lineimg.frame = CGRectMake((320-0.5)/2, 50, 0.5, 568-50);
+    }
+    if (index>0) {
+        NSArray *arr = [alldata objectAtIndex:index-1];
+        _title1.text = [arr objectAtIndex:0];
+        _title2.text = [arr objectAtIndex:1];
+        _title3.text = [arr objectAtIndex:2];
+        _title4.text = [arr objectAtIndex:3];
+        _title5.text = [arr objectAtIndex:4];
     }
     
-    NSArray *arr = [alldata objectAtIndex:index];
-    _title1.text = [arr objectAtIndex:0];
-    _title2.text = [arr objectAtIndex:1];
-    _title3.text = [arr objectAtIndex:2];
-    _title4.text = [arr objectAtIndex:3];
-    _title5.text = [arr objectAtIndex:4];
+    [self startAnimation];
 }
 
 - (void)changeframePrcent:(float)prcent
@@ -225,6 +242,12 @@
 
 - (void)startAnimation
 {
+    [UIView animateWithDuration:1.0f animations:^{
+        defaultIcon.frame = CGRectMake((320-117)/2, (568-97)/2, 117, 97);
+        defaultIcon.transform=CGAffineTransformMakeRotation(-M_PI);
+        defaultIcon.transform=CGAffineTransformMakeRotation(M_PI/180);
+    } completion:^(BOOL finished) {
+    }];
     [self whileAnimation];
     [self whileAnimation1];
 }
@@ -233,7 +256,6 @@
 {
     [UIView animateWithDuration:0.7f animations:^{
         iconimg.transform=CGAffineTransformMakeRotation(M_PI/-20);
-//        littleicon.transform=CGAffineTransformMakeRotation(M_PI/-20);
     } completion:^(BOOL finished) {
         //这是会不停循环的animation
         [self whileAnimation2];
@@ -244,7 +266,6 @@
 {
     [UIView animateWithDuration:0.7f animations:^{
         iconimg.transform=CGAffineTransformMakeRotation(M_PI/20);
-//        littleicon.transform=CGAffineTransformMakeRotation(M_PI/-20);
     } completion:^(BOOL finished) {
         //这是会不停循环的animation
         [self whileAnimation1];
@@ -268,29 +289,29 @@
 - (void)changeViewImage:(int)index
 {
     littleicon.hidden = NO;
-    if (index == 3) {
+    if (index == 4) {
         littleicon.hidden = YES;
     }
     switch (index) {
-        case 0:
+        case 1:
             kuang.frame = CGRectMake((320-160)/2-33, 100-jianH, 160, 123);
             break;
-        case 1:
+        case 2:
             kuang.frame = CGRectMake((320-160)/2+33, 100-jianH, 160, 123);
             break;
-        case 2:
+        case 3:
             kuang.frame = CGRectMake((320-160)/2-33, 100-jianH, 159, 122);
             break;
-        case 3:
+        case 4:
             kuang.frame = CGRectMake((320-160)/2+33, 100-jianH, 163, 120);
             break;
 
         default:
             break;
     }
-    arrow.image = [UIImage imageNamed:[NSString stringWithFormat:@"arrowicon%d.png",index+1]];
-    kuang.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaultbg%d.png",index+1]];
-    iconimg.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaulticon%d.png",index+1]];
-    littleicon.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaultnext%d.png",index+1]];
+    arrow.image = [UIImage imageNamed:[NSString stringWithFormat:@"arrowicon%d.png",index]];
+    kuang.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaultbg%d.png",index]];
+    iconimg.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaulticon%d.png",index]];
+    littleicon.image = [UIImage imageNamed:[NSString stringWithFormat:@"defaultnext%d.png",index]];
 }
 @end
