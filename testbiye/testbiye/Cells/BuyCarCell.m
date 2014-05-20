@@ -17,6 +17,8 @@
     
     UIButton *addbtn;
     UIButton *redbtn;
+    
+    UIButton *deletebtn;
 }
 
 @end
@@ -72,11 +74,65 @@
         
         [addbtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [redbtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-
+        
+        deletebtn = [[UIButton alloc] initWithFrame:CGRectMake(320-36-20, (h-36)/2, 36, 36)];
+        [deletebtn setBackgroundImage:[UIImage imageNamed:@"buycardeleteimg.png"]
+                             forState:UIControlStateNormal];
+        [deletebtn setTitle:@"删除"
+                   forState:UIControlStateNormal];
+        [deletebtn.titleLabel setTextColor:[UIColor whiteColor]];
+        deletebtn.alpha = 0.0f;
+        
+        [self addSubview:deletebtn];
+        
         UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 89, 320, 0.5)];
         line.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:line];
     }
+    
+//    UISwipeGestureRecognizer *swipleft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteSelfAction:)];
+//    swipleft.direction = UISwipeGestureRecognizerDirectionLeft;
+//    [self addGestureRecognizer:swipleft];
+
+//    UISwipeGestureRecognizer *swipright = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightAction:)];
+//    swipright.direction = UISwipeGestureRecognizerDirectionRight;
+//    [self addGestureRecognizer:swipright];
+
+}
+
+- (void)deleteSelfAction:(id)sender
+{
+    float h = 90.0f;
+    float jian = 50.0f;
+    [UIView animateWithDuration:0.5f animations:^{
+        iconView.frame = CGRectMake(10-jian, (h-71)/2, 71, 71);
+        name.frame = CGRectMake(iconView.frame.origin.x+71+8-jian, 21, 150, 30);
+        price.frame = CGRectMake(iconView.frame.origin.x+71+8-jian, 21+30, 150, 30);
+        addbtn.frame = CGRectMake(320-21-20-jian, (h-21)/2, 21, 21);
+        number.frame = CGRectMake(320-21-20-30-jian, (h-30)/2, 30, 30);
+        redbtn.frame = CGRectMake(320-21-20-30-21-jian, (h-21)/2, 21, 21);
+
+        deletebtn.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)rightAction:(id)sender
+{
+    float h = 90.0f;
+    [UIView animateWithDuration:0.5f animations:^{
+        iconView.frame = CGRectMake(10, (h-71)/2, 71, 71);
+        name.frame = CGRectMake(iconView.frame.origin.x+71+8, 21, 150, 30);
+        price.frame = CGRectMake(iconView.frame.origin.x+71+8, 21+30, 150, 30);
+        addbtn.frame = CGRectMake(320-21-20, (h-21)/2, 21, 21);
+        number.frame = CGRectMake(320-21-20-30, (h-30)/2, 30, 30);
+        redbtn.frame = CGRectMake(320-21-20-30-21, (h-21)/2, 21, 21);
+        
+        deletebtn.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)btnAction:(id)sender

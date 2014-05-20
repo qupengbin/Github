@@ -81,7 +81,7 @@
 {
     if (type == 1) {
         _bg.image = [UIImage imageNamed:@"nearbg.png"];
-        next.image = [UIImage imageNamed:@"nextbuy.png"];
+        next.image = [UIImage imageNamed:@"buyicon.png"];
         
         _price.textColor = [UIColor whiteColor];
         _title.textColor = [UIColor whiteColor];

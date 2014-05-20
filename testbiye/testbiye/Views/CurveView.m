@@ -16,6 +16,8 @@
     UIImageView *_image;
     UIScrollView *_scroll;
     
+    UIImageView *_dian;
+
     NSArray *_pointArr;
 }
 
@@ -35,20 +37,25 @@
 
 - (void)initview
 {
+    self.backgroundColor = [UIColor clearColor];
+    
     _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 85)];
     _scroll.showsHorizontalScrollIndicator = NO;
     _scroll.showsVerticalScrollIndicator = NO;
+    _scroll.backgroundColor = [UIColor clearColor];
     [self addSubview:_scroll];
     
     _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 85)];
     [_scroll addSubview:_image];
     _scroll.contentSize = CGSizeMake(640, 85);
     
-    _infobg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
+    _infobg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 36, 18)];
+    _infobg.image = [UIImage imageNamed:@"curveinfobg.png"];
     _infobg.backgroundColor = [UIColor clearColor];
-    [self addSubview:_infobg];
+    _infobg.hidden = YES;
+    [_scroll addSubview:_infobg];
     
-    _info = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
+    _info = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 38, 12)];
     _info.textAlignment = NSTextAlignmentCenter;
     _info.backgroundColor = [UIColor clearColor];
     _info.textColor = [UIColor blackColor];
@@ -65,6 +72,11 @@
         btn.backgroundColor = [UIColor clearColor];
         [_scroll addSubview:btn];
     }
+    
+    _dian = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 8, 8)];
+    _dian.image = [UIImage imageNamed:@"curvedianimg.png"];
+    _dian.hidden = YES;
+//    [_scroll addSubview:_dian];
 }
 
 - (void)btnAction:(id)sender
@@ -72,7 +84,10 @@
     UIButton *btn = (UIButton *)sender;
     float distance = 640.0f/30.0f;
     int y = [[_pointArr objectAtIndex:btn.tag] intValue];
-    _infobg.frame = CGRectMake(distance*btn.tag+10, y, 40, 25);
+    _infobg.frame = CGRectMake(distance*btn.tag+10-18, y-18, 36, 18);
+    _dian.frame = CGRectMake(distance*btn.tag+10-1, y-1, 8, 8);
+    _infobg.hidden = NO;
+    _dian.hidden = NO;
     _info.text = [NSString stringWithFormat:@"%d",y*10];
 }
 
@@ -87,6 +102,9 @@
         _pointArr = [arr objectAtIndex:2];
     }
     _image.image = img;
+    _infobg.hidden = YES;
+    _dian.hidden = YES;
+
 }
 
 @end

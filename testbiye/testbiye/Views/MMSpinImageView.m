@@ -170,13 +170,8 @@ UIGestureRecognizerDelegate
 
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 52; i ++) {
-        NSString *name = nil;
-        if (i<9) {
-            name = [NSString stringWithFormat:@"0%d.png",i+1];
-        } else {
-            name = [NSString stringWithFormat:@"%d.png",i+1];
-        }
+    for (int i = 0; i < 40; i ++) {
+        NSString *name = [NSString stringWithFormat:@"%d.png",i+1];
         UIImage *image = [UIImage imageNamed:name];
         [array addObject:image];
     }
