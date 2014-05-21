@@ -252,7 +252,7 @@
     showMenu = !showMenu;
 }
 
-- (void)notshowMenu
+- (void)notshowMenu:(UIViewController *)viewController
 {
     showMenu = NO;
     self.view.userInteractionEnabled = YES;
@@ -261,6 +261,9 @@
                                 Duration:0.1f
                                Direction:XYOrigamiDirectionFromLeft
                               completion:^(BOOL finished) {
+                                  [self.navigationController
+                                   pushViewController:viewController
+                                   animated:YES];
                               }];
 }
 
@@ -270,63 +273,33 @@
     if (index == 0) {
         //我的积分
         MyIntegralViewController *integ = [[MyIntegralViewController alloc] init];
-        [self notshowMenu];
-        [self.navigationController pushViewController:integ animated:YES];
-
-//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
-//        [self presentViewController:nav animated:YES completion:^{
-//            [self notshowMenu];
-//        }];
-        
+        [self notshowMenu:integ];
+//        [self.navigationController pushViewController:integ animated:YES];
     } else if (index == 1) {
         //我的订单
         MyIndentViewController *integ = [[MyIndentViewController alloc] init];
-//        integ.type = 1;
-        integ.type = 1;
-        [self notshowMenu];
-        [self.navigationController pushViewController:integ animated:YES];
-
-//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
-//        [self presentViewController:nav animated:YES completion:^{
-//            [self notshowMenu];
-//        }];
+        integ.type = 2;
+        [self notshowMenu:integ];
+//        [self.navigationController pushViewController:integ animated:YES];
     } else if (index == 2) {
         //消费统计
-        StatisticsViewController *favorite = [[StatisticsViewController alloc] init];
-        [self notshowMenu];
-        [self.navigationController pushViewController:favorite animated:YES];
-
-//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
-//        [self presentViewController:nav animated:YES completion:^{
-//            [self notshowMenu];
-//        }];
-        
+        StatisticsViewController *statis = [[StatisticsViewController alloc] init];
+        [self notshowMenu:statis];
+//        [self.navigationController pushViewController:statis animated:YES];
     } else if (index == 3) {
         //我的收藏
         MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];
-//        favorite.type = 1;
         favorite.type = 2;
-        [self notshowMenu];
-        [self.navigationController pushViewController:favorite animated:YES];
-
-//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
-//        [self presentViewController:nav animated:YES completion:^{
-//            [self notshowMenu];
-//        }];
+        [self notshowMenu:favorite];
+//        [self.navigationController pushViewController:favorite animated:YES];
     }
 }
 
 - (void)loginOrRegistAction
 {
     LoginViewController *login = [[LoginViewController alloc] init];
-    
-    [self notshowMenu];
-    [self.navigationController pushViewController:login animated:YES];
-
-//    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:login];
-//    [self presentViewController:nav animated:YES completion:^{
-//        [self notshowMenu];
-//    }];
+    [self notshowMenu:login];
+//    [self.navigationController pushViewController:login animated:YES];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource
