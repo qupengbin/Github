@@ -156,10 +156,15 @@
     _menuView = [[MenuView alloc] initWithFrame:CGRectMake(0, 0, 250, self.view.bounds.size.height)];
     _menuView.delegate = self;
     // Do any additional setup after loading the view.
+    
+    UISwipeGestureRecognizer *swipe =[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightAction:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipe];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    showMenu = NO;
     app.tabbar.hidden = YES;
     [app.tabbar setTabbarToolHidden];
 }
@@ -192,6 +197,11 @@
 }
 
 #pragma mark - UIButtonAction
+- (void)swipeRightAction:(id)sender
+{
+    [self menuAction:nil];
+}
+
 - (void)touchBtnAction
 {
     [self searchAction:nil];
@@ -223,6 +233,7 @@
 - (void)menuAction:(id)sender
 {
     if (!showMenu) {
+        self.view.userInteractionEnabled = NO;
         [self.view showOrigamiTransitionWith:_menuView
                                NumberOfFolds:4
                                     Duration:0.5f
@@ -230,6 +241,7 @@
                                   completion:^(BOOL finished) {
                                   }];
     } else {
+        self.view.userInteractionEnabled = YES;
         [self.view hideOrigamiTransitionWith:_menuView
                                NumberOfFolds:4
                                     Duration:0.5f
@@ -243,9 +255,10 @@
 - (void)notshowMenu
 {
     showMenu = NO;
+    self.view.userInteractionEnabled = YES;
     [self.view hideOrigamiTransitionWith:_menuView
                            NumberOfFolds:4
-                                Duration:0.2f
+                                Duration:0.1f
                                Direction:XYOrigamiDirectionFromLeft
                               completion:^(BOOL finished) {
                               }];
@@ -257,46 +270,63 @@
     if (index == 0) {
         //我的积分
         MyIntegralViewController *integ = [[MyIntegralViewController alloc] init];
-        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
-        [self presentViewController:nav animated:YES completion:^{
-            [self notshowMenu];
-        }];
+        [self notshowMenu];
+        [self.navigationController pushViewController:integ animated:YES];
+
+//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+//        [self presentViewController:nav animated:YES completion:^{
+//            [self notshowMenu];
+//        }];
         
     } else if (index == 1) {
         //我的订单
         MyIndentViewController *integ = [[MyIndentViewController alloc] init];
+//        integ.type = 1;
         integ.type = 1;
-        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
-        [self presentViewController:nav animated:YES completion:^{
-            [self notshowMenu];
-        }];
+        [self notshowMenu];
+        [self.navigationController pushViewController:integ animated:YES];
+
+//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+//        [self presentViewController:nav animated:YES completion:^{
+//            [self notshowMenu];
+//        }];
     } else if (index == 2) {
         //消费统计
         StatisticsViewController *favorite = [[StatisticsViewController alloc] init];
-        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
-        [self presentViewController:nav animated:YES completion:^{
-            [self notshowMenu];
-        }];
+        [self notshowMenu];
+        [self.navigationController pushViewController:favorite animated:YES];
+
+//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+//        [self presentViewController:nav animated:YES completion:^{
+//            [self notshowMenu];
+//        }];
         
     } else if (index == 3) {
         //我的收藏
         MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];
-        favorite.type = 1;
-        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
-        [self presentViewController:nav animated:YES completion:^{
-            [self notshowMenu];
-        }];
+//        favorite.type = 1;
+        favorite.type = 2;
+        [self notshowMenu];
+        [self.navigationController pushViewController:favorite animated:YES];
+
+//        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+//        [self presentViewController:nav animated:YES completion:^{
+//            [self notshowMenu];
+//        }];
     }
 }
 
 - (void)loginOrRegistAction
 {
     LoginViewController *login = [[LoginViewController alloc] init];
-    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:login];
     
-    [self presentViewController:nav animated:YES completion:^{
-        [self notshowMenu];
-    }];
+    [self notshowMenu];
+    [self.navigationController pushViewController:login animated:YES];
+
+//    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:login];
+//    [self presentViewController:nav animated:YES completion:^{
+//        [self notshowMenu];
+//    }];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource

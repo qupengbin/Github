@@ -186,9 +186,10 @@
 #pragma mark - BtnAction
 - (void)backBtnAction:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)BtnAction:(id)sender

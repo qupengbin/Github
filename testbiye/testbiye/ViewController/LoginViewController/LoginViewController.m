@@ -56,9 +56,10 @@
 #pragma mark - UIButtonAction
 - (void)backBtnAction:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)registAction:(id)sender
