@@ -78,6 +78,9 @@
     buyicon.image = [UIImage imageNamed:@"buyicon.png"];
     [bgImage addSubview:buyicon];
     
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [self addGestureRecognizer:swipe];
 }
 
 - (void)reloadDataWithPictures:(NSArray *)picts infos:(NSArray *)infos
@@ -133,6 +136,13 @@
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(topScrollViewAction:)]) {
         [self.delegate topScrollViewAction:btn.tag-1000];
+    }
+}
+#pragma mark - UISwipeGesture
+- (void)swipeAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(swipeUpAction:)]) {
+        [self.delegate swipeUpAction:sender];
     }
 }
 

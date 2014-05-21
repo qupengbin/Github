@@ -378,6 +378,11 @@
 }
 
 #pragma mark - CycleScrollViewDelegate
+- (void)swipeUpAction:(id)sender
+{
+    [self searchAction:nil];
+}
+
 - (void)topScrollViewAction:(int)index
 {
     StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];

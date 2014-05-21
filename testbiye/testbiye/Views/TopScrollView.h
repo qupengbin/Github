@@ -12,6 +12,8 @@
 
 - (void)topScrollViewAction:(int)index;
 
+- (void)swipeUpAction:(id)sender;
+
 @end
 
 @interface TopScrollView : UIView

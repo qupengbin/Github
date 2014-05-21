@@ -225,6 +225,11 @@
 
 
 #pragma mark - TopScrollViewDelegate
+- (void)swipeUpAction:(id)sender
+{
+    [self searchBtnAction:nil];
+}
+
 - (void)topScrollViewAction:(int)index
 {
     StoreDetailViewController *detail = [[StoreDetailViewController alloc] init];
