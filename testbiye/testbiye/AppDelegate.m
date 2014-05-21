@@ -20,7 +20,7 @@
 
 AppDelegate *app;
 
-@interface AppDelegate()
+@interface AppDelegate()<MenuViewControllerDelegate>
 {
     MainViewController *mainViewController;
     MenuViewController *menuViewController;
@@ -33,6 +33,9 @@ AppDelegate *app;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     app = self;
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -45,8 +48,9 @@ AppDelegate *app;
     MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:mainViewController];
     menuViewController.delegate = self;
     
-    ICSDrawerController *drawController = [[ICSDrawerController alloc] initWithLeftViewController:menuViewController centerViewController:nav rightViewController:nil];
-    self.window.rootViewController = drawController;
+//    ICSDrawerController *drawController = [[ICSDrawerController alloc] initWithLeftViewController:menuViewController centerViewController:nav rightViewController:nil];
+    
+    self.window.rootViewController = nav;
 
     self.tabbar = [[TabbarToolView alloc] initWithFrame:CGRectMake(0, self.window.bounds.size.height-49, 320, 49)];
     [self.window addSubview:self.tabbar];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol MenuViewDelegate <NSObject>
+@optional
 
 - (void)tableviewSelect:(int)index;
 
@@ -19,6 +20,5 @@
 @interface MenuView : UIView
 
 @property(nonatomic,assign) id<MenuViewDelegate> delegate;
-@property(nonatomic,weak) UITableView *tableView;
 
 @end

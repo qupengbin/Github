@@ -60,8 +60,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
     NSInteger page = (int)(offset);
-    NSLog(@"now page %d",page);
-    NSLog(@"offset  %f",offset);
     
     if (page<pagesView.count-1) {
         HelpView *help1 = (HelpView *)[pagesView objectAtIndex:page+1];

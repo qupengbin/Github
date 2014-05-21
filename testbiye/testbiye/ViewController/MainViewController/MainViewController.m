@@ -25,8 +25,16 @@
 #import "BuyCarViewController.h"
 #import "StoreDetailViewController.h"
 #import "SetClockViewController.h"
+#import "MenuView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIView+Origami.h"
+#import "LoginViewController.h"
+#import "MyIntegralViewController.h"
+#import "MyIndentViewController.h"
+#import "StatisticsViewController.h"
+#import "MyFavoriteViewController.h"
 
-@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate>
+@interface MainViewController () <UITableViewDelegate,UITableViewDataSource,TopScrollViewDelegate,MainViewCellDelegate,SearchViewDelegate,MainLittleViewDelegate,MenuViewDelegate>
 {
     UIButton *_touchBtn;
     UITableView *_tableView;
@@ -39,7 +47,11 @@
     TopScrollView *_topScrollView;
     MainLittleView *_littleView;
     
+    MenuView *_menuView;
+    
     BOOL showsearch;
+    BOOL currDirection;
+    BOOL showMenu;
 }
 
 @end
@@ -138,7 +150,11 @@
     [_touchBtn addTarget:self action:@selector(touchBtnAction) forControlEvents:UIControlEventTouchUpInside];
     _touchBtn.alpha = 0.3f;
     _touchBtn.hidden = YES;
+    
+    currDirection = XYOrigamiDirectionFromLeft;
 
+    _menuView = [[MenuView alloc] initWithFrame:CGRectMake(0, 0, 250, self.view.bounds.size.height)];
+    _menuView.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -206,8 +222,81 @@
 
 - (void)menuAction:(id)sender
 {
-    MHNavViewController *nav = (MHNavViewController *)self.navigationController;
-    [nav.drawer open];
+    if (!showMenu) {
+        [self.view showOrigamiTransitionWith:_menuView
+                               NumberOfFolds:4
+                                    Duration:0.5f
+                                   Direction:XYOrigamiDirectionFromLeft
+                                  completion:^(BOOL finished) {
+                                  }];
+    } else {
+        [self.view hideOrigamiTransitionWith:_menuView
+                               NumberOfFolds:4
+                                    Duration:0.5f
+                                   Direction:XYOrigamiDirectionFromLeft
+                                  completion:^(BOOL finished) {
+                                  }];
+    }
+    showMenu = !showMenu;
+}
+
+- (void)notshowMenu
+{
+    showMenu = NO;
+    [self.view hideOrigamiTransitionWith:_menuView
+                           NumberOfFolds:4
+                                Duration:0.2f
+                               Direction:XYOrigamiDirectionFromLeft
+                              completion:^(BOOL finished) {
+                              }];
+}
+
+#pragma mark - MenuViewDelegate
+- (void)tableviewSelect:(int)index
+{
+    if (index == 0) {
+        //我的积分
+        MyIntegralViewController *integ = [[MyIntegralViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+        [self presentViewController:nav animated:YES completion:^{
+            [self notshowMenu];
+        }];
+        
+    } else if (index == 1) {
+        //我的订单
+        MyIndentViewController *integ = [[MyIndentViewController alloc] init];
+        integ.type = 1;
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:integ];
+        [self presentViewController:nav animated:YES completion:^{
+            [self notshowMenu];
+        }];
+    } else if (index == 2) {
+        //消费统计
+        StatisticsViewController *favorite = [[StatisticsViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+        [self presentViewController:nav animated:YES completion:^{
+            [self notshowMenu];
+        }];
+        
+    } else if (index == 3) {
+        //我的收藏
+        MyFavoriteViewController *favorite = [[MyFavoriteViewController alloc] init];
+        favorite.type = 1;
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:favorite];
+        [self presentViewController:nav animated:YES completion:^{
+            [self notshowMenu];
+        }];
+    }
+}
+
+- (void)loginOrRegistAction
+{
+    LoginViewController *login = [[LoginViewController alloc] init];
+    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:login];
+    
+    [self presentViewController:nav animated:YES completion:^{
+        [self notshowMenu];
+    }];
 }
 
 #pragma mark - UITableViewDelegate/UITableViewDataSource

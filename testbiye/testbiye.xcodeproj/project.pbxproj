@@ -92,6 +92,7 @@
 		7DED8FF018FFC1D800F0DAC4 /* comm_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DED8FEE18FFC1D800F0DAC4 /* comm_default.png */; };
 		7DED8FF118FFC1D800F0DAC4 /* comm_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DED8FEF18FFC1D800F0DAC4 /* comm_default@2x.png */; };
 		7DED900C18FFDF2D00F0DAC4 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DED900B18FFDF2D00F0DAC4 /* MainViewCell.m */; };
+		7DEE1015192C420500F16372 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DEE1014192C420500F16372 /* QuartzCore.framework */; };
 		7DEE56791905101A00962113 /* TopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE56781905101A00962113 /* TopScrollView.m */; };
 		7DF1745218FF6F2200D8147A /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1745018FF6F2200D8147A /* MenuViewController.m */; };
 		7DF1745318FF6F2200D8147A /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1745118FF6F2200D8147A /* MenuViewController.xib */; };
@@ -839,6 +840,7 @@
 		7DED8FEF18FFC1D800F0DAC4 /* comm_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_default@2x.png"; sourceTree = "<group>"; };
 		7DED900A18FFDF2D00F0DAC4 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		7DED900B18FFDF2D00F0DAC4 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
+		7DEE1014192C420500F16372 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7DEE56771905101A00962113 /* TopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScrollView.h; sourceTree = "<group>"; };
 		7DEE56781905101A00962113 /* TopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScrollView.m; sourceTree = "<group>"; };
 		7DF1744F18FF6F2200D8147A /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = testbiye/ViewController/MenuViewController.h; sourceTree = SOURCE_ROOT; };
@@ -1521,6 +1523,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEE1015192C420500F16372 /* QuartzCore.framework in Frameworks */,
 				7D6653A3192AFBCC00890006 /* libz.dylib in Frameworks */,
 				7D6653A1192AFBC300890006 /* libc++.dylib in Frameworks */,
 				7D66539F192AFBB700890006 /* ImageIO.framework in Frameworks */,
@@ -1654,6 +1657,7 @@
 		7DED15AA18FE224A00A24340 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DEE1014192C420500F16372 /* QuartzCore.framework */,
 				7D6653A4192AFBDB00890006 /* XCTest.framework */,
 				7D6653A2192AFBCC00890006 /* libz.dylib */,
 				7D6653A0192AFBC300890006 /* libc++.dylib */,

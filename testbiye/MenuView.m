@@ -9,9 +9,10 @@
 #import "MenuView.h"
 #import "MenuCell.h"
 
-@interface MenuView ()
+@interface MenuView ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *titleArr;
+    UITableView *tabView;
 }
 @end
 
@@ -29,34 +30,46 @@
 
 - (void)initview
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     titleArr = @[@"我的积分",@"我的订单",@"消费统计",@"我的收藏"];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
     
-    UIImageView *iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(20, 30, 90, 90)];
+    UIImageView *iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 30, 90, 90)];
     iconImg.image = [UIImage imageNamed:@"usericonbg.png"];
     iconImg.backgroundColor = [UIColor clearColor];
     [headerView addSubview:iconImg];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 90, 90)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 30, 90, 90)];
     [btn addTarget:self
             action:@selector(btnAction:)
   forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:btn];
     btn.backgroundColor = [UIColor clearColor];
     
-    UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
+    UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(120, 80, 100, 20)];
     titlelab.backgroundColor = [UIColor clearColor];
     titlelab.font = [UIFont systemFontOfSize:12.0f];
     titlelab.textColor = [UIColor lightGrayColor];
     titlelab.text = @"点击登录或注册";
     [headerView addSubview:titlelab];
     
-    UIButton *labBtn = [[UIButton alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
+    UIButton *labBtn = [[UIButton alloc] initWithFrame:CGRectMake(120, 80, 100, 20)];
     [labBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:labBtn];
     
-    self.tableView.tableHeaderView = headerView;
+    tabView = [[UITableView alloc] initWithFrame:self.bounds
+                                           style:UITableViewStylePlain];
+    tabView.delegate = self;
+    tabView.dataSource = self;
+    tabView.backgroundColor = [UIColor clearColor];
+    tabView.tableHeaderView = headerView;
+    [self addSubview:tabView];
+    
+    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width-0.5f, 0, 0.5f, self.bounds.size.height)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:line];
 }
 
 #pragma mark - BtnAction
