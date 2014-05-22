@@ -36,13 +36,19 @@
         iconBtn3 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(320-21-iconsize, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn3];
     }
+    [iconBtn1 delBtnAddTarget:self
+                       action:@selector(btnAction:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [iconBtn2 delBtnAddTarget:self
+                       action:@selector(btnAction:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [iconBtn3 delBtnAddTarget:self
+                       action:@selector(btnAction:)
+             forControlEvents:UIControlEventTouchUpInside];
 
-    [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [iconBtn1 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [iconBtn2 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [iconBtn3 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
     if (titleLab1 == nil) {
         titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(21, 75+5, iconsize, 20)];
@@ -87,20 +93,23 @@
     int b = index*3+1;
     int c = index*3+2;
     
-    UIImage *img1 = [UIImage imageNamed:[icon objectAtIndex:a]];
-    [iconBtn1 setBackgroundImage:img1 forState:UIControlStateNormal];
+//    UIImage *img1 = [UIImage imageNamed:[icon objectAtIndex:a]];
+//    [iconBtn1 setBackgroundImage:img1 forState:UIControlStateNormal];
+    [iconBtn1 reloadData:[icon objectAtIndex:a] index:a];
     iconBtn1.tag = a;
     titleLab1.text = [titleArr objectAtIndex:a];
 
     if (b<icon.count) {
-        UIImage *img2 = [UIImage imageNamed:[icon objectAtIndex:b]];
-        [iconBtn2 setBackgroundImage:img2 forState:UIControlStateNormal];
+//        UIImage *img2 = [UIImage imageNamed:[icon objectAtIndex:b]];
+//        [iconBtn2 setBackgroundImage:img2 forState:UIControlStateNormal];
+        [iconBtn2 reloadData:[icon objectAtIndex:b] index:b];
         iconBtn2.tag = b;
         titleLab2.text = [titleArr objectAtIndex:b];
     }
     if (c<icon.count) {
-        UIImage *img3 = [UIImage imageNamed:[icon objectAtIndex:c]];
-        [iconBtn3 setBackgroundImage:img3 forState:UIControlStateNormal];
+//        UIImage *img3 = [UIImage imageNamed:[icon objectAtIndex:c]];
+//        [iconBtn3 setBackgroundImage:img3 forState:UIControlStateNormal];
+        [iconBtn3 reloadData:[icon objectAtIndex:c] index:c];
         iconBtn3.tag = c;
         titleLab3.text = [titleArr objectAtIndex:c];
     }

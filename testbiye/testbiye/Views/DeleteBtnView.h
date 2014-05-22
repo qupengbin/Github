@@ -14,4 +14,6 @@
                  action:(SEL)action
        forControlEvents:(UIControlEvents)controlEvents;
 
+- (void)reloadData:(NSString *)image index:(int)index;
+
 @end
