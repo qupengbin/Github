@@ -25,21 +25,24 @@
     float iconsize = 62.0f;
     float distance = (320-iconsize*3)/4;
     if (iconBtn1 == nil) {
-        iconBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(21, 15, iconsize, iconsize)];
+        iconBtn1 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(21, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn1];
     }
     if (iconBtn2 == nil) {
-        iconBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(distance*2+iconsize, 15, iconsize, iconsize)];
+        iconBtn2 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(distance*2+iconsize, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn2];
     }
     if (iconBtn3 == nil) {
-        iconBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(320-21-iconsize, 15, iconsize, iconsize)];
+        iconBtn3 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(320-21-iconsize, 15, iconsize, iconsize)];
         [self.contentView addSubview:iconBtn3];
     }
 
     [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn1 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn2 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn3 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
     if (titleLab1 == nil) {
         titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(21, 75+5, iconsize, 20)];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DeleteBtnView.h"
 
 @protocol MainViewCellDelegate <NSObject>
 @optional
@@ -21,9 +22,9 @@
     UILabel *titleLab2;
     UILabel *titleLab3;
 
-    UIButton *iconBtn1;
-    UIButton *iconBtn2;
-    UIButton *iconBtn3;
+    DeleteBtnView *iconBtn1;
+    DeleteBtnView *iconBtn2;
+    DeleteBtnView *iconBtn3;
     
     float height;
 }

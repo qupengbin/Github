@@ -99,6 +99,7 @@
 		7DF202A318FE5117007E1AFB /* MHFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF202A218FE5117007E1AFB /* MHFileTool.m */; };
 		7DF202AB18FE52B5007E1AFB /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF202A918FE52B5007E1AFB /* default_avatar.png */; };
 		7DF202AC18FE52B5007E1AFB /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF202AA18FE52B5007E1AFB /* default_avatar@2x.png */; };
+		7DF4DC5D192D98630023AF84 /* DeleteBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4DC5C192D98630023AF84 /* DeleteBtnView.m */; };
 		7DF6C6451918807500F0233E /* storeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C63E1918807500F0233E /* storeicon1.png */; };
 		7DF6C6461918807500F0233E /* storeicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C63F1918807500F0233E /* storeicon2.png */; };
 		7DF6C6471918807500F0233E /* storeicon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6401918807500F0233E /* storeicon3.png */; };
@@ -850,6 +851,8 @@
 		7DF202A218FE5117007E1AFB /* MHFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHFileTool.m; sourceTree = "<group>"; };
 		7DF202A918FE52B5007E1AFB /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_avatar.png; sourceTree = "<group>"; };
 		7DF202AA18FE52B5007E1AFB /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
+		7DF4DC5B192D98630023AF84 /* DeleteBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteBtnView.h; sourceTree = "<group>"; };
+		7DF4DC5C192D98630023AF84 /* DeleteBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteBtnView.m; sourceTree = "<group>"; };
 		7DF6C63E1918807500F0233E /* storeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeicon1.png; sourceTree = "<group>"; };
 		7DF6C63F1918807500F0233E /* storeicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeicon2.png; sourceTree = "<group>"; };
 		7DF6C6401918807500F0233E /* storeicon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeicon3.png; sourceTree = "<group>"; };
@@ -1804,6 +1807,8 @@
 				928BB512191E104E00859323 /* CurveView.m */,
 				920DF51D19223FFA00695ADD /* SortView.h */,
 				920DF51E19223FFA00695ADD /* SortView.m */,
+				7DF4DC5B192D98630023AF84 /* DeleteBtnView.h */,
+				7DF4DC5C192D98630023AF84 /* DeleteBtnView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3494,6 +3499,7 @@
 				7DF6C65519188ADB00F0233E /* MyFavoriteViewController.m in Sources */,
 				7D6FD043192B5C1700A859EE /* UIView+Origami.m in Sources */,
 				923B74B119151BD500B2CF41 /* SetClockViewController.m in Sources */,
+				7DF4DC5D192D98630023AF84 /* DeleteBtnView.m in Sources */,
 				928BB3E3191DE79700859323 /* ICSDrawerController.m in Sources */,
 				923B73F81914F3F400B2CF41 /* NearDetailViewController.m in Sources */,
 				7D10375819063A73001D9C33 /* BuyViewCell.m in Sources */,
