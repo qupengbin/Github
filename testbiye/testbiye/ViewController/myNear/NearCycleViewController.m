@@ -9,10 +9,13 @@
 #import "NearCycleViewController.h"
 #import "MHFileTool.h"
 #import "LifeSayCell.h"
+#import "InPutView.h"
 
-@interface NearCycleViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NearCycleViewController ()<UITableViewDelegate,UITableViewDataSource,InPutViewDelegate>
 {
     NSMutableArray *allArr;
+    
+    InPutView *_inPut;
 }
 
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
@@ -40,6 +43,9 @@
 
     allArr = [NSMutableArray arrayWithContentsOfFile:[MHFileTool getResourcesFile:@"lifesay.plist"]];
 
+    _inPut = [[InPutView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-40-44-20, 320, 40)];
+    _inPut.delegate = self;
+    [self.view addSubview:_inPut];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -47,6 +53,34 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - InPutViewDelegate
+- (void)addFunction
+{
+    [self endInput];
+}
+
+- (void)biaoqingFunction
+{
+    
+}
+
+- (void)beginInput
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        _inPut.frame = CGRectMake(0, self.view.bounds.size.height-40-216, 320, 40);
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)endInput
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        _inPut.frame = CGRectMake(0, self.view.bounds.size.height-40, 320, 40);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 #pragma mark - BtnAction
@@ -68,7 +102,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 270.0f;
+    if (indexPath.row%2 == 0) {
+        return 250.0f;
+    } else {
+        return 290.0f;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

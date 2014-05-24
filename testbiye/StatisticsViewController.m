@@ -277,7 +277,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell reloadData:[dayArr objectAtIndex:indexPath.row]
-               index:indexPath.row];
+               index:indexPath.row
+                type:1];
     return cell;
 }
 

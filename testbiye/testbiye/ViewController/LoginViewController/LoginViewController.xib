@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="auG-6K-feE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaulticon.png" translatesAutoresizingMaskIntoConstraints="NO" id="auG-6K-feE">
                     <rect key="frame" x="108" y="67" width="104" height="87"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -92,9 +92,9 @@
         </view>
     </objects>
     <resources>
+        <image name="defaulticon.png" width="194" height="185"/>
         <image name="iobgimg.png" width="263" height="35"/>
         <image name="loginbtn.png" width="263" height="35"/>
-        <image name="loginicon.png" width="104" height="87"/>
         <image name="loginselicon.png" width="13" height="13"/>
         <image name="loginunselicon.png" width="13" height="13"/>
     </resources>

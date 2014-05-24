@@ -48,11 +48,11 @@
     [headerView addSubview:btn];
     btn.backgroundColor = [UIColor clearColor];
     
-    UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(120, 80, 100, 20)];
+    UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(110, 65, 100, 20)];
     titlelab.backgroundColor = [UIColor clearColor];
-    titlelab.font = [UIFont systemFontOfSize:12.0f];
-    titlelab.textColor = [UIColor lightGrayColor];
-    titlelab.text = @"点击登录或注册";
+    titlelab.font = [UIFont systemFontOfSize:15.0f];
+    titlelab.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
+    titlelab.text = @"登录或注册";
     [headerView addSubview:titlelab];
     
     UIButton *labBtn = [[UIButton alloc] initWithFrame:CGRectMake(120, 80, 100, 20)];
@@ -65,12 +65,25 @@
     tabView.dataSource = self;
     tabView.backgroundColor = [UIColor clearColor];
     tabView.tableHeaderView = headerView;
+    tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:tabView];
     
     UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width-0.5f, 0, 0.5f, self.bounds.size.height)];
     line.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:line];
+    
+    UISwipeGestureRecognizer *swipeR =[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftAction:)];
+    swipeR.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self addGestureRecognizer:swipeR];
 }
+
+- (void)swipeLeftAction:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(swipLeftActionDel)]) {
+        [self.delegate swipLeftActionDel];
+    }
+}
+
 
 #pragma mark - BtnAction
 - (void)btnAction:(id)sender

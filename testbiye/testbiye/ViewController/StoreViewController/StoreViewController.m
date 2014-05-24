@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     
-    self.titlelab.text = @"苏 果 便 利";
+    self.titlelab.text = @"生 鲜 蔬 菜";
     
     dataArr = [[NSArray alloc] init];
     

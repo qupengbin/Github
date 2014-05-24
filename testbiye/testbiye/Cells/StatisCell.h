@@ -14,6 +14,8 @@
 
 @interface StatisCell : UITableViewCell
 
-- (void)reloadData:(NSArray *)data index:(int)index;
+- (void)reloadData:(NSArray *)data
+             index:(int)index
+              type:(int)type;
 
 @end

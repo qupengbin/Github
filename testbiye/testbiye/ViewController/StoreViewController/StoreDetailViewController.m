@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titlelab.text = @"苏 果 便 利";
+    self.titlelab.text = @"生 鲜 蔬 菜";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
     [self rightItem:[UIImage imageNamed:@"buycarimg.png"] sel:@selector(buycarBtnAction:)];
     
@@ -94,7 +94,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110.0f;
+    return 115.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,7 +106,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr icon:iconArr index:indexPath.row];
+    [cell reloadData:nameArr icon:iconArr index:indexPath.row type:2];
     return cell;
 }
 

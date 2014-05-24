@@ -56,13 +56,18 @@
         btn.backgroundColor = [UIColor clearColor];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [btn setTitleColor:RGBCOLOR(25.0f, 188.0f, 149.0f) forState:UIControlStateSelected];
+
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:[dataArr objectAtIndex:i] forState:UIControlStateNormal];
 
         [_scrollView addSubview:btn];
-        _scrollView.contentSize = CGSizeMake(distance*dataArr.count, 40);
+        if (i == 0) {
+            btn.selected = YES;
+        }
     }
-    
+    _scrollView.contentSize = CGSizeMake(distance*dataArr.count, 40);
+
     
     UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 39, 320, 1)];
     [self addSubview:img];
@@ -78,6 +83,15 @@
 
 - (void)btnAction:(id)sender
 {
+    for (UIButton *btn in _scrollView.subviews) {
+        if ([btn isKindOfClass:[UIButton class]]) {
+            btn.selected = NO;
+        }
+    }
+    
+    UIButton *btn = (UIButton *)sender;
+    btn.selected = YES;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(classViewTapAction:)]) {
         [self.delegate classViewTapAction:sender];
     }

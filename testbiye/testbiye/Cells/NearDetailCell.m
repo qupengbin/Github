@@ -40,19 +40,19 @@
     _bg.image = [UIImage imageNamed:@"nearbg.png"];
     [self addSubview:_bg];
     
-    _price = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+10, _bg.frame.origin.y, 180, 22)];
-    _price.font = [UIFont systemFontOfSize:20.0f];
+    _price = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+10, _bg.frame.origin.y+3, 180, 22)];
+    _price.font = [UIFont systemFontOfSize:19.0f];
     _price.textColor = [UIColor whiteColor];
     _price.backgroundColor = [UIColor clearColor];
     [self addSubview:_price];
     
-    _title = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+10, _bg.frame.origin.y+22, 180, 22)];
+    _title = [[UILabel alloc] initWithFrame:CGRectMake(_bg.frame.origin.x+11, _bg.frame.origin.y+20, 180, 22)];
     _title.font = [UIFont systemFontOfSize:14.0f];
     _title.textColor = [UIColor whiteColor];
     _title.backgroundColor = [UIColor clearColor];
     [self addSubview:_title];
     
-    next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-18-20, 18, 18)];
+    next = [[UIImageView alloc] initWithFrame:CGRectMake(320-28-10, 151-18-22, 18, 18)];
     next.image = [UIImage imageNamed:@"nextbuy.png"];
     [self addSubview:next];
     
@@ -90,7 +90,7 @@
         _bg.image = [UIImage imageNamed:@"nearbgw.png"];
         next.image = [UIImage imageNamed:@"nextbuyg.png"];
 
-        _price.textColor = [UIColor blackColor];
+        _price.textColor = RGBCOLOR(51, 51, 51);
         _title.textColor = [UIColor grayColor];
     }
     NSString *str = [imgs objectAtIndex:index];

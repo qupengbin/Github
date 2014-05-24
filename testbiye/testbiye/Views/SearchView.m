@@ -24,12 +24,21 @@
 {
     self.backgroundColor = RGBCOLOR(242, 242, 242);
     
-    searchField = [[UITextField alloc] initWithFrame:CGRectMake(20, 5, 280, 30)];
-    searchField.borderStyle = UITextBorderStyleRoundedRect;
+    UIImageView *bgimg = [[UIImageView alloc] initWithFrame:CGRectMake((320-280)/2, 5, 280, 30)];
+    bgimg.image = [UIImage imageNamed:@"searchbgimg.png"];
+    [self addSubview:bgimg];
+    
+    searchField = [[UITextField alloc] initWithFrame:CGRectMake(25, 5, 270, 30)];
+    searchField.borderStyle = UITextBorderStyleNone;
+    searchField.backgroundColor = [UIColor clearColor];
+    searchField.font = [UIFont systemFontOfSize:14.0f];
     [self addSubview:searchField];
     searchField.delegate = self;
     searchField.placeholder = @"Search";
     
+    CALayer *lay = [searchField layer];   //获取ImageView的层
+    [lay setMasksToBounds:YES];
+    [lay setCornerRadius:4.0];
 }
 
 - (void)searchViewBecomeFirstResponder

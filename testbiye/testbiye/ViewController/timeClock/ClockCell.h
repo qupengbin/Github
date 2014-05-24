@@ -12,6 +12,7 @@
 
 - (void)reloadData:(NSString *)time
            address:(NSString *)address
+             tostr:(NSString *)tostr
           editbool:(BOOL)editbool;
 
 @end
