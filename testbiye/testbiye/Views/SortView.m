@@ -38,6 +38,7 @@
     _tabView.delegate = self;
     _tabView.dataSource = self;
     _tabView.backgroundColor = [UIColor whiteColor];
+    _tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:_tabView];
 }
 

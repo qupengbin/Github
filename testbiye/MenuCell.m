@@ -30,10 +30,17 @@
 
 - (void)initview
 {
-    _iconimg = [[UIImageView alloc] initWithFrame:CGRectMake(20, (48-27)/2, 25, 27)];
+    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(10, 48-0.5f, 250, 0.5f)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    line.alpha = 0.5f;
+    [self addSubview:line];
+    
+    
+    _iconimg = [[UIImageView alloc] initWithFrame:CGRectMake(20, (48-24)/2, 22, 24)];
     [self addSubview:_iconimg];
     
     _namelab = [[UILabel alloc] initWithFrame:CGRectMake(60, (48-30)/2, 200, 30)];
+    _namelab.font = [UIFont systemFontOfSize:14.0f];
     [self addSubview:_namelab];
     _namelab.textColor = RGBCOLOR(129, 129, 129);
 }

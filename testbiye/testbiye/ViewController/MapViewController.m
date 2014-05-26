@@ -49,7 +49,7 @@
     [self.scroll addSubview:_mapImg];
      */
     
-    self.imageView = [[MMSpinImageView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
+    self.imageView = [[MMSpinImageView alloc] initWithFrame:CGRectMake(-100, -25, 550, 550)];
     self.imageView.delegate = self;
     [self.view addSubview:self.imageView];
     

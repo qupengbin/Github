@@ -100,8 +100,8 @@
 - (void)refrushSmall
 {
     self.alpha = 0.7f;
-    float w = _image.size.width-50;
-    float h = _image.size.height-50;
+    float w = _image.size.width-70;
+    float h = _image.size.height-70;
 
     if (_type == 1) {
         _titlelab.font = [UIFont systemFontOfSize:24.0f];
@@ -126,11 +126,12 @@
     float h = _image.size.height;
 
     if (_type == 1) {
-        _titlelab.font = [UIFont systemFontOfSize:30.0f];
+        _titlelab.font = [UIFont systemFontOfSize:32.0f];
         _momlab.font = [UIFont systemFontOfSize:12.0f];
-        
+        _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 60, 100, 40);
+
     } else if (_type == 2) {
-        _titlelab.font = [UIFont systemFontOfSize:30.0f];
+        _titlelab.font = [UIFont systemFontOfSize:32.0f];
         _momlab.font = [UIFont systemFontOfSize:12.0f];
         
         _titlelab.frame = CGRectMake((self.frame.size.width-100)/2+2, 65, 100, 40);

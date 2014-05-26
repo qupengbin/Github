@@ -22,16 +22,21 @@
     UILabel *titleLab2;
     UILabel *titleLab3;
 
-    DeleteBtnView *iconBtn1;
-    DeleteBtnView *iconBtn2;
-    DeleteBtnView *iconBtn3;
+    UIButton *iconBtn1;
+    UIButton *iconBtn2;
+    UIButton *iconBtn3;
     
+    UIButton *selbtn1;
+    UIButton *selbtn2;
+    UIButton *selbtn3;
+
     float height;
 }
 @property(nonatomic,assign) id<MainViewCellDelegate> delegate;
 
 - (void)reloadData:(NSArray *)titleArr
               icon:(NSArray *)icon
-             index:(int)index;
+             index:(int)index
+              type:(int)type;
 
 @end

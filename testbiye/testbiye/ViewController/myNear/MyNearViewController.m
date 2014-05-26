@@ -10,6 +10,7 @@
 #import "MainViewCell.h"
 #import "NearDetailViewController.h"
 #import "NearCycleViewController.h"
+#import "AppDelegate.h"
 
 @interface MyNearViewController ()<MainViewCellDelegate>
 {
@@ -68,7 +69,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110.0f;
+    return 130.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,7 +81,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr icon:iconArr index:indexPath.row];
+    [cell reloadData:nameArr icon:iconArr index:indexPath.row type:3];
     return cell;
 }
 
@@ -90,6 +91,7 @@
     UIButton *btn = (UIButton *)sender;
     
     if (btn.tag == 4) {
+        app.tabbar.hidden = YES;
         NearCycleViewController *cycle = [[NearCycleViewController alloc] init];
         [self.navigationController pushViewController:cycle animated:YES];
         return;

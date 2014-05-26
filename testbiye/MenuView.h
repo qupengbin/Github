@@ -15,6 +15,8 @@
 
 - (void)loginOrRegistAction;
 
+- (void)swipLeftActionDel;
+
 @end
 
 @interface MenuView : UIView

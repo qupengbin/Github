@@ -62,7 +62,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _sortView = [[SortView alloc] initWithFrame:CGRectMake(320, 0, 200, self.view.bounds.size.height)];
+    _sortView = [[SortView alloc] initWithFrame:CGRectMake(320, 0, 250, self.view.bounds.size.height)];
     _sortView.delegate = self;
     [self.view addSubview:_sortView];
 }
@@ -146,9 +146,9 @@
 {
     if (!showbool) {
         [UIView animateWithDuration:0.3f animations:^{
-            _tableView.frame = CGRectMake(-200, 40, 320, self.view.frame.size.height);
-            _classView.frame = CGRectMake(-200, 0, 320, 40);
-            _sortView.frame = CGRectMake(320-200, 0, 200, self.view.frame.size.height);
+            _tableView.frame = CGRectMake(-250, 40, 320, self.view.frame.size.height);
+            _classView.frame = CGRectMake(-250, 0, 320, 40);
+            _sortView.frame = CGRectMake(320-250, 0, 200, self.view.frame.size.height);
         } completion:^(BOOL finished) {
             
         }];
@@ -156,7 +156,7 @@
         [UIView animateWithDuration:0.3f animations:^{
             _tableView.frame = CGRectMake(0, 40, 320, self.view.frame.size.height);
             _classView.frame = CGRectMake(0, 0, 320, 40);
-            _sortView.frame = CGRectMake(320, 0, 200, self.view.frame.size.height);
+            _sortView.frame = CGRectMake(320, 0, 250, self.view.frame.size.height);
         } completion:^(BOOL finished) {
             
         }];

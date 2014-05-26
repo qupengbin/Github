@@ -15,6 +15,9 @@
 #define jianH 70
 #define arrowH 450
 
+#define Title_frame_x 20
+#define Title_frame_y 10
+
 @interface HelpView()
 {
     UILabel *_title1;
@@ -23,6 +26,8 @@
     UILabel *_title4;
     UILabel *_title5;
 
+    UILabel *_startLab;
+    
     UIImageView *dian1;
     UIImageView *dian2;
     UIImageView *dian3;
@@ -43,6 +48,10 @@
     UIImageView *defaultIcon;
     
     NSArray *alldata;
+    
+    CGPoint center;
+    
+    int _index;
 }
 
 @end
@@ -101,7 +110,8 @@
     iconimg = [[UIImageView alloc] initWithFrame:CGRectMake((320-57)/2, 145-jianH, 57, 57)];
     iconimg.image = [UIImage imageNamed:@"defaulticon1.png"];
     [self addSubview:iconimg];
-
+    center = iconimg.center;
+    
     _title1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 250-jianH, title_W, title_H)];
     _title2 = [[UILabel alloc] initWithFrame:CGRectMake(180, 300-jianH, title_W, title_H)];
     _title3 = [[UILabel alloc] initWithFrame:CGRectMake(30, 350-jianH, title_W, title_H)];
@@ -114,24 +124,30 @@
     _title4.backgroundColor = [UIColor clearColor];
     _title5.backgroundColor = [UIColor clearColor];
 
+    _title1.textAlignment = NSTextAlignmentRight;
+    _title2.textAlignment = NSTextAlignmentLeft;
+    _title3.textAlignment = NSTextAlignmentRight;
+    _title4.textAlignment = NSTextAlignmentLeft;
+    _title5.textAlignment = NSTextAlignmentRight;
+
     _title1.numberOfLines = 2;
-    _title1.font = [UIFont systemFontOfSize:16.0f];
+    _title1.font = [UIFont systemFontOfSize:15.0f];
     _title1.textColor = [UIColor lightGrayColor];
     
     _title2.numberOfLines = 2;
-    _title2.font = [UIFont systemFontOfSize:16.0f];
+    _title2.font = [UIFont systemFontOfSize:15.0f];
     _title2.textColor = [UIColor lightGrayColor];
     
     _title3.numberOfLines = 2;
-    _title3.font = [UIFont systemFontOfSize:16.0f];
+    _title3.font = [UIFont systemFontOfSize:15.0f];
     _title3.textColor = [UIColor lightGrayColor];
     
     _title4.numberOfLines = 2;
-    _title4.font = [UIFont systemFontOfSize:16.0f];
+    _title4.font = [UIFont systemFontOfSize:15.0f];
     _title4.textColor = [UIColor lightGrayColor];
     
     _title5.numberOfLines = 2;
-    _title5.font = [UIFont systemFontOfSize:16.0f];
+    _title5.font = [UIFont systemFontOfSize:15.0f];
     _title5.textColor = [UIColor lightGrayColor];
 
     [self addSubview:_title1];
@@ -143,48 +159,31 @@
     littleicon = [[UIImageView alloc] initWithFrame:CGRectMake((320-41)/2, (568-42-20)-jianH, 41, 41)];
     littleicon.image = [UIImage imageNamed:@"defaultnext1.png"];
     [self addSubview:littleicon];
+    
+    _startLab = [[UILabel alloc] initWithFrame:CGRectMake((320-100)/2, 568-115, 100, 30)];
+    _startLab.textColor = RGBCOLOR(246, 98, 98);
+    _startLab.backgroundColor = [UIColor clearColor];
+    _startLab.textAlignment = NSTextAlignmentCenter;
+    _startLab.text = @"开始体验";
+    _startLab.hidden = YES;
+    [self addSubview:_startLab];
 }
 
 - (void)reloadData:(int)index
 {
+    _index = index;
+    
     dian1.hidden = NO;dian2.hidden = NO;dian3.hidden = NO;dian4.hidden = NO;
     dian5.hidden = NO;_title1.hidden = NO;_title2.hidden = NO;_title3.hidden = NO;_title4.hidden = NO;_title5.hidden = NO;lineimg.hidden = NO;iconimg.hidden = NO;littleicon.hidden = NO;kuang.hidden = NO;defaultIcon.hidden = YES;
 
     if (index == 0) {
         dian1.hidden = YES;dian2.hidden = YES;dian3.hidden = YES;dian4.hidden = YES;
         dian5.hidden = YES;_title1.hidden = YES;_title2.hidden = YES;_title3.hidden = YES;_title4.hidden = YES;_title5.hidden = YES;lineimg.hidden = YES;iconimg.hidden = YES;littleicon.hidden = YES;kuang.hidden = YES;defaultIcon.hidden = NO;
-        /*
-        dian1.frame = CGRectMake((320-8)/2, 50*0+460-jianH, 8, 8);
-        dian2.frame = CGRectMake((320-8)/2, 50*1+460-jianH, 8, 8);
-        dian3.frame = CGRectMake((320-8)/2, 50*2+460-jianH, 8, 8);
-        dian4.frame = CGRectMake((320-8)/2, 50*3+460-jianH, 8, 8);
-        dian5.frame = CGRectMake((320-8)/2, 50*4+460-jianH, 8, 8);
-        
-        _title1.frame = CGRectMake(30, 450-jianH, title_W, title_H);
-        _title2.frame = CGRectMake(180, 500-jianH, title_W, title_H);
-        _title3.frame = CGRectMake(30, 550-jianH, title_W, title_H);
-        _title4.frame = CGRectMake(180, 600-jianH, title_W, title_H);
-        _title5.frame = CGRectMake(30, 650-jianH, title_W, title_H);
-
-        lineimg.frame = CGRectMake((320-0.5)/2, 50, 0.5, 568-50);
-        [UIView animateWithDuration:0.7f animations:^{
-            dian1.frame = CGRectMake((320-8)/2, 50*0+460-200-jianH, 8, 8);
-            dian2.frame = CGRectMake((320-8)/2, 50*1+460-200-jianH, 8, 8);
-            dian3.frame = CGRectMake((320-8)/2, 50*2+460-200-jianH, 8, 8);
-            dian4.frame = CGRectMake((320-8)/2, 50*3+460-200-jianH, 8, 8);
-            dian5.frame = CGRectMake((320-8)/2, 50*4+460-200-jianH, 8, 8);
-            
-            _title1.frame = CGRectMake(30, 450-200-jianH, title_W, title_H);
-            _title2.frame = CGRectMake(180, 500-200-jianH, title_W, title_H);
-            _title3.frame = CGRectMake(30, 550-200-jianH, title_W, title_H);
-            _title4.frame = CGRectMake(180, 600-200-jianH, title_W, title_H);
-            _title5.frame = CGRectMake(30, 650-200-jianH, title_W, title_H);
-        } completion:^(BOOL finished) {
-            
-        }];
-         */
     } else if (index == 1) {
-        lineimg.frame = CGRectMake((320-0.5)/2, 50, 0.5, 568-50);
+        lineimg.frame = CGRectMake((320-0.5)/2, 70, 0.5, 568-70);
+    } else if (index == 4) {
+        lineimg.frame = CGRectMake((320-0.5)/2, 0, 0.5, 568-140);
+        _startLab.hidden = NO;
     }
     if (index>0) {
         NSArray *arr = [alldata objectAtIndex:index-1];
@@ -206,11 +205,20 @@
     dian4.frame = CGRectMake((320-8)/2, 50*3+760-500*prcent-jianH, 8, 8);
     dian5.frame = CGRectMake((320-8)/2, 50*4+760-500*prcent-jianH, 8, 8);
 
-    _title1.frame = CGRectMake(30, 50*0+550 -300*prcent-jianH, title_W, title_H);
-    _title2.frame = CGRectMake(180, 50*1+550-300*prcent-jianH, title_W, title_H);
-    _title3.frame = CGRectMake(30, 50*2+550-300*prcent-jianH, title_W, title_H);
-    _title4.frame = CGRectMake(180, 50*3+550-300*prcent-jianH, title_W, title_H);
-    _title5.frame = CGRectMake(30, 50*4+550-300*prcent-jianH, title_W, title_H);
+    if (_index == 4) {
+        dian5.frame = CGRectMake((320-8)/2, 50*4+790-500*prcent-jianH, 8, 8);
+    }
+    
+    
+    _title1.frame = CGRectMake(Title_frame_x, 50*0+550 -300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title2.frame = CGRectMake(180, 50*1+550-300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title3.frame = CGRectMake(Title_frame_x, 50*2+550-300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title4.frame = CGRectMake(180, 50*3+550-300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title5.frame = CGRectMake(Title_frame_x, 50*4+550-300*prcent-jianH-Title_frame_y, title_W, title_H);
+
+    float changew = prcent*57;
+    iconimg.frame = CGRectMake((320-prcent*57)/2, 145-jianH, changew, changew);
+    iconimg.center = center;
 }
 
 - (void)changeframeLastPrcent:(float)prcent
@@ -226,24 +234,31 @@
     _title4.alpha = 1-prcent;
     _title5.alpha = 1-prcent;
 
-    
     dian1.frame = CGRectMake((320-8)/2, 50*0+260+500*prcent-jianH, 8, 8);
     dian2.frame = CGRectMake((320-8)/2, 50*1+260+500*prcent-jianH, 8, 8);
     dian3.frame = CGRectMake((320-8)/2, 50*2+260+500*prcent-jianH, 8, 8);
     dian4.frame = CGRectMake((320-8)/2, 50*3+260+500*prcent-jianH, 8, 8);
     dian5.frame = CGRectMake((320-8)/2, 50*4+260+500*prcent-jianH, 8, 8);
     
-    _title1.frame = CGRectMake(30, 50*0+250+300*prcent-jianH, title_W, title_H);
-    _title2.frame = CGRectMake(180, 50*1+250+300*prcent-jianH, title_W, title_H);
-    _title3.frame = CGRectMake(30, 50*2+250+300*prcent-jianH, title_W, title_H);
-    _title4.frame = CGRectMake(180, 50*3+250+300*prcent-jianH, title_W, title_H);
-    _title5.frame = CGRectMake(30, 50*4+250+300*prcent-jianH, title_W, title_H);
+    if (_index == 4) {
+        dian5.frame = CGRectMake((320-8)/2, 50*4+260+500*prcent-jianH, 8, 8);
+    }
+
+    _title1.frame = CGRectMake(Title_frame_x, 50*0+250+300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title2.frame = CGRectMake(180, 50*1+250+300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title3.frame = CGRectMake(Title_frame_x, 50*2+250+300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title4.frame = CGRectMake(180, 50*3+250+300*prcent-jianH-Title_frame_y, title_W, title_H);
+    _title5.frame = CGRectMake(Title_frame_x, 50*4+250+300*prcent-jianH-Title_frame_y, title_W, title_H);
+
+    float changew = (1-prcent)*57;
+    iconimg.frame = CGRectMake((320-(1-prcent)*57)/2, 145-jianH, changew, changew);
+    iconimg.center = center;
 }
 
 - (void)startAnimation
 {
     [UIView animateWithDuration:1.0f animations:^{
-        defaultIcon.frame = CGRectMake((320-117)/2, (568-97)/2, 117, 97);
+        defaultIcon.frame = CGRectMake((320-97)/2, (428-93)/2, 97, 93);
         defaultIcon.transform=CGAffineTransformMakeRotation(-M_PI);
         defaultIcon.transform=CGAffineTransformMakeRotation(M_PI/180);
     } completion:^(BOOL finished) {

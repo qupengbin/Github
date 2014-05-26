@@ -66,7 +66,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 175.0f;
+    return 195.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +78,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell reloadData:[dayArr objectAtIndex:indexPath.row]
-               index:indexPath.row];
+               index:indexPath.row
+                type:2];
     return cell;
 }
 

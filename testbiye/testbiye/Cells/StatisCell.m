@@ -90,19 +90,19 @@
 {
     float distance = 320/3;
     
-    _daylab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 30, 30)];
+    _daylab = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 30, 30)];
     _daylab.backgroundColor = [UIColor clearColor];
     _daylab.textAlignment = NSTextAlignmentCenter;
     _daylab.font = [UIFont systemFontOfSize:26.0f];
     [self addSubview:_daylab];
     
-    _momlab = [[UILabel alloc] initWithFrame:CGRectMake(50, 8, 30, 20)];
+    _momlab = [[UILabel alloc] initWithFrame:CGRectMake(50, 28, 30, 20)];
     _momlab.backgroundColor = [UIColor clearColor];
     _momlab.font = [UIFont systemFontOfSize:14.0f];
     _momlab.text = @"三月";
     [self addSubview:_momlab];
 
-    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 320, 155)];
+    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, 320, 155)];
     for (int i = 0; i < 6; i++) {
         StatisIconView *iconView = [[StatisIconView alloc] initWithFrame:CGRectMake(distance*i, 0, distance, 101+30)];
         [_scroll addSubview:iconView];
@@ -120,7 +120,9 @@
 }
 
 
-- (void)reloadData:(NSArray *)data index:(int)index
+- (void)reloadData:(NSArray *)data
+             index:(int)index
+              type:(int)type
 {
     int num = 0;
     _daylab.text = [NSString stringWithFormat:@"%d",index+21];

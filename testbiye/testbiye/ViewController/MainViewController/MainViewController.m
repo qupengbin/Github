@@ -12,7 +12,6 @@
 #import "MainViewCell.h"
 #import "TopScrollView.h"
 #import "SearchView.h"
-#import "TabbarToolView.h"
 #import "MainLittleView.h"
 #import "LineViewController.h"
 #import "MyDaysViewController.h"
@@ -43,7 +42,6 @@
     NSArray *iconArr;
     
     SearchView *_searchView;
-    TabbarToolView *_tabbarView;
     TopScrollView *_topScrollView;
     MainLittleView *_littleView;
     
@@ -197,6 +195,11 @@
 }
 
 #pragma mark - UIButtonAction
+- (void)swipeLeftAction:(id)sender
+{
+    [self menuAction:nil];
+}
+
 - (void)swipeRightAction:(id)sender
 {
     [self menuAction:nil];
@@ -235,7 +238,7 @@
     if (!showMenu) {
         self.view.userInteractionEnabled = NO;
         [self.view showOrigamiTransitionWith:_menuView
-                               NumberOfFolds:4
+                               NumberOfFolds:2
                                     Duration:0.5f
                                    Direction:XYOrigamiDirectionFromLeft
                                   completion:^(BOOL finished) {
@@ -243,7 +246,7 @@
     } else {
         self.view.userInteractionEnabled = YES;
         [self.view hideOrigamiTransitionWith:_menuView
-                               NumberOfFolds:4
+                               NumberOfFolds:2
                                     Duration:0.5f
                                    Direction:XYOrigamiDirectionFromLeft
                                   completion:^(BOOL finished) {
@@ -257,7 +260,7 @@
     showMenu = NO;
     self.view.userInteractionEnabled = YES;
     [self.view hideOrigamiTransitionWith:_menuView
-                           NumberOfFolds:4
+                           NumberOfFolds:2
                                 Duration:0.1f
                                Direction:XYOrigamiDirectionFromLeft
                               completion:^(BOOL finished) {
@@ -302,6 +305,10 @@
 //    [self.navigationController pushViewController:login animated:YES];
 }
 
+- (void)swipLeftActionDel
+{
+    [self menuAction:nil];
+}
 #pragma mark - UITableViewDelegate/UITableViewDataSource
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -310,7 +317,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110.0f;
+    return 118.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -322,7 +329,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr icon:iconArr index:indexPath.row];
+    [cell reloadData:nameArr icon:iconArr index:indexPath.row type:1];
     return cell;
 }
 #pragma mark - MainViewCellDelegate

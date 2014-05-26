@@ -10,6 +10,7 @@
 #import "DaysScrollView.h"
 #import "ChangeScrollView.h"
 #import "MHFileTool.h"
+#import "DayPlanCell.h"
 
 @interface DayPlanViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
@@ -39,6 +40,7 @@
     [super viewDidLoad];
     self.titlelab.text = @"日 程 安 排";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
+    [self rightItem:[UIImage imageNamed:@"alertedit.png"] sel:nil];
     
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[MHFileTool getResourcesFile:@"datasource.plist"]];
     allData = [dict objectForKey:@"dayplan"];
@@ -48,7 +50,7 @@
     _daysScroll.delegate = self;
     [self.view addSubview:_daysScroll];
     
-    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, 50 , 320, 177)];
+    _changeScroll = [[ChangeScrollView alloc] initWithFrame:CGRectMake(0, 35 , 320, 177)];
     _changeScroll.delegate = self;
     [_changeScroll reloadData:allData icon:@"dayplanicon.png" type:1];
     [self.view addSubview:_changeScroll];
@@ -100,14 +102,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *string = @"myDayPlanCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
+    DayPlanCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
+        cell = [[DayPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:string];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.textColor = RGBCOLOR(51, 51, 51);
-    cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
-    cell.textLabel.text = [indexData objectAtIndex:indexPath.row];
+    [cell reloadData:[indexData objectAtIndex:indexPath.row]];
     return cell;
 }
 

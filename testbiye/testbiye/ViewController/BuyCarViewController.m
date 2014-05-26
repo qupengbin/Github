@@ -80,7 +80,36 @@
     [commit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [commit setTitle:@"提 交 订 单" forState:UIControlStateNormal];
     [commit addTarget:self action:@selector(commitAction:) forControlEvents:UIControlEventTouchUpInside];
+    [commit.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [self addSubview:commit];
+    
+    UIButton *btn1= [[UIButton alloc] initWithFrame:CGRectMake(35, 18, 70, 30)];
+    btn1.tag = 100;
+    [btn1 addTarget:self action:@selector(btnaction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn1];
+    
+    UIButton *btn2= [[UIButton alloc] initWithFrame:CGRectMake(32+70+20, 18, 70, 30)];
+    btn2.tag = 200;
+    [btn2 addTarget:self action:@selector(btnaction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn2];
+
+}
+
+- (void)btnaction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+
+    if (btn.tag == 100) {
+        if (!payonln.selected) {
+            payonln.selected = YES;
+            paycash.selected = NO;
+        }
+    } else if (btn.tag == 200) {
+        if (!paycash.selected) {
+            paycash.selected = YES;
+            payonln.selected = NO;
+        }
+    }    
 }
 
 - (void)payBtnAction:(id)sender

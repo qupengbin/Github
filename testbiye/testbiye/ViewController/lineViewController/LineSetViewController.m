@@ -12,6 +12,10 @@
 
 @interface LineSetViewController ()
 
+@property(nonatomic,weak) IBOutlet UILabel *lab1;
+@property(nonatomic,weak) IBOutlet UILabel *lab2;
+@property(nonatomic,weak) IBOutlet UIImageView *line;
+
 @end
 
 @implementation LineSetViewController
@@ -33,6 +37,9 @@
 
     [self rightItem:[UIImage imageNamed:@"lineclock.png"] sel:@selector(clockBtnAction:)];
 
+    self.lab1.textColor = RGBCOLOR(129, 129, 129);
+    self.lab2.textColor = RGBCOLOR(129, 129, 129);
+    self.line.backgroundColor = RGBCOLOR(214, 214, 214);
     // Do any additional setup after loading the view from its nib.
 }
 

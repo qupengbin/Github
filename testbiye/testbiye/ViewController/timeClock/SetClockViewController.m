@@ -15,6 +15,7 @@
     BOOL editbool;
     NSMutableArray *timeArr;
     NSMutableArray *addressArr;
+    NSMutableArray *toArr;
 }
 
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
@@ -42,10 +43,12 @@
     [self rightItem:[UIImage imageNamed:@"timeclockadd.png"] sel:@selector(timeClockAddBtnAction:)];
 
     NSArray *arr = @[@"15:30",@"19:10",@"20:30"];
-    NSArray *arr1 = @[@"新街口站-鼓楼站",@"迈皋桥站-张府园站",@"张府园站-奥体中心站"];
-    
+    NSArray *arr1 = @[@"新街口站",@"迈皋桥站",@"张府园站"];
+    NSArray *arr2 = @[@"鼓楼站",@"张府园站",@"奥体中心站"];
+
     timeArr = [[NSMutableArray alloc] initWithArray:arr];
     addressArr = [[NSMutableArray alloc] initWithArray:arr1];
+    toArr = [[NSMutableArray alloc] initWithArray:arr2];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -91,6 +94,7 @@
     }
     [cell reloadData:[timeArr objectAtIndex:indexPath.row]
              address:[addressArr objectAtIndex:indexPath.row]
+               tostr:[toArr objectAtIndex:indexPath.row]
             editbool:editbool];
     return cell;
 }

@@ -36,7 +36,20 @@
     self.titlelab.text = @"乐 行 闹 钟";
 
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
-    [self rightItem:[UIImage imageNamed:@"timeclockdelete.png"] sel:@selector(timeClockDeleteBtnAction:)];
+//    [self rightItem:[UIImage imageNamed:@"timeclockdelete.png"] sel:@selector(timeClockDeleteBtnAction:)];
+
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn1.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn1 setTitle:@"完成" forState:UIControlStateNormal];
+//    [btn1 addTarget:self
+//             action:@selector(registAction:)
+//   forControlEvents:UIControlEventTouchUpInside];
+    btn1.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:btn1];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn1];
+    self.navigationItem.rightBarButtonItem = item;
+    
 
     oneArr = @[@"一号线南延",@"一号线",@"二号线",@"三号线",@"四号线",@"五号线",];
     twoArr = @[@"红山动物园",@"南京站",@"新模范马路",@"玄武门",@"鼓楼站",@"珠江路",@"新街口",@"三山街",@"中华门",];
@@ -73,6 +86,11 @@
     } else {
         return [twoArr objectAtIndex:row];
     }
+}
+
+- (CGSize)rowSizeForComponent:(NSInteger)component
+{
+    return CGSizeMake(160, 20);
 }
 
 #pragma mark - BtnAction

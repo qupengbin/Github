@@ -12,7 +12,8 @@
 {
     UIImageView *_icon;
     UIImageView *_bgimg;
-    
+    UIImageView *_line;
+
     UILabel *_namelab;
     UILabel *_timelab;
     
@@ -60,13 +61,24 @@
     _timelab.font = [UIFont systemFontOfSize:12.0f];
     [self addSubview:_timelab];
     
-    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 270-0.5f, 320, 0.5f)];
-    line.backgroundColor = [UIColor lightGrayColor];
-    [self addSubview:line];
+    _line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 270-0.5f, 320, 0.5f)];
+    _line.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:_line];
 }
 
 - (void)reloadData:(NSDictionary *)dict index:(int)index
 {
+    if (index%2 == 0) {
+        _content.frame = CGRectMake(70, 42, 320-70-10, 68);
+        _bgimg.frame = CGRectMake(70, 70+25, 187, 120);
+        _line.frame = CGRectMake(0, 250-0.5f, 320, 0.5f);
+        _timelab.frame = CGRectMake(70, 70+45+105, 200, 20);
+    } else if (index%2 == 1) {
+        _content.frame = CGRectMake(70, 42, 320-70-10, 88);
+        _bgimg.frame = CGRectMake(70, 70+65, 187, 120);
+        _line.frame = CGRectMake(0, 290-0.5f, 320, 0.5f);
+        _timelab.frame = CGRectMake(70, 70+45+145, 200, 20);
+    }
     _icon.image = [UIImage imageNamed:[dict objectForKey:@"icon"]];
     _namelab.text = [dict objectForKey:@"name"];
     _content.text = [dict objectForKey:@"content"];

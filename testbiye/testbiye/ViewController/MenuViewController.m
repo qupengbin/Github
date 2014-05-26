@@ -48,9 +48,9 @@
     
     UILabel *titlelab = [[UILabel alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
     titlelab.backgroundColor = [UIColor clearColor];
-    titlelab.font = [UIFont systemFontOfSize:12.0f];
-    titlelab.textColor = [UIColor lightGrayColor];
-    titlelab.text = @"点击登录或注册";
+    titlelab.font = [UIFont systemFontOfSize:15.0f];
+    titlelab.textColor = RGBCOLOR(25.0f, 188.0f, 149.0f);
+    titlelab.text = @"登录或注册";
     [headerView addSubview:titlelab];
     
     UIButton *labBtn = [[UIButton alloc] initWithFrame:CGRectMake(140, 80, 100, 20)];
