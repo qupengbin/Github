@@ -52,6 +52,7 @@
     CGPoint center;
     
     int _index;
+    BOOL _finish;
 }
 
 @end
@@ -264,7 +265,18 @@
     } completion:^(BOOL finished) {
     }];
     [self whileAnimation];
+}
+
+- (void)startWhileAnimation
+{
+    _finish = NO;
     [self whileAnimation1];
+}
+
+- (void)stopAnimation
+{
+    _finish = YES;
+    iconimg.transform=CGAffineTransformMakeRotation(0);
 }
 
 - (void)whileAnimation1
@@ -273,7 +285,9 @@
         iconimg.transform=CGAffineTransformMakeRotation(M_PI/-20);
     } completion:^(BOOL finished) {
         //这是会不停循环的animation
-        [self whileAnimation2];
+        if (!_finish) {
+            [self whileAnimation2];
+        }
     }];
 }
 
@@ -283,7 +297,9 @@
         iconimg.transform=CGAffineTransformMakeRotation(M_PI/20);
     } completion:^(BOOL finished) {
         //这是会不停循环的animation
-        [self whileAnimation1];
+        if (!_finish) {
+            [self whileAnimation1];
+        }
     }];
 }
 

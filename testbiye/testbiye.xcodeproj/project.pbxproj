@@ -15,6 +15,7 @@
 		7D10375C19063E93001D9C33 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10375B19063E93001D9C33 /* SearchView.m */; };
 		7D1598981924C95700D82DBE /* HelpInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598951924C95700D82DBE /* HelpInView.m */; };
 		7D1598991924C95700D82DBE /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1598971924C95700D82DBE /* HelpView.m */; };
+		7D16AB2B193310FD00B2779F /* mainviewcelldelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D16AB2A193310FD00B2779F /* mainviewcelldelete.png */; };
 		7D3B427F1918AF3200853417 /* ChangeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B427E1918AF3200853417 /* ChangeScrollView.m */; };
 		7D3B42CE1918CA8700853417 /* DaysScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B42CD1918CA8700853417 /* DaysScrollView.m */; };
 		7D3B42D31918CBFF00853417 /* dayselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B42D21918CBFF00853417 /* dayselected.png */; };
@@ -753,6 +754,7 @@
 		7D1598951924C95700D82DBE /* HelpInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpInView.m; sourceTree = "<group>"; };
 		7D1598961924C95700D82DBE /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		7D1598971924C95700D82DBE /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
+		7D16AB2A193310FD00B2779F /* mainviewcelldelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainviewcelldelete.png; sourceTree = "<group>"; };
 		7D3B427D1918AF3200853417 /* ChangeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScrollView.h; sourceTree = "<group>"; };
 		7D3B427E1918AF3200853417 /* ChangeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScrollView.m; sourceTree = "<group>"; };
 		7D3B42CC1918CA8700853417 /* DaysScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaysScrollView.h; sourceTree = "<group>"; };
@@ -2698,6 +2700,7 @@
 				9210D9DA1930A17D00AFE3CF /* inputviewbg.png */,
 				9210D9DB1930A17D00AFE3CF /* inputviewbiao.png */,
 				9210D9DC1930A17D00AFE3CF /* inputviewbound.png */,
+				7D16AB2A193310FD00B2779F /* mainviewcelldelete.png */,
 				9298D8F31924EF890044B0F3 /* Default */,
 				9207C70D1923BD73005777D3 /* timeclock */,
 				928BB4DC191E02B100859323 /* statis */,
@@ -3156,6 +3159,7 @@
 				923B73F41914F31000B2CF41 /* nearicon5@2x.png in Resources */,
 				7D3B42D81918CC9800853417 /* MyIntegralViewController.xib in Resources */,
 				92F987A71907FE77005C3E97 /* mainicon1.png in Resources */,
+				7D16AB2B193310FD00B2779F /* mainviewcelldelete.png in Resources */,
 				928BB401191DF39400859323 /* foodicon11.png in Resources */,
 				925CCD411909C7CE00B0F7D2 /* top_main1@2x.png in Resources */,
 				92AC9FA71917D14E00A6743D /* dataoneicon8.png in Resources */,

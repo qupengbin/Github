@@ -20,4 +20,8 @@
 
 - (void)changeViewImage:(int)index;
 
+- (void)startWhileAnimation;
+
+- (void)stopAnimation;
+
 @end

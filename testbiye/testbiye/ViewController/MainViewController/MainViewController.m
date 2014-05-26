@@ -38,9 +38,10 @@
     UIButton *_touchBtn;
     UITableView *_tableView;
     
-    NSArray *nameArr;
-    NSArray *iconArr;
-    
+    NSMutableArray *nameArr;
+    NSMutableArray *iconArr;
+    NSMutableArray *tagArr;
+
     SearchView *_searchView;
     TopScrollView *_topScrollView;
     MainLittleView *_littleView;
@@ -70,14 +71,17 @@
     [super viewDidLoad];
     self.titlelab.text = @"乐 行";
     
-    nameArr = @[@"乐行购物",@"乐行餐饮",@"乐行路线",
+    NSArray *arr1 = @[@"乐行购物",@"乐行餐饮",@"乐行路线",
                 @"我的一天",@"我的附近",@"小伙伴去哪",
                 @"乐行闹铃",@"运动健身",@"更多服务",];
 
-    iconArr = @[@"mainicon1.png",@"mainicon2.png",@"mainicon3.png",
+    NSArray *arr2 = @[@"mainicon1.png",@"mainicon2.png",@"mainicon3.png",
                 @"mainicon4.png",@"mainicon5.png",@"mainicon6.png",
                 @"mainicon7.png",@"mainicon8.png",@"mainicon9.png",];
-    
+
+    nameArr = [[NSMutableArray alloc] initWithArray:arr1];
+    iconArr = [[NSMutableArray alloc] initWithArray:arr2];
+
     [self leftItem:[UIImage imageNamed:@"menubtn.png"] sel:@selector(menuAction:)];
     [self rightItem:[UIImage imageNamed:@"searchicon.png"] sel:@selector(searchAction:)];
     
@@ -118,6 +122,9 @@
         NSDictionary *dict = @{@"price":price,@"title":title};
         [infos addObject:dict];
     }
+    
+    NSArray *arr3 = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"];
+    tagArr = [[NSMutableArray alloc] initWithArray:arr3];
     
     _searchView = [[SearchView alloc] initWithFrame:CGRectMake(0, -40, 320, 40)];
     _searchView.delegate = self;
@@ -312,7 +319,10 @@
 #pragma mark - UITableViewDelegate/UITableViewDataSource
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (nameArr.count%3>0) {
+        return nameArr.count/3+1;
+    }
+    return nameArr.count/3;
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -329,7 +339,11 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr icon:iconArr index:indexPath.row type:1];
+    [cell reloadData:nameArr
+                icon:iconArr
+                 tag:tagArr
+               index:indexPath.row
+                type:1];
     return cell;
 }
 #pragma mark - MainViewCellDelegate
@@ -384,6 +398,16 @@
         //更多服务
         MoreViewController *dayView = [[MoreViewController alloc] init];
         [self.navigationController pushViewController:dayView animated:YES];
+    }
+}
+
+- (void)maincellDelete:(int)tag
+{
+    if (tag<nameArr.count) {
+        [nameArr removeObjectAtIndex:tag];
+        [iconArr removeObjectAtIndex:tag];
+        [tagArr removeObjectAtIndex:tag];
+        [_tableView reloadData];
     }
 }
 

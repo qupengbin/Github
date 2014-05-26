@@ -106,7 +106,11 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
     }
-    [cell reloadData:nameArr icon:iconArr index:indexPath.row type:2];
+    [cell reloadData:nameArr
+                icon:iconArr
+                 tag:nil
+               index:indexPath.row
+                type:2];
     return cell;
 }
 

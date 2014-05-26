@@ -24,6 +24,7 @@
 @property(nonatomic,weak) IBOutlet UIButton *zhoubtn;
 @property(nonatomic,weak) IBOutlet UIButton *mombtn;
 @property(nonatomic,weak) IBOutlet UIButton *yearbtn;
+@property(nonatomic,weak) IBOutlet UIView *toolView;
 
 @property(nonatomic,weak) IBOutlet OBShapedButton *foodbtn;     //餐饮
 @property(nonatomic,weak) IBOutlet OBShapedButton *trafficbtn;  //交通
@@ -124,6 +125,9 @@
         self.trafficbtn.hidden = YES;
         self.cosmeticbtn.hidden = YES;
         self.travelbtn.hidden = YES;
+        
+//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
+        self.tabView.tableHeaderView = self.toolView;
     } else if (_type == Statis_type_zhou) {
         [self showLabel];
         self.tabView.hidden = YES;
@@ -140,6 +144,9 @@
                       forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurvezhou.png"] type:1];
         
+//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
+        [self.view addSubview:self.toolView];
+
     } else if (_type == Statis_type_mom) {
         [self showLabel];
         self.tabView.hidden = YES;
@@ -155,6 +162,9 @@
         [self.cosmeticbtn setImage:[UIImage imageNamed:@"statismomy.png"]
                           forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurvemom.png"] type:2];
+
+//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
+        [self.view addSubview:self.toolView];
 
     } else if (_type == Statis_type_year) {
         [self showLabel];
@@ -173,6 +183,9 @@
         [self.travelbtn setImage:[UIImage imageNamed:@"statisyearo.png"]
                           forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurveyear.png"] type:3];
+
+//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
+        [self.view addSubview:self.toolView];
 
     }
 }
@@ -265,7 +278,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 175.0f;
+    return 195.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

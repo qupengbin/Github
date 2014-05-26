@@ -57,6 +57,19 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
+    NSInteger page = (int)(offset);
+    if (page<pagesView.count-1) {
+        HelpView *help = (HelpView *)[pagesView objectAtIndex:page];
+        [help stopAnimation];
+        
+        HelpView *help1 = (HelpView *)[pagesView objectAtIndex:page+1];
+        [help1 stopAnimation];
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
     NSInteger page = (int)(offset);
@@ -65,8 +78,7 @@
         HelpView *help1 = (HelpView *)[pagesView objectAtIndex:page+1];
         [help1 changeframePrcent:offset-page];
         [help1 changeViewImage:page+1];
-    }
-    if (page<pagesView.count-1) {
+
         HelpView *help = (HelpView *)[pagesView objectAtIndex:page];
         [help changeframeLastPrcent:offset-page];
     }
@@ -74,5 +86,17 @@
     self.alpha = ((_scroll.frame.size.height*5)-_scroll.contentOffset.y)/_scroll.frame.size.height;
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float offset = scrollView.contentOffset.y / _scroll.frame.size.height;
+    NSInteger page = (int)(offset);
+    if (page<pagesView.count-1) {
+        HelpView *help = (HelpView *)[pagesView objectAtIndex:page];
+        [help startWhileAnimation];
+        
+        HelpView *help1 = (HelpView *)[pagesView objectAtIndex:page+1];
+        [help1 startWhileAnimation];
+    }
+}
 
 @end

@@ -27,20 +27,28 @@
     float iconsize = 62.0f;
     float distance = (320-iconsize*3)/4;
     if (iconBtn1 == nil) {
-        iconBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(21, 15, iconsize, iconsize)];
+        iconBtn1 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(21, 15, iconsize, iconsize)];
+        iconBtn1.delegate = self;
         [self.contentView addSubview:iconBtn1];
     }
     if (iconBtn2 == nil) {
-        iconBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(distance*2+iconsize, 15, iconsize, iconsize)];
+        iconBtn2 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(distance*2+iconsize, 15, iconsize, iconsize)];
+        iconBtn2.delegate = self;
         [self.contentView addSubview:iconBtn2];
     }
     if (iconBtn3 == nil) {
-        iconBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(320-21-iconsize, 15, iconsize, iconsize)];
+        iconBtn3 = [[DeleteBtnView alloc] initWithFrame:CGRectMake(320-21-iconsize, 15, iconsize, iconsize)];
+        iconBtn3.delegate = self;
         [self.contentView addSubview:iconBtn3];
     }
-    [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [iconBtn1 delBtnAddTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [iconBtn2 delBtnAddTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [iconBtn3 delBtnAddTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+
     if (selbtn1 == nil) {
         selbtn1 = [[UIButton alloc] initWithFrame:CGRectMake(21, 15, iconsize, iconsize)];
         [selbtn1 setImage:[UIImage imageNamed:@"menuiconsel1.png"] forState:UIControlStateNormal];
@@ -59,10 +67,6 @@
         [selbtn3 setImage:[UIImage imageNamed:@"menuiconsel2.png"] forState:UIControlStateSelected];
         [self.contentView addSubview:selbtn3];
     }
-
-    [iconBtn1 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [iconBtn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [selbtn1 addTarget:self action:@selector(selAction:) forControlEvents:UIControlEventTouchUpInside];
     [selbtn2 addTarget:self action:@selector(selAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -71,10 +75,6 @@
     selbtn1.hidden = YES;
     selbtn2.hidden = YES;
     selbtn3.hidden = YES;
-
-//    [iconBtn1 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [iconBtn2 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [iconBtn3 delBtnAddTarget:self action:(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
     if (titleLab1 == nil) {
         titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(21, 75+5, iconsize, 20)];
@@ -113,6 +113,7 @@
 
 - (void)reloadData:(NSArray *)titleArr
               icon:(NSArray *)icon
+               tag:(NSArray *)tag
              index:(int)index
               type:(int)type
 {
@@ -154,25 +155,33 @@
         titleLab1.frame = CGRectMake(21, 75+25, iconsize, 20);
         titleLab2.frame = CGRectMake(distance*2+iconsize, 75+25, iconsize, 20);
         titleLab3.frame = CGRectMake(320-21-iconsize, 75+25, iconsize, 20);
+    } else if (type == 1) {
+        [iconBtn1 addLongPressGesture];
+        [iconBtn2 addLongPressGesture];
+        [iconBtn3 addLongPressGesture];
     }
-    UIImage *img1 = [UIImage imageNamed:[icon objectAtIndex:a]];
-    [iconBtn1 setBackgroundImage:img1 forState:UIControlStateNormal];
-    iconBtn1.tag = a;
+    [iconBtn1 reloadData:[icon objectAtIndex:a]
+                   index:index
+                     tag:[[tag objectAtIndex:a] intValue]];
     titleLab1.text = [titleArr objectAtIndex:a];
 
     if (b<icon.count) {
-        UIImage *img2 = [UIImage imageNamed:[icon objectAtIndex:b]];
-        [iconBtn2 setBackgroundImage:img2 forState:UIControlStateNormal];
-//        [iconBtn2 reloadData:[icon objectAtIndex:b] index:b];
-        iconBtn2.tag = b;
+        [iconBtn2 reloadData:[icon objectAtIndex:b]
+                       index:b
+                         tag:[[tag objectAtIndex:b] intValue]];
         titleLab2.text = [titleArr objectAtIndex:b];
+    } else {
+        iconBtn2.hidden = YES;
+        titleLab2.hidden = YES;
     }
     if (c<icon.count) {
-        UIImage *img3 = [UIImage imageNamed:[icon objectAtIndex:c]];
-        [iconBtn3 setBackgroundImage:img3 forState:UIControlStateNormal];
-//        [iconBtn3 reloadData:[icon objectAtIndex:c] index:c];
-        iconBtn3.tag = c;
+        [iconBtn3 reloadData:[icon objectAtIndex:c]
+                       index:c
+                         tag:[[tag objectAtIndex:c] intValue]];
         titleLab3.text = [titleArr objectAtIndex:c];
+    } else {
+        iconBtn3.hidden = YES;
+        titleLab3.hidden = YES;
     }
 }
 
@@ -186,6 +195,21 @@
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(iconBtnAction:)]) {
         [self.delegate iconBtnAction:sender];
+    }
+}
+
+#pragma mark - DeleteBtnViewDelegate
+- (void)deleteBtnViewAction:(id)sender tag:(int)tag
+{
+//    if (tag%3 == 0) {
+//        [titleLab1 removeFromSuperview];
+//    } else if (tag%3 == 1) {
+//        [titleLab2 removeFromSuperview];
+//    } else if (tag%3 == 2) {
+//        [titleLab3 removeFromSuperview];
+//    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(maincellDelete:)]) {
+        [self.delegate maincellDelete:tag];
     }
 }
 
