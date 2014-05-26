@@ -25,6 +25,7 @@
 @property(nonatomic,weak) IBOutlet UIButton *mombtn;
 @property(nonatomic,weak) IBOutlet UIButton *yearbtn;
 @property(nonatomic,weak) IBOutlet UIView *toolView;
+@property(nonatomic,weak) IBOutlet UIView *tabtoolView;
 
 @property(nonatomic,weak) IBOutlet OBShapedButton *foodbtn;     //餐饮
 @property(nonatomic,weak) IBOutlet OBShapedButton *trafficbtn;  //交通
@@ -101,6 +102,10 @@
     _curveView = [[CurveView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-85-44-20, 320, 85)];
     [self.view addSubview:_curveView];
     
+    [self.view addSubview:self.toolView];
+
+    self.tabView.tableHeaderView = self.tabtoolView;
+
     _type = Statis_type_day;
     [self refushView];
     
@@ -125,9 +130,9 @@
         self.trafficbtn.hidden = YES;
         self.cosmeticbtn.hidden = YES;
         self.travelbtn.hidden = YES;
+        self.toolView.hidden = YES;
         
 //        self.toolView.frame = CGRectMake(0, 0, 320, 74);
-        self.tabView.tableHeaderView = self.toolView;
     } else if (_type == Statis_type_zhou) {
         [self showLabel];
         self.tabView.hidden = YES;
@@ -135,7 +140,8 @@
         self.trafficbtn.hidden = NO;
         self.cosmeticbtn.hidden = NO;
         self.travelbtn.hidden = YES;
-        
+        self.toolView.hidden = NO;
+
         [self.foodbtn setImage:[UIImage imageNamed:@"statiszhoug.png"]
                       forState:UIControlStateNormal];
         [self.trafficbtn setImage:[UIImage imageNamed:@"statiszhoub.png"]
@@ -144,9 +150,6 @@
                       forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurvezhou.png"] type:1];
         
-//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
-        [self.view addSubview:self.toolView];
-
     } else if (_type == Statis_type_mom) {
         [self showLabel];
         self.tabView.hidden = YES;
@@ -154,7 +157,8 @@
         self.trafficbtn.hidden = NO;
         self.cosmeticbtn.hidden = NO;
         self.travelbtn.hidden = YES;
-        
+        self.toolView.hidden = NO;
+
         [self.foodbtn setImage:[UIImage imageNamed:@"statismomg.png"]
                       forState:UIControlStateNormal];
         [self.trafficbtn setImage:[UIImage imageNamed:@"statismomb.png"]
@@ -163,9 +167,7 @@
                           forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurvemom.png"] type:2];
 
-//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
-        [self.view addSubview:self.toolView];
-
+//        [self.view addSubview:self.toolView];
     } else if (_type == Statis_type_year) {
         [self showLabel];
         self.tabView.hidden = YES;
@@ -173,7 +175,8 @@
         self.trafficbtn.hidden = NO;
         self.cosmeticbtn.hidden = NO;
         self.travelbtn.hidden = NO;
-        
+        self.toolView.hidden = NO;
+
         [self.foodbtn setImage:[UIImage imageNamed:@"statisyearg.png"]
                       forState:UIControlStateNormal];
         [self.trafficbtn setImage:[UIImage imageNamed:@"statisyearb.png"]
@@ -184,9 +187,7 @@
                           forState:UIControlStateNormal];
         [_curveView setImage:[UIImage imageNamed:@"statiscurveyear.png"] type:3];
 
-//        self.toolView.frame = CGRectMake(0, 0, 320, 74);
-        [self.view addSubview:self.toolView];
-
+//        [self.view addSubview:self.toolView];
     }
 }
 
