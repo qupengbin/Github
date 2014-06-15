@@ -56,6 +56,18 @@
     [self.navigationController pushViewController:map animated:YES];
 }
 
+- (IBAction)btnAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if (btn.tag == 100) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定取消订单吗？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    } else if (btn.tag == 200) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定提交订单吗？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+
 - (void)backBtnAction:(id)sender
 {
     if (self.type == 1) {

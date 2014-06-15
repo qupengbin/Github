@@ -268,7 +268,7 @@
     self.view.userInteractionEnabled = YES;
     [self.view hideOrigamiTransitionWith:_menuView
                            NumberOfFolds:2
-                                Duration:0.1f
+                                Duration:0.3f
                                Direction:XYOrigamiDirectionFromLeft
                               completion:^(BOOL finished) {
                                   [self.navigationController

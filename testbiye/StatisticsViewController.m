@@ -99,7 +99,7 @@
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
     self.daybtn.selected = YES;
     
-    _curveView = [[CurveView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-85-44-20, 320, 85)];
+    _curveView = [[CurveView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-100-44-20, 320, 100)];
     [self.view addSubview:_curveView];
     
     [self.view addSubview:self.toolView];

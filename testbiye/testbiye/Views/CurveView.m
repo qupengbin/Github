@@ -39,13 +39,13 @@
 {
     self.backgroundColor = [UIColor clearColor];
     
-    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 85)];
+    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     _scroll.showsHorizontalScrollIndicator = NO;
     _scroll.showsVerticalScrollIndicator = NO;
     _scroll.backgroundColor = [UIColor clearColor];
     [self addSubview:_scroll];
     
-    _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 85)];
+    _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 640, 85)];
     [_scroll addSubview:_image];
     _scroll.contentSize = CGSizeMake(640, 85);
     
@@ -64,7 +64,7 @@
     
     float distance = 640.0f/30.0f;
     for (int i = 0; i < 30; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i*distance, 0, distance, 85)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i*distance, 15, distance, 85)];
         btn.tag = i;
         [btn addTarget:self
                 action:@selector(btnAction:)
@@ -84,8 +84,8 @@
     UIButton *btn = (UIButton *)sender;
     float distance = 640.0f/30.0f;
     int y = [[_pointArr objectAtIndex:btn.tag] intValue];
-    _infobg.frame = CGRectMake(distance*btn.tag+10-18, y-18, 36, 18);
-    _dian.frame = CGRectMake(distance*btn.tag+10-1, y-1, 8, 8);
+    _infobg.frame = CGRectMake(distance*btn.tag+10-18, y-18+15, 36, 18);
+    _dian.frame = CGRectMake(distance*btn.tag+10-1, y-1+15, 8, 8);
     _infobg.hidden = NO;
     _dian.hidden = NO;
     _info.text = [NSString stringWithFormat:@"%d",y*10];

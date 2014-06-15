@@ -16,6 +16,7 @@
 {
     NSArray *nameArr;
     NSArray *iconArr;
+    NSArray *tagArr;
 }
 
 @property(nonatomic,weak) IBOutlet UITableView *tabView;
@@ -45,6 +46,8 @@
     
     iconArr = @[@"nearicon1.png",@"nearicon2.png",@"nearicon3.png",
                 @"nearicon4.png",@"nearicon5.png"];
+
+    tagArr = @[@"0",@"1",@"2",@"3",@"4"];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -83,7 +86,7 @@
     }
     [cell reloadData:nameArr
                 icon:iconArr
-                 tag:nil
+                 tag:tagArr
                index:indexPath.row
                 type:3];
     return cell;

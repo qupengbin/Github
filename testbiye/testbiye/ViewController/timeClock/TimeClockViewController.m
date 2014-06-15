@@ -88,6 +88,42 @@
     }
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+
+{
+    
+    UILabel *myView = nil;
+    
+    if (component == 0) {
+        
+        myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 100, 30)];
+        
+        myView.textAlignment = NSTextAlignmentCenter;
+        
+        myView.text = [oneArr objectAtIndex:row];
+        
+        myView.font = [UIFont systemFontOfSize:18.0f];         //用label来设置字体大小
+        
+        myView.backgroundColor = [UIColor clearColor];
+        
+    }else {
+        
+        myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 180, 30)];
+        
+        myView.text = [twoArr objectAtIndex:row];
+        
+        myView.textAlignment = NSTextAlignmentCenter;
+        
+        myView.font = [UIFont systemFontOfSize:18.0f];
+        
+        myView.backgroundColor = [UIColor clearColor];
+        
+    }
+    
+    return myView;
+    
+}
+
 - (CGSize)rowSizeForComponent:(NSInteger)component
 {
     return CGSizeMake(160, 20);

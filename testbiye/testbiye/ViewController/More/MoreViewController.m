@@ -18,6 +18,7 @@
 {
     NSArray *nameArr;
     NSArray *iconArr;
+    NSArray *tagArr;
     
     ShareViewController *shareView;
 }
@@ -51,6 +52,7 @@
                 @"moreicon4.png",@"moreicon5.png",@"moreicon6.png",
                 @"moreicon7.png"];
     
+    tagArr = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6"];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -89,7 +91,7 @@
     }
     [cell reloadData:nameArr
                 icon:iconArr
-                 tag:nil
+                 tag:tagArr
                index:indexPath.row
                 type:1];
     return cell;
