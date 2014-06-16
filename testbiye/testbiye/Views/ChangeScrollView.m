@@ -193,7 +193,7 @@
     _scroll.contentSize = CGSizeMake(160*arr.count, 160);
 }
 
-- (void)changeViewToIndex:(int)index
+- (void)changeViewToIndex:(int)index LOrR:(BOOL)LOrR
 {
     for (UIView *vi in _scroll.subviews) {
         if ([vi isKindOfClass:[ChangeView class]]) {
@@ -201,8 +201,11 @@
             [change refrushSmall];
             if (change.tag == index) {
                 [change refrushNomal:index];
-                NSLog(@"change.center.x   %f",change.center.x);
-                [_scroll scrollRectToVisible:CGRectMake(change.center.x, 0, change.frame.size.width, change.frame.size.height) animated:YES];
+                if (LOrR) {
+                    [_scroll scrollRectToVisible:CGRectMake(change.center.x-160, 0, change.frame.size.width, change.frame.size.height) animated:YES];
+                } else {
+                    [_scroll scrollRectToVisible:CGRectMake(change.center.x, 0, change.frame.size.width, change.frame.size.height) animated:YES];
+                }
             }
         }
     }

@@ -13,6 +13,7 @@
 
 @interface MyIntegralViewController ()<DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
+    int _nowindex;
     NSArray *allData;
     DaysScrollView *_daysScroll;
     ChangeScrollView *_changeScroll;
@@ -34,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _nowindex = 0;
+    
     self.titlelab.text = @"我 的 积 分";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
     
@@ -64,7 +67,14 @@
 #pragma mark - DaysScrollViewDelegate
 - (void)daysScrollViewSelectIndex:(int)index
 {
-    [_changeScroll changeViewToIndex:index];
+    if (index<_nowindex) {
+        //说明是往前
+        [_changeScroll changeViewToIndex:index LOrR:YES];
+        _nowindex = index;
+        return;
+    }
+    [_changeScroll changeViewToIndex:index LOrR:NO];
+    _nowindex = index;
 }
 
 #pragma mark - ChangeScrollViewDelegate

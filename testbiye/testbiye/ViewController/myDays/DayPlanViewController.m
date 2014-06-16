@@ -14,6 +14,7 @@
 
 @interface DayPlanViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DaysScrollViewDelegate,ChangeScrollViewDelegate>
 {
+    int _nowindex;
     NSArray *allData;
     NSArray *indexData;
     DaysScrollView *_daysScroll;
@@ -38,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _nowindex = 0;
+    
     self.titlelab.text = @"日 程 安 排";
     [self leftItem:[UIImage imageNamed:@"backimg.png"] sel:@selector(backBtnAction:)];
     [self rightItem:[UIImage imageNamed:@"alertedit.png"] sel:nil];
@@ -69,7 +72,16 @@
 #pragma mark - DaysScrollViewDelegate
 - (void)daysScrollViewSelectIndex:(int)index
 {
-    [_changeScroll changeViewToIndex:index];
+    if (index<_nowindex) {
+        //说明是往前
+        [_changeScroll changeViewToIndex:index LOrR:YES];
+        indexData = [allData objectAtIndex:index];
+        [self.tabView reloadData];
+        _nowindex = index;
+        return;
+    }
+    _nowindex = index;
+    [_changeScroll changeViewToIndex:index LOrR:NO];
     indexData = [allData objectAtIndex:index];
     [self.tabView reloadData];
 }

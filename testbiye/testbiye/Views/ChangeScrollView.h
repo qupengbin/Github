@@ -32,7 +32,7 @@
 
 @property(nonatomic,assign) id<ChangeScrollViewDelegate> delegate;
 
-- (void)changeViewToIndex:(int)index;
+- (void)changeViewToIndex:(int)index LOrR:(BOOL)LOrR;
 
 - (void)reloadData:(NSArray *)arr
               icon:(NSString *)icon
